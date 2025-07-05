@@ -8,7 +8,7 @@ Often when using LLMs, you get a bunch of great ideas but you're left with crap 
 
 This repository packs two key components to streamline your app development process:
 
-1.  **💡 YAML Superprompts (`/prompts` folder):**
+1.  **💡 YAML Superprompts (`/technical, /...` folder):**
     These are highly structured YAML definitions, crafted to be injected directly into LLM chats. Their purpose is to help you **extract and organize context** from your brainstorming sessions into specific, well-formatted project documents. Think of them as precise instructions that guide the LLM to output exactly what you need.
 
 2.  **📚 Sample Wiki (`/wikikit.wiki` submodule or local copy):**
