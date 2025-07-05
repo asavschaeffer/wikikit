@@ -1,4 +1,4 @@
-# 🌟AppDocsBlueprint: Your AI Co-founder's Secret Weapon 🌟
+# 🌟Wikikit - scaffold v0 of your documentation without suffering 🌟
 
 Often when using LLMs, you get a bunch of great ideas but you're left with crap when you try and ask them to summarize or generate design docs. I just exhaust daily free limits instead of paying for subscriptions, so I often need to do context transfer between models. This repo is designed with the goal of **knowledge management in the age of LLM co-founders.**
 
