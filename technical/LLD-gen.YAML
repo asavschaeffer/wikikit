@@ -1,0 +1,482 @@
+name: generate_low_level_design_doc
+version: 1.0
+description: Detailed low-level design and implementation specification for software projects
+output_type: markdown
+output_file: "{{project-name}}-low_level_design.md"
+
+# Document suite integration
+document_suite:
+  current_document: "LOW-LEVEL DESIGN"
+  dependencies:
+    - high_level_design: "System architecture and component breakdown that this design implements"
+    - requirements: "Functional requirements driving these implementation decisions"
+    - non_functional_requirements: "Performance and scalability constraints for implementation"
+    - api_specifications: "External interface contracts that these components must fulfill"
+  outputs_to:
+    - database_schema: "Detailed data model specifications"
+    - security_implementation: "Detailed security protocols and implementation patterns"
+    - unit_test_plans: "Test specifications for each component"
+    - file_structure: "Project organization and module layout"
+
+# Cognitive allocation directives
+processing_directives:
+  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY on implementation-level architectural details"
+  focus_areas:
+    - "Class structures and method signatures with concrete examples"
+    - "Data models and database schemas with actual SQL/NoSQL definitions"
+    - "Algorithms and design patterns with code implementations"
+    - "Error handling and validation logic with exception hierarchies"
+    - "Performance optimizations and caching strategies with metrics"
+    - "Security implementation with actual code patterns"
+
+# Scope boundaries
+scope:
+  in_scope:
+    - "Class diagrams, method signatures, data schemas"
+    - "Algorithms, design patterns, file structures"
+    - "Database design, error handling, validation logic"
+    - "Caching strategies, security implementation"
+    - "Performance optimizations, testing strategies"
+  out_of_scope:
+    business_requirements: "→ [[Requirements]]"
+    high_level_architecture: "→ [[High-Level-Design]]"
+    api_endpoint_definitions: "→ [[API-Specifications]]"
+    user_interface_flows: "→ [[User-Flows-and-Mockups]]"
+
+# Information extraction targets
+extraction_targets:
+  technical_implementations: "Use bcrypt for password hashing, JWT tokens with 24-hour expiry"
+  data_structures: "Users have profiles with multiple addresses, Orders contain line items"
+  performance_specs: "Search results under 200ms, Handle 1000 concurrent users"
+  security_details: "Password complexity requirements, Session management patterns"
+  business_logic_rules: "Orders expire after 15 minutes in cart, Email verification required"
+  integration_patterns: "Webhook retries with exponential backoff, Circuit breaker for external APIs"
+  error_handling_requirements: "Graceful degradation when payment service is down"
+  validation_rules: "Email format validation, Password complexity requirements"
+
+# Decision tracking markers
+decision_markers:
+  implementation_decided: "Document with code examples (e.g., 'Use Repository pattern for data access - see UserRepository class below')"
+  implementation_needed: "⚠️ IMPLEMENTATION NEEDED: Caching strategy for user sessions - Redis vs. in-memory"
+  optimization_pending: "🔄 OPTIMIZATION PENDING: Database indexing strategy - analyze query patterns first"
+  specification_required: "📝 CODE SPECIFICATION REQUIRED: Error logging format and severity levels"
+
+# Wiki linking patterns
+wiki_patterns:
+  implementation_details: "[[Database-Schema#user-table]], [[Error-Handling#validation-exceptions]]"
+  code_organization: "[[File-Structure#service-layer]], [[Design-Patterns#repository-pattern]]"
+  technical_details: "[[Performance-Optimization#query-caching]], [[Security-Implementation#jwt-validation]]"
+  cross_references: "[[API-Specifications#user-endpoints]], [[High-Level-Design#user-service]]"
+
+# Code example templates
+code_templates:
+  class_structure:
+    python: |
+      class UserService:
+          def __init__(self, user_repo: UserRepository, email_service: EmailService):
+              self.user_repo = user_repo
+              self.email_service = email_service
+          
+          def create_user(self, user_data: dict) -> User:
+              # Implementation details...
+              pass
+  
+  repository_pattern:
+    interface: |
+      # Repository interface methods:
+      - get_by_id(entity_id) -> Entity | None
+      - get_by_criteria(filters) -> List[Entity]
+      - save(entity) -> Entity
+      - delete(entity_id) -> bool
+  
+  error_handling:
+    exception_hierarchy: |
+      class ApplicationError(Exception):
+          """Base exception for application errors"""
+          pass
+      
+      class ValidationError(ApplicationError):
+          def __init__(self, field: str, message: str):
+              self.field = field
+              self.message = message
+
+# Performance targets
+performance_targets:
+  api_endpoints: "95th percentile under 200ms"
+  database_queries: "Individual queries under 50ms"
+  cache_operations: "Under 5ms for Redis operations"
+  background_jobs: "Email delivery within 30 seconds"
+
+# Security implementation requirements
+security_patterns:
+  authentication_flow:
+    - "User Login Request (email/password)"
+    - "Credential Validation (bcrypt password verification)"
+    - "JWT Token Generation (with user claims and expiry)"
+    - "Token Response (secure HTTP-only cookie + CSRF token)"
+    - "Subsequent Requests (JWT validation middleware)"
+    - "Token Refresh (sliding expiration or refresh token rotation)"
+  
+  authorization_example: |
+    class RoleBasedAccessControl:
+        def can(self, action: str, resource: str = None) -> bool:
+            required_permission = f"{action}:{resource}" if resource else action
+            return required_permission in self.permissions
+
+# Database design requirements
+database_patterns:
+  entity_example: |
+    CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password_hash VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+    CREATE INDEX idx_users_email ON users(email);
+  
+  migration_strategy: |
+    class Migration_001_CreateUsers:
+        def up(self):
+            return "CREATE TABLE users (...)"
+        def down(self):
+            return "DROP TABLE users;"
+
+# File structure template
+project_structure: |
+  src/
+  ├── controllers/          # HTTP request handlers
+  ├── services/             # Business logic layer
+  ├── repositories/         # Data access layer
+  ├── models/              # Data models and entities
+  ├── utils/               # Shared utilities
+  ├── middleware/          # Request/response middleware
+  └── config/              # Configuration management
+
+# Usage instructions
+usage_note: |
+  This prompt is designed for autonomous injection into LLM conversations. Simply paste the entire 
+  YAML content into your chat after discussing technical implementation details. The LLM will analyze 
+  the conversation history and generate a complete low-level design document without requiring 
+  additional input or context.
+
+# Main instruction block
+instructions: |
+  DOCUMENT SUITE CONTEXT:
+  This prompt generates the LOW-LEVEL DESIGN DOCUMENT as part of a comprehensive project documentation suite.
+  Reference the document_suite configuration above for integration patterns.
+  
+  MAXIMUM COGNITIVE ALLOCATION:
+  EXHAUST YOUR FULL PROCESSING CAPACITY on implementation-level architectural details. Push every available 
+  cognitive resource toward creating the most comprehensive, detailed, and code-ready design possible.
+  Use the processing_directives above to focus your analysis.
+  
+  SCOPE DISCIPLINE:
+  Follow the scope boundaries defined above. Redirect out-of-scope items using wiki links.
+  
+  WIKI LINK AUTHORITY:
+  You have FULL AUTHORITY to create GitHub Wiki links using the patterns defined in wiki_patterns.
+  
+  AUTONOMOUS EXTRACTION:
+  Analyze the complete conversation history using the extraction_targets defined above.
+  Synthesize scattered implementation details into detailed technical specifications with code-ready precision.
+  
+  DECISION DOCUMENTATION:
+  Use the decision_markers defined above to track implementation decisions and open items.
+  
+  CODE SPECIFICATION REQUIREMENTS:
+  - Include method signatures, class structures, and data schemas
+  - Provide specific algorithms and design pattern implementations using code_templates as guides
+  - Reference performance_targets for optimization requirements
+  - Follow security_patterns for security implementation
+  - Use database_patterns for data layer design
+  - Structure code using project_structure as a guide
+  
+  OUTPUT REQUIREMENTS:
+  - Maximum implementation depth with code-ready specifications
+  - Zero placeholder text - every section must contain actionable implementation details
+  - Create immediate development blueprints for engineering teams
+  - Output only the markdown document structure below
+
+# Markdown template
+output_template: |
+  # Low-Level Design Document: {{project-name}}
+  
+  > **Document Suite Status**: ~~[[Project-Vision]]~~ | ~~[[Elevator-Pitch]]~~ | ~~[[Requirements]]~~ | ~~[[Non-Functional-Requirements]]~~ | ~~[[User-Flows-and-Mockups]]~~ | ~~[[High-Level-Design]]~~ | **LOW-LEVEL DESIGN** | [[API-Specifications]] | [[Business-Strategy]] | [[Operational-Planning]] | [[Glossary]]
+  
+  ## Cross-References & Dependencies
+  - **[[High-Level-Design]]**: System architecture and component breakdown that this design implements
+  - **[[Requirements]]**: Functional requirements driving these implementation decisions
+  - **[[Non-Functional-Requirements]]**: Performance and scalability constraints for implementation
+  - **[[API-Specifications]]**: External interface contracts that these components must fulfill
+  - **[[Database-Schema]]**: Detailed data model specifications (will expand on entities outlined here)
+  - **[[Security-Implementation]]**: Detailed security protocols and implementation patterns
+  
+  ## Implementation Overview
+  Detailed breakdown of how the system architecture translates into concrete code structures, focusing on:
+  - Service layer organization and responsibilities with method signatures
+  - Data access patterns and repository implementations with code examples
+  - Business logic encapsulation and validation strategies with algorithms
+  - Error handling and exception management with class hierarchies
+  - Performance optimization and caching strategies with implementation details
+  
+  ## System Architecture Implementation
+  
+  ### Service Layer Design
+  **Pattern**: [Document the architectural pattern used - e.g., Domain-Driven Design, Layered Architecture, Hexagonal Architecture]
+  
+  #### Core Services
+  | Service Name | Responsibilities | Dependencies | Key Methods |
+  |--------------|------------------|--------------|-------------|
+  |              |                  |              |             |
+  
+  *For each service, provide class structure with method signatures, dependency injection patterns, and transaction boundaries.*
+  
+  ### Data Access Layer
+  **Pattern**: [Repository Pattern / Active Record / Data Mapper]
+  
+  #### Repository Implementations
+  ```
+  Interface Definition:
+  - get_by_id(entity_id) -> Entity | None
+  - get_by_email(email) -> Entity | None  
+  - save(entity) -> Entity
+  - delete(entity_id) -> bool
+  - find_by_criteria(filters) -> List[Entity]
+  ```
+  
+  *Provide concrete repository implementations for each entity with error handling and transaction management.*
+  
+  ## Data Model Implementation
+  
+  ### Entity Relationships
+  Define detailed entity relationships with:
+  - Primary and foreign key relationships with constraint definitions
+  - Validation rules and business constraints
+  - Index strategies for query performance optimization
+  - Migration considerations and versioning strategy
+  
+  ### Database Schema Design
+  #### Core Entities
+  ```sql
+  -- Example schema structure with indexes and constraints
+  CREATE TABLE example_table (
+      id SERIAL PRIMARY KEY,
+      -- Add actual schema based on conversation requirements
+  );
+  ```
+  
+  ### Data Validation Rules
+  - **Input Validation**: Specific format requirements and field constraints
+  - **Business Rules**: Domain-specific validation logic and state transitions
+  - **Data Integrity**: Referential constraints and consistency checks
+  
+  ## Business Logic Implementation
+  
+  ### Core Algorithms
+  Document specific algorithms for business operations with step-by-step implementation:
+  
+  #### [Algorithm Name]
+  ```
+  1. [Step 1 with specific implementation details]
+  2. [Step 2 with error handling considerations]
+  3. [Step 3 with performance optimizations]
+  ```
+  
+  ### Design Patterns Implementation
+  
+  #### [Pattern Name] Implementation
+  ```python
+  # Provide actual code implementations for patterns used
+  class ExamplePattern:
+      def __init__(self):
+          pass
+      
+      def method_example(self):
+          # Implementation details
+          pass
+  ```
+  
+  ## Security Implementation Details
+  
+  ### Authentication Flow
+  ```
+  1. User Login Request (email/password validation)
+  2. Credential Validation (bcrypt verification with specific cost factor)
+  3. JWT Token Generation (claims structure and expiry configuration)
+  4. Token Response (secure cookie settings and CSRF protection)
+  5. Subsequent Requests (middleware validation chain)
+  6. Token Refresh (rotation strategy and security considerations)
+  ```
+  
+  ### Authorization Implementation
+  ```python
+  # Provide actual RBAC implementation with method signatures
+  class AuthorizationService:
+      def can(self, user: User, action: str, resource: str = None) -> bool:
+          # Implementation logic
+          pass
+  ```
+  
+  ### Data Protection Measures
+  - **Encryption at Rest**: Specific fields and encryption methods
+  - **Encryption in Transit**: TLS configuration and certificate management
+  - **Password Security**: Hashing algorithm parameters and policies
+  - **Session Management**: Token storage and lifecycle management
+  
+  ## Performance Optimization Strategies
+  
+  ### Caching Implementation
+  ```python
+  # Provide actual caching implementation with Redis/memory strategies
+  class CacheManager:
+      def __init__(self, cache_client):
+          self.cache = cache_client
+      
+      def get_cached_data(self, key: str):
+          # Implementation with TTL and error handling
+          pass
+  ```
+  
+  ### Database Query Optimization
+  - **Index Strategy**: Specific indexes for identified query patterns
+  - **Query Patterns**: N+1 prevention with eager loading examples
+  - **Connection Pooling**: Configuration parameters and monitoring
+  - **Read Replicas**: Query routing strategy and consistency handling
+  
+  ### Async Processing Design
+  ```python
+  # Provide actual async processing implementation
+  class TaskProcessor:
+      def process_background_task(self, task_data):
+          # Implementation with retry logic and error handling
+          pass
+  ```
+  
+  ## Error Handling & Resilience
+  
+  ### Exception Hierarchy
+  ```python
+  # Define complete exception hierarchy with specific error types
+  class ApplicationError(Exception):
+      pass
+  
+  class ValidationError(ApplicationError):
+      def __init__(self, field: str, message: str):
+          self.field = field
+          self.message = message
+  ```
+  
+  ### Circuit Breaker Implementation
+  ```python
+  # Provide actual circuit breaker implementation
+  class CircuitBreaker:
+      def __init__(self, failure_threshold: int = 5, timeout: int = 60):
+          # Implementation with state management
+          pass
+  ```
+  
+  ### Retry Mechanisms
+  - **Exponential Backoff**: Specific intervals and jitter implementation
+  - **Dead Letter Queue**: Failed message handling strategy
+  - **Idempotency**: Operation design for safe retries
+  
+  ## File Structure & Organization
+  
+  ### Project Structure
+  ```
+  src/
+  ├── controllers/          # HTTP request handlers
+  │   ├── [controller_files_based_on_conversation]
+  ├── services/             # Business logic layer
+  │   ├── [service_files_based_on_conversation]
+  ├── repositories/         # Data access layer
+  │   ├── [repository_files_based_on_conversation]
+  ├── models/              # Data models and entities
+  │   ├── [model_files_based_on_conversation]
+  ├── utils/               # Shared utilities
+  ├── middleware/          # Request/response middleware
+  └── config/              # Configuration management
+  ```
+  
+  ### Module Dependencies
+  - **Dependency Flow**: Controller → Service → Repository → Model relationships
+  - **Circular Dependency Prevention**: Interface definitions and dependency injection
+  - **Import Management**: Module loading strategy and circular import handling
+  
+  ## Testing Strategy Implementation
+  
+  ### Unit Test Patterns
+  ```python
+  # Provide actual test implementation patterns
+  class TestServiceName:
+      def setup_method(self):
+          # Test setup with mocking strategy
+          pass
+      
+      def test_method_name(self):
+          # Arrange, Act, Assert pattern with specific assertions
+          pass
+  ```
+  
+  ### Integration Test Patterns
+  - **Database Integration**: Repository testing with real database connections
+  - **API Integration**: Controller testing with test client implementations
+  - **External Service**: Contract testing and mock service strategies
+  
+  ## Implementation Decision Log
+  
+  ### ⚠️ IMPLEMENTATION NEEDED
+  - [List specific technical implementation decisions requiring resolution]
+  
+  ### 🔄 OPTIMIZATION PENDING  
+  - [List performance optimizations under evaluation with criteria]
+  
+  ### 📝 CODE SPECIFICATION REQUIRED
+  - [List missing technical specifications needed for complete implementation]
+  
+  ## Performance Targets & Monitoring
+  
+  ### Response Time Targets
+  - **API Endpoints**: 95th percentile under 200ms
+  - **Database Queries**: Individual queries under 50ms
+  - **Cache Operations**: Under 5ms for Redis operations
+  - **Background Jobs**: Processing within defined SLA timeframes
+  
+  ### Monitoring Implementation
+  ```python
+  # Provide actual monitoring implementation
+  class PerformanceMonitor:
+      def time_operation(self, operation_name: str):
+          # Implementation with metrics collection
+          pass
+  ```
+  
+  ## Deployment Implementation Details
+  
+  ### Database Migration Strategy
+  ```python
+  # Provide actual migration implementation
+  class MigrationManager:
+      def apply_migration(self, migration_file):
+          # Implementation with rollback capability
+          pass
+  ```
+  
+  ### Configuration Management
+  ```python
+  # Provide actual configuration implementation
+  class ApplicationConfig:
+      def __init__(self):
+          # Environment-based configuration loading
+          pass
+  ```
+  
+  ### Health Check Implementation
+  ```python
+  # Provide actual health check implementation
+  class HealthCheckService:
+      async def check_system_health(self):
+          # Implementation with dependency checking
+          pass
+  ```
