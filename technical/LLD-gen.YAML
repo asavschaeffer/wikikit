@@ -46,13 +46,18 @@ scope:
 # Information extraction targets
 extraction_targets:
   technical_implementations: "Use bcrypt for password hashing, JWT tokens with 24-hour expiry"
-  data_structures: "Users have profiles with multiple addresses, Orders contain line items"
-  performance_specs: "Search results under 200ms, Handle 1000 concurrent users"
-  security_details: "Password complexity requirements, Session management patterns"
-  business_logic_rules: "Orders expire after 15 minutes in cart, Email verification required"
-  integration_patterns: "Webhook retries with exponential backoff, Circuit breaker for external APIs"
-  error_handling_requirements: "Graceful degradation when payment service is down"
-  validation_rules: "Email format validation, Password complexity requirements"
+  data_structure_patterns: "User entity relationships, Order-LineItem associations (HOW to model, not business rules)"
+  performance_specs: "Search results under 200ms, Handle 1000 concurrent users (extract SPECIFIC requirements mentioned)"
+  security_implementation_patterns: "Password hashing methods, Session storage patterns, Token validation flows"
+  integration_implementation_patterns: "Webhook retry mechanisms, Circuit breaker configurations, API client patterns"
+  error_handling_patterns: "Exception hierarchies, Graceful degradation strategies, Retry logic implementations"
+  validation_implementation_patterns: "Input validation frameworks, Constraint validation, Format checking strategies"
+  
+# Scope validation rules
+scope_validation:
+  technical_focus: "Extract implementation PATTERNS and HOW-TO details, not business requirements"
+  business_logic_filter: "Business rules like 'orders expire in 15 minutes' belong in [[Requirements]] - extract the IMPLEMENTATION pattern for expiration handling"
+  pattern_extraction: "Focus on reusable technical patterns, not domain-specific business logic"
 
 # Decision tracking markers
 decision_markers:
@@ -61,86 +66,72 @@ decision_markers:
   optimization_pending: "🔄 OPTIMIZATION PENDING: Database indexing strategy - analyze query patterns first"
   specification_required: "📝 CODE SPECIFICATION REQUIRED: Error logging format and severity levels"
 
-# Wiki linking patterns
+# Wiki link management
+wiki_link_budget:
+  max_outbound_links: 12
+  priority_linking: "Link only to documents that provide ESSENTIAL missing context for implementation"
+  stub_creation_threshold: "Create stub links ONLY for critical missing specifications that block implementation"
+  link_justification: "Each link must serve implementation needs, not general reference"
+  
 wiki_patterns:
-  implementation_details: "[[Database-Schema#user-table]], [[Error-Handling#validation-exceptions]]"
-  code_organization: "[[File-Structure#service-layer]], [[Design-Patterns#repository-pattern]]"
-  technical_details: "[[Performance-Optimization#query-caching]], [[Security-Implementation#jwt-validation]]"
-  cross_references: "[[API-Specifications#user-endpoints]], [[High-Level-Design#user-service]]"
+  essential_implementations: "[[Database-Schema#core-entities]] (only when schema details are critical)"
+  missing_specifications: "[[Security-Implementation#authentication-flow]] (only when security patterns are undefined)"
+  architectural_dependencies: "[[High-Level-Design#service-architecture]] (only when high-level context is needed)"
+  avoid_generic_links: "Do NOT link to general concepts like [[Design-Patterns]] - be specific"
 
-# Code example templates
-code_templates:
-  class_structure:
-    python: |
-      class UserService:
-          def __init__(self, user_repo: UserRepository, email_service: EmailService):
-              self.user_repo = user_repo
-              self.email_service = email_service
-          
-          def create_user(self, user_data: dict) -> User:
-              # Implementation details...
-              pass
-  
-  repository_pattern:
-    interface: |
-      # Repository interface methods:
-      - get_by_id(entity_id) -> Entity | None
-      - get_by_criteria(filters) -> List[Entity]
-      - save(entity) -> Entity
-      - delete(entity_id) -> bool
-  
-  error_handling:
-    exception_hierarchy: |
-      class ApplicationError(Exception):
-          """Base exception for application errors"""
-          pass
-      
-      class ValidationError(ApplicationError):
-          def __init__(self, field: str, message: str):
-              self.field = field
-              self.message = message
+# Dynamic code adaptation
+code_adaptation:
+  language_detection: "Analyze conversation for primary technology stack (JavaScript/TypeScript, Python, Java, C#, etc.) and adapt ALL code examples accordingly"
+  syntax_consistency: "Maintain consistent syntax patterns throughout document based on detected tech stack"
+  template_fallback: "If language unclear, use language-agnostic pseudocode with clear structural patterns"
+  framework_alignment: "Align examples with mentioned frameworks (React, Django, Spring, etc.)"
 
-# Performance targets
+# Performance requirement extraction
+performance_extraction:
+  conversation_requirements: "Extract SPECIFIC performance targets mentioned in discussion (response times, throughput, concurrent users)"
+  requirement_context: "Note the context of performance requirements (API calls, database queries, UI rendering, etc.)"
+  fallback_strategy: "Only use industry standard defaults when NO specific requirements are mentioned"
+  measurement_clarity: "Specify HOW performance will be measured and monitored"
+
+# Implementation depth control
+implementation_depth:
+  method_signatures: "Include complete method signatures with parameter types and return types"
+  class_structures: "Provide class skeletons with key methods and properties, focus on interfaces over implementations"
+  pattern_examples: "Show design pattern implementations, not business logic implementations"
+  architecture_focus: "Emphasize structural decisions, dependency management, and interaction patterns"
+  code_boundary: "Stop at interface definitions - detailed implementations belong in actual code files"
+
+# Performance targets (dynamic extraction)
 performance_targets:
-  api_endpoints: "95th percentile under 200ms"
-  database_queries: "Individual queries under 50ms"
-  cache_operations: "Under 5ms for Redis operations"
-  background_jobs: "Email delivery within 30 seconds"
+  extraction_priority: "FIRST extract specific performance requirements from conversation context"
+  context_specific_targets:
+    - "API response times: Extract mentioned SLA requirements"
+    - "Database performance: Extract query time requirements"
+    - "Concurrent users: Extract load requirements"
+    - "Background jobs: Extract processing time requirements"
+  fallback_defaults:
+    api_endpoints: "95th percentile under 200ms (only if no specific requirements mentioned)"
+    database_queries: "Individual queries under 50ms (only if no specific requirements mentioned)"
+    cache_operations: "Under 5ms for cache operations (only if no specific requirements mentioned)"
+  measurement_strategy: "Define HOW performance will be measured based on conversation context"
 
-# Security implementation requirements
+# Security implementation requirements (pattern-focused)
 security_patterns:
-  authentication_flow:
-    - "User Login Request (email/password)"
-    - "Credential Validation (bcrypt password verification)"
-    - "JWT Token Generation (with user claims and expiry)"
-    - "Token Response (secure HTTP-only cookie + CSRF token)"
-    - "Subsequent Requests (JWT validation middleware)"
-    - "Token Refresh (sliding expiration or refresh token rotation)"
+  authentication_implementation_pattern:
+    - "User credential validation (extract specific validation requirements)"
+    - "Token generation strategy (extract token type and configuration)"
+    - "Session management approach (extract storage and lifecycle patterns)"
+    - "Request authentication middleware (extract validation chain patterns)"
   
-  authorization_example: |
-    class RoleBasedAccessControl:
-        def can(self, action: str, resource: str = None) -> bool:
-            required_permission = f"{action}:{resource}" if resource else action
-            return required_permission in self.permissions
+  authorization_pattern_extraction: "Extract role/permission patterns mentioned, focus on implementation structure not business rules"
+  data_protection_implementation: "Extract encryption requirements and implementation patterns mentioned"
 
-# Database design requirements
+# Database design requirements (pattern-focused)
 database_patterns:
-  entity_example: |
-    CREATE TABLE users (
-        id SERIAL PRIMARY KEY,
-        email VARCHAR(255) UNIQUE NOT NULL,
-        password_hash VARCHAR(255) NOT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    );
-    CREATE INDEX idx_users_email ON users(email);
-  
-  migration_strategy: |
-    class Migration_001_CreateUsers:
-        def up(self):
-            return "CREATE TABLE users (...)"
-        def down(self):
-            return "DROP TABLE users;"
+  entity_extraction: "Extract entity relationships and constraints mentioned, focus on data modeling patterns not business domain"
+  schema_approach: "Generate schema based on conversation requirements, adapt syntax to detected database technology"
+  migration_strategy_pattern: "Extract migration approach mentioned (if any), otherwise use framework-appropriate pattern"
+  indexing_strategy: "Base indexing on extracted query patterns, not generic assumptions"
 
 # File structure template
 project_structure: |
@@ -179,18 +170,22 @@ instructions: |
   
   AUTONOMOUS EXTRACTION:
   Analyze the complete conversation history using the extraction_targets defined above.
+  Apply scope_validation rules to ensure technical focus over business logic.
+  Use code_adaptation settings to match technology stack discussed in conversation.
+  Apply performance_extraction to identify specific vs. default requirements.
   Synthesize scattered implementation details into detailed technical specifications with code-ready precision.
   
   DECISION DOCUMENTATION:
   Use the decision_markers defined above to track implementation decisions and open items.
+  Focus on technical implementation choices, not business requirement decisions.
   
   CODE SPECIFICATION REQUIREMENTS:
-  - Include method signatures, class structures, and data schemas
-  - Provide specific algorithms and design pattern implementations using code_templates as guides
-  - Reference performance_targets for optimization requirements
-  - Follow security_patterns for security implementation
-  - Use database_patterns for data layer design
-  - Structure code using project_structure as a guide
+  Follow implementation_depth guidelines for appropriate level of technical detail.
+  Use code_adaptation rules to generate technology-appropriate examples.
+  Apply wiki_link_budget constraints to prevent link proliferation.
+  Reference performance_targets for optimization requirements (prioritize conversation-extracted over defaults).
+  Follow security_patterns for security implementation approaches.
+  Use database_patterns for data layer design aligned with detected technology stack.
   
   OUTPUT REQUIREMENTS:
   - Maximum implementation depth with code-ready specifications
@@ -258,12 +253,10 @@ output_template: |
   
   ### Database Schema Design
   #### Core Entities
-  ```sql
-  -- Example schema structure with indexes and constraints
-  CREATE TABLE example_table (
-      id SERIAL PRIMARY KEY,
-      -- Add actual schema based on conversation requirements
-  );
+  ```
+  [Generate schema using syntax appropriate to detected database technology]
+  [Base entities on conversation requirements, not hardcoded user examples]
+  [Include only indexes justified by extracted query patterns]
   ```
   
   ### Data Validation Rules
@@ -301,21 +294,16 @@ output_template: |
   
   ### Authentication Flow
   ```
-  1. User Login Request (email/password validation)
-  2. Credential Validation (bcrypt verification with specific cost factor)
-  3. JWT Token Generation (claims structure and expiry configuration)
-  4. Token Response (secure cookie settings and CSRF protection)
-  5. Subsequent Requests (middleware validation chain)
-  6. Token Refresh (rotation strategy and security considerations)
+  [Generate authentication flow based on security patterns extracted from conversation]
+  [Use technology-appropriate implementation examples]
+  [Focus on implementation patterns, not hardcoded JWT assumptions]
   ```
   
   ### Authorization Implementation
-  ```python
-  # Provide actual RBAC implementation with method signatures
-  class AuthorizationService:
-      def can(self, user: User, action: str, resource: str = None) -> bool:
-          # Implementation logic
-          pass
+  ```
+  [Generate authorization code using detected programming language]
+  [Base on role/permission patterns extracted from conversation]
+  [Show interface/class structure, not complete implementation]
   ```
   
   ### Data Protection Measures
@@ -327,15 +315,10 @@ output_template: |
   ## Performance Optimization Strategies
   
   ### Caching Implementation
-  ```python
-  # Provide actual caching implementation with Redis/memory strategies
-  class CacheManager:
-      def __init__(self, cache_client):
-          self.cache = cache_client
-      
-      def get_cached_data(self, key: str):
-          # Implementation with TTL and error handling
-          pass
+  ```
+  [Generate caching code using detected technology stack]
+  [Base caching strategy on performance requirements extracted from conversation]
+  [Show interface patterns, not complete business logic implementation]
   ```
   
   ### Database Query Optimization
@@ -438,10 +421,9 @@ output_template: |
   ## Performance Targets & Monitoring
   
   ### Response Time Targets
-  - **API Endpoints**: 95th percentile under 200ms
-  - **Database Queries**: Individual queries under 50ms
-  - **Cache Operations**: Under 5ms for Redis operations
-  - **Background Jobs**: Processing within defined SLA timeframes
+  [Extract specific performance requirements from conversation - API response times, query performance, etc.]
+  [If no specific targets mentioned, note this as "📝 REQUIRES SPECIFICATION: Performance SLA targets"]
+  [Base monitoring strategy on extracted requirements, not default assumptions]
   
   ### Monitoring Implementation
   ```python
