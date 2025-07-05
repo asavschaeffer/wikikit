@@ -4,12 +4,26 @@ description: Comprehensive high-level design and system architecture document fo
 output_type: markdown
 output_file: high_level_design.md
 instructions: |
-  Analyze the conversation history and project context to create a detailed high-level design document.
-  Focus on architectural decisions, system interactions, and technical implementation strategy.
-  Include specific technology choices with brief justifications.
-  Ensure all sections are filled with concrete information rather than placeholder text.
-  Do not include any meta-commentary or explanatory text outside the document structure.
-  Output only the markdown document below.
+  AUTONOMOUS DOCUMENT GENERATION:
+  Analyze the complete conversation history to extract all relevant project details, technical decisions, 
+  feature discussions, and architectural considerations mentioned so far. Synthesize this information 
+  into a comprehensive high-level design document.
+  
+  EXTRACTION TARGETS:
+  - App name, purpose, and core functionality from any descriptions
+  - Technical stack preferences or requirements mentioned
+  - User stories, features, or capabilities discussed
+  - Performance, scalability, or architectural concerns raised
+  - Integration requirements or external services mentioned
+  - Security, compliance, or business requirements noted
+  
+  OUTPUT REQUIREMENTS:
+  - Fill every section with specific, concrete information derived from the conversation
+  - If certain technical details weren't discussed, make reasonable architectural decisions
+  - Provide brief justifications for technology choices based on project requirements
+  - Ensure the document serves as a actionable blueprint for development
+  - Do not include placeholder text, meta-commentary, or requests for additional information
+  - Output only the markdown document structure below
 
 output_format: |
   # High-Level Design Document: {{app_name}}
@@ -153,17 +167,8 @@ output_format: |
   - **Technology Evolution**: Potential tech stack updates or migrations
   - **Scaling Roadmap**: How the architecture will evolve with growth
 
-user_input: |
-  Please provide the following information about your project:
-  
-  Project Name: [Your app name]
-  
-  Project Description: [Brief description of what your app does and who it's for]
-  
-  Key Features: [List the main features or capabilities]
-  
-  Technical Constraints: [Any specific requirements, limitations, or preferences]
-  
-  Target Scale: [Expected user base, traffic patterns, or performance requirements]
-  
-  Additional Context: [Any other relevant information from your brainstorming session]
+usage_note: |
+  This prompt is designed for autonomous injection into LLM conversations. Simply paste the entire 
+  YAML content into your chat after discussing your project ideas. The LLM will analyze the 
+  conversation history and generate a complete high-level design document without requiring 
+  additional input or context.
