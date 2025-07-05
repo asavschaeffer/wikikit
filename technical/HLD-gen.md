@@ -14,11 +14,18 @@ instructions: |
   toward creating the most comprehensive, detailed, and architecturally sound high-level design possible.
   Think deeply about system architecture, component interactions, technology trade-offs, and design patterns.
   
-  SCOPE DISCIPLINE:
-  - IN SCOPE: System architecture, component design, technology stack, data flow, integration patterns
-  - OUT OF SCOPE: Detailed requirements (→ Requirements doc), business strategy (→ Business Strategy doc), 
-    user interface details (→ User Flows & Mockups doc), API endpoints (→ API Specifications doc)
-  - REDIRECT out-of-scope items to their appropriate documents with clear references
+  WIKI LINK AUTHORITY:
+  You have FULL AUTHORITY to create GitHub Wiki links throughout this document. Create links proactively:
+  - OUTBOUND LINKS: Link to more detailed documents (e.g., [[Low-Level-Design]], [[API-Specifications]])
+  - INBOUND EXPECTATIONS: Use language that anticipates links from higher-level docs (e.g., "As defined in [[Requirements]]...")
+  - CROSS-REFERENCES: Link to related sections in sibling documents (e.g., [[User-Flows#checkout-process]])
+  - STUB LINKS: Create links to documents that don't exist yet but should (e.g., [[Database-Schema]], [[Security-Implementation]])
+  
+  LINK PATTERNS:
+  - Use descriptive link text: [[Low-Level-Design#user-service-implementation]]
+  - Reference specific sections when relevant: [[API-Specifications#authentication-endpoints]]
+  - Create semantic anchors: [[Non-Functional-Requirements#performance-targets]]
+  - Link to glossary terms: [[Glossary#microservice]]
   
   AUTONOMOUS EXTRACTION:
   Analyze the complete conversation history to extract all architectural and technical design information.
@@ -43,12 +50,12 @@ output_format: |
   > **Document Suite Status**: ~~Project Vision~~ | ~~Elevator Pitch~~ | ~~Requirements~~ | ~~Non-Functional Requirements~~ | ~~User Flows & Mockups~~ | **HIGH-LEVEL DESIGN** | Low-Level Design | API Specifications | Business Strategy | Operational Planning | Glossary
   
   ## Cross-References & Dependencies
-  - **Requirements Document**: Core functional requirements that drive this architecture
-  - **Non-Functional Requirements**: Performance, scalability, and reliability constraints
-  - **User Flows & Mockups**: UI/UX patterns that inform frontend architecture decisions
-  - **API Specifications**: Detailed endpoint definitions (will expand on the API design outlined here)
-  - **Low-Level Design**: Implementation details for each component described here
-  - **Business Strategy**: Business requirements that influence technical decisions
+  - **[[Requirements]]**: Core functional requirements that drive this architecture
+  - **[[Non-Functional-Requirements]]**: Performance, scalability, and reliability constraints
+  - **[[User-Flows-and-Mockups]]**: UI/UX patterns that inform frontend architecture decisions
+  - **[[API-Specifications]]**: Detailed endpoint definitions (will expand on the API design outlined here)
+  - **[[Low-Level-Design]]**: Implementation details for each component described here
+  - **[[Business-Strategy]]**: Business requirements that influence technical decisions
   
   ## Executive Summary
   Brief overview of the application, its primary purpose, target users, and key value proposition.
