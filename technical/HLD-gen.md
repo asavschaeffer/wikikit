@@ -28,14 +28,21 @@ instructions: |
   - Link to glossary terms: [[Glossary#microservice]]
   
   AUTONOMOUS EXTRACTION:
-  Analyze the complete conversation history to extract all architectural and technical design information.
-  Extract every technical detail, constraint, preference, and architectural consideration mentioned.
+  Analyze the complete conversation history to extract all architectural and technical design information. Focus on:
+  - Explicit technical decisions (e.g., "We'll use React for the frontend")
+  - Constraints (e.g., budget limits, timeline deadlines, compliance requirements)
+  - User preferences (e.g., "I prefer a cloud-hosted solution", "Must be mobile-first")
+  - Architectural considerations (e.g., "It needs to handle 10,000 users daily", "Real-time updates required")
+  - Performance requirements (e.g., response times, uptime expectations)
+  - Integration needs (e.g., third-party APIs, existing systems)
+  - Security concerns (e.g., data privacy, authentication methods)
+  Synthesize these into a cohesive design, filling logical gaps with well-reasoned assumptions.
   
   DECISION DOCUMENTATION:
-  - For explicit technical decisions: Document the choice and rationale
-  - For incomplete/undecided items: Mark as "⚠️ DECISION NEEDED" with context
-  - For debates/alternatives: Document as "🔄 UNDER CONSIDERATION" with options
-  - For missing critical info: Mark as "📝 REQUIRES SPECIFICATION" 
+  - For explicit technical decisions: Document the choice and rationale (e.g., "Chose PostgreSQL for its ACID compliance and team familiarity")
+  - For incomplete/undecided items: Mark as "⚠️ DECISION NEEDED" with context (e.g., "⚠️ DECISION NEEDED: SQL vs. NoSQL - need to evaluate scalability trade-offs")
+  - For debates/alternatives: Document as "🔄 UNDER CONSIDERATION" with options (e.g., "🔄 UNDER CONSIDERATION: In-memory caching (Redis) vs. distributed caching (Memcached)")
+  - For missing critical info: Mark as "📝 REQUIRES SPECIFICATION" (e.g., "📝 REQUIRES SPECIFICATION: Authentication token expiration policy") 
   
   OUTPUT REQUIREMENTS:
   - Maximum depth and detail within the high-level design scope
@@ -85,6 +92,8 @@ output_format: |
   | Hosting/Deploy   |                   |               |
   | Monitoring       |                   |               |
   
+  *Guidance*: When selecting technologies, evaluate based on scalability (handles growth), performance (response times), cost (licensing fees), team familiarity (expertise available), and project constraints. Provide a brief justification for each choice based on project requirements extracted from the conversation.
+  
   ## Architecture Components
   
   ### Frontend Architecture
@@ -124,6 +133,15 @@ output_format: |
   - **Caching Strategy**: Application, database, and CDN caching
   
   ## System Architecture Diagram
+  Create a Mermaid diagram that reflects the system's architecture based on the conversation. Include:
+  - User interfaces (e.g., web app, mobile app, admin dashboard)
+  - APIs (e.g., RESTful endpoints, GraphQL services, WebSocket connections)
+  - Core services (e.g., business logic components, microservices)
+  - Data stores (e.g., databases, caches, file storage, message queues)
+  - External integrations (e.g., payment gateways, third-party APIs, social logins)
+  - Relationships (e.g., data flow, dependencies, async communication)
+  
+  Tailor the diagram to your specific project architecture:
   ```mermaid
   graph TB
     subgraph "User Interface"
@@ -166,30 +184,37 @@ output_format: |
   ## Data Flow Scenarios
   
   ### Primary User Journey
-  1. **User Input**: Description of main user action
-  2. **Frontend Processing**: What happens in the UI
-  3. **API Request**: What gets sent to backend
-  4. **Backend Processing**: Server-side logic and validations
-  5. **Data Operations**: Database reads/writes
-  6. **Response**: What gets returned to user
+  Example: User shopping on an e-commerce app
+  1. **User Input**: User searches for "headphones"
+  2. **Frontend Processing**: UI displays search field and sends query
+  3. **API Request**: GET /search?q=headphones
+  4. **Backend Processing**: Search service queries database with filters
+  5. **Data Operations**: Retrieve product data from database, check inventory
+  6. **Response**: JSON list of headphones returned to UI with pagination
+  
+  *Create a similar flow based on your project's main user interaction*
   
   ### Background Processing Flow
-  1. **Trigger**: What initiates background processing
-  2. **Queue/Job**: How work gets queued and processed
-  3. **Processing**: What happens during background execution
-  4. **Completion**: How results are stored/communicated
+  Example: Order confirmation email
+  1. **Trigger**: User completes checkout process
+  2. **Queue/Job**: Order ID added to email queue via message broker
+  3. **Processing**: Email service generates confirmation using template engine
+  4. **Completion**: Email sent via SMTP, delivery status logged in database
+  
+  *Create a similar flow for your project's background processes*
   
   ## Deployment & Infrastructure
-  - **Environment Strategy**: Dev, staging, production setup
-  - **CI/CD Pipeline**: Build, test, and deployment process
-  - **Infrastructure**: Server architecture, containerization, orchestration
-  - **Monitoring**: Health checks, logging, error tracking, metrics
+  - **Environment Strategy**: Define dev, staging, and production setups (e.g., "Dev uses SQLite, Production uses PostgreSQL cluster")
+  - **CI/CD Pipeline**: Specify tools (e.g., GitHub Actions, Jenkins) and steps (build → test → security scan → deploy)
+  - **Infrastructure**: Detail server setup (e.g., AWS EC2, Kubernetes pods), containerization (e.g., Docker, container orchestration)
+  - **Monitoring**: Include health checks (uptime monitoring), logging (e.g., ELK stack, CloudWatch), error tracking (e.g., Sentry), and performance metrics (e.g., Prometheus/Grafana)
   
   ## Risk Assessment
-  - **Technical Risks**: Potential technical challenges and mitigation strategies
-  - **Scalability Risks**: Growth-related concerns and solutions
-  - **Security Risks**: Main security considerations and protections
-  - **Operational Risks**: Deployment, maintenance, and support challenges
+  - **Technical Risks**: Example: "Framework deprecation - mitigate by choosing stable, well-supported tools with active communities"
+  - **Scalability Risks**: Example: "Traffic spikes during peak usage - mitigate with auto-scaling groups and load balancing"
+  - **Security Risks**: Example: "Data breaches exposing user information - mitigate with encryption at rest/transit and regular security audits"
+  - **Operational Risks**: Example: "Deployment failures causing downtime - mitigate with blue-green deployments and automated rollback strategies"
+  - **Dependency Risks**: Example: "Third-party API outages - mitigate with circuit breakers and fallback mechanisms"
   
   ## Open Architectural Decisions
   Track unresolved design decisions that require further analysis:
@@ -204,9 +229,10 @@ output_format: |
   - [List any missing technical specifications needed for complete architecture]
   
   ## Future Architectural Evolution
-  - **Phase 2 Features**: Planned enhancements and their architectural impact
-  - **Technology Evolution**: Potential tech stack updates or migrations
-  - **Scaling Roadmap**: How the architecture will evolve with growth
+  - **Phase 2 Features**: Planned enhancements and their architectural impact (e.g., "Add mobile app support - requires API versioning and responsive backend")
+  - **Technology Evolution**: Potential tech stack updates or migrations (e.g., "Migrate to GraphQL from REST for better mobile performance")
+  - **Scaling Roadmap**: How the architecture will evolve with growth (e.g., "Move to microservices architecture when reaching 100,000+ daily active users")
+  - **Technical Debt**: Identified areas for future refactoring (e.g., "Replace monolithic auth system with dedicated identity service")
 
 usage_note: |
   This prompt is designed for autonomous injection into LLM conversations. Simply paste the entire 
