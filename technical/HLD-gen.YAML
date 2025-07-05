@@ -2,7 +2,138 @@ name: generate_high_level_design_doc
 version: 1.2
 description: Comprehensive high-level design and system architecture document for software projects
 output_type: markdown
-output_file: high_level_design.md
+output_file: {{project-name}}-high_level_design.md
+
+# Document suite integration
+document_suite:
+  current_document: "HIGH-LEVEL DESIGN"
+  dependencies:
+    - requirements: "Core functional requirements that drive this architecture"
+    - non_functional_requirements: "Performance, scalability, and reliability constraints"
+    - user_flows_and_mockups: "UI/UX patterns that inform frontend architecture decisions"
+  outputs_to:
+    - api_specifications: "Detailed endpoint definitions (will expand on the API design outlined here)"
+    - low_level_design: "Implementation details for each component described here"
+    - business_strategy: "Business requirements that influence technical decisions"
+
+# Cognitive allocation directives
+processing_directives:
+  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY on this specific document type"
+  focus_areas:
+    - "System architecture and component interactions"
+    - "Technology trade-offs and design patterns"
+    - "Integration patterns and data flow"
+    - "Performance and scalability considerations"
+  
+# Scope boundaries
+scope:
+  in_scope:
+    - "System architecture and component design"
+    - "Technology stack and integration patterns" 
+    - "Data flow and state management"
+    - "Performance and security architecture"
+  out_of_scope:
+    requirements: "→ [[Requirements]]"
+    business_strategy: "→ [[Business-Strategy]]"
+    user_interface_details: "→ [[User-Flows-and-Mockups]]"
+    api_endpoints: "→ [[API-Specifications]]"
+
+# Information extraction targets
+extraction_targets:
+  explicit_decisions: "We'll use React for the frontend"
+  constraints: "budget limits, timeline deadlines, compliance requirements"
+  user_preferences: "I prefer a cloud-hosted solution, Must be mobile-first"
+  architectural_considerations: "It needs to handle 10,000 users daily, Real-time updates required"
+  performance_requirements: "response times, uptime expectations"
+  integration_needs: "third-party APIs, existing systems"
+  security_concerns: "data privacy, authentication methods"
+
+# Decision tracking markers
+decision_markers:
+  explicit_decision: "Document the choice and rationale (e.g., 'Chose PostgreSQL for its ACID compliance and team familiarity')"
+  decision_needed: "⚠️ DECISION NEEDED: SQL vs. NoSQL - need to evaluate scalability trade-offs"
+  under_consideration: "🔄 UNDER CONSIDERATION: In-memory caching (Redis) vs. distributed caching (Memcached)"
+  requires_specification: "📝 REQUIRES SPECIFICATION: Authentication token expiration policy"
+
+# Wiki linking authority
+wiki_patterns:
+  outbound_links: "[[Low-Level-Design]], [[API-Specifications]]"
+  inbound_expectations: "As defined in [[Requirements]]..."
+  cross_references: "[[User-Flows#checkout-process]]"
+  stub_links: "[[Database-Schema]], [[Security-Implementation]]"
+  section_links: "[[Low-Level-Design#user-service-implementation]]"
+  semantic_anchors: "[[Non-Functional-Requirements#performance-targets]]"
+  glossary_terms: "[[Glossary#microservice]]"
+
+# Tech stack evaluation criteria
+tech_stack_criteria:
+  - scalability: "handles growth"
+  - performance: "response times"
+  - cost: "licensing fees"
+  - team_familiarity: "expertise available"
+  - project_constraints: "budget, timeline, compliance"
+
+# Architecture diagram requirements
+diagram_components:
+  user_interfaces: "web app, mobile app, admin dashboard"
+  apis: "RESTful endpoints, GraphQL services, WebSocket connections"
+  core_services: "business logic components, microservices"
+  data_stores: "databases, caches, file storage, message queues"
+  external_integrations: "payment gateways, third-party APIs, social logins"
+  relationships: "data flow, dependencies, async communication"
+
+# Risk assessment examples
+risk_examples:
+  technical: "Framework deprecation - mitigate by choosing stable, well-supported tools with active communities"
+  scalability: "Traffic spikes during peak usage - mitigate with auto-scaling groups and load balancing"
+  security: "Data breaches exposing user information - mitigate with encryption at rest/transit and regular security audits"
+  operational: "Deployment failures causing downtime - mitigate with blue-green deployments and automated rollback strategies"
+  dependency: "Third-party API outages - mitigate with circuit breakers and fallback mechanisms"
+
+# Data flow scenario templates
+scenario_templates:
+  primary_user_journey:
+    example: "User shopping on an e-commerce app"
+    steps:
+      - user_input: "User searches for 'headphones'"
+      - frontend_processing: "UI displays search field and sends query"
+      - api_request: "GET /search?q=headphones"
+      - backend_processing: "Search service queries database with filters"
+      - data_operations: "Retrieve product data from database, check inventory"
+      - response: "JSON list of headphones returned to UI with pagination"
+  
+  background_processing:
+    example: "Order confirmation email"
+    steps:
+      - trigger: "User completes checkout process"
+      - queue_job: "Order ID added to email queue via message broker"
+      - processing: "Email service generates confirmation using template engine"
+      - completion: "Email sent via SMTP, delivery status logged in database"
+
+# Deployment guidance
+deployment_specifics:
+  environment_strategy: "Dev uses SQLite, Production uses PostgreSQL cluster"
+  cicd_tools: "GitHub Actions, Jenkins"
+  cicd_steps: "build → test → security scan → deploy"
+  infrastructure: "AWS EC2, Kubernetes pods"
+  containerization: "Docker, container orchestration"
+  monitoring_tools: "ELK stack, CloudWatch, Sentry, Prometheus/Grafana"
+
+# Future evolution examples
+evolution_examples:
+  phase_2_features: "Add mobile app support - requires API versioning and responsive backend"
+  technology_evolution: "Migrate to GraphQL from REST for better mobile performance"
+  scaling_roadmap: "Move to microservices architecture when reaching 100,000+ daily active users"
+  technical_debt: "Replace monolithic auth system with dedicated identity service"
+
+# Usage instructions
+usage_note: |
+  This prompt is designed for autonomous injection into LLM conversations. Simply paste the entire 
+  YAML content into your chat after discussing your project ideas. The LLM will analyze the 
+  conversation history and generate a complete high-level design document without requiring 
+  additional input or context.
+
+# Main instruction block
 instructions: |
   DOCUMENT SUITE CONTEXT:
   This prompt generates the HIGH-LEVEL DESIGN DOCUMENT as part of a comprehensive project documentation suite.
@@ -14,35 +145,23 @@ instructions: |
   toward creating the most comprehensive, detailed, and architecturally sound high-level design possible.
   Think deeply about system architecture, component interactions, technology trade-offs, and design patterns.
   
-  WIKI LINK AUTHORITY:
-  You have FULL AUTHORITY to create GitHub Wiki links throughout this document. Create links proactively:
-  - OUTBOUND LINKS: Link to more detailed documents (e.g., [[Low-Level-Design]], [[API-Specifications]])
-  - INBOUND EXPECTATIONS: Use language that anticipates links from higher-level docs (e.g., "As defined in [[Requirements]]...")
-  - CROSS-REFERENCES: Link to related sections in sibling documents (e.g., [[User-Flows#checkout-process]])
-  - STUB LINKS: Create links to documents that don't exist yet but should (e.g., [[Database-Schema]], [[Security-Implementation]])
+  SCOPE DISCIPLINE:
+  - IN SCOPE: System architecture, component design, technology stack, data flow, integration patterns
+  - OUT OF SCOPE: Detailed requirements → [[Requirements]], business strategy → [[Business-Strategy]], 
+    user interface details → [[User-Flows-and-Mockups]], API endpoints → [[API-Specifications]]
+  - REDIRECT out-of-scope items with wiki links to their appropriate documents
   
-  LINK PATTERNS:
-  - Use descriptive link text: [[Low-Level-Design#user-service-implementation]]
-  - Reference specific sections when relevant: [[API-Specifications#authentication-endpoints]]
-  - Create semantic anchors: [[Non-Functional-Requirements#performance-targets]]
-  - Link to glossary terms: [[Glossary#microservice]]
+  WIKI LINK AUTHORITY:
+  You have FULL AUTHORITY to create GitHub Wiki links throughout this document. Create links proactively using
+  the patterns defined in the wiki_patterns section above.
   
   AUTONOMOUS EXTRACTION:
-  Analyze the complete conversation history to extract all architectural and technical design information. Focus on:
-  - Explicit technical decisions (e.g., "We'll use React for the frontend")
-  - Constraints (e.g., budget limits, timeline deadlines, compliance requirements)
-  - User preferences (e.g., "I prefer a cloud-hosted solution", "Must be mobile-first")
-  - Architectural considerations (e.g., "It needs to handle 10,000 users daily", "Real-time updates required")
-  - Performance requirements (e.g., response times, uptime expectations)
-  - Integration needs (e.g., third-party APIs, existing systems)
-  - Security concerns (e.g., data privacy, authentication methods)
-  Synthesize these into a cohesive design, filling logical gaps with well-reasoned assumptions.
+  Analyze the complete conversation history to extract all architectural and technical design information using
+  the extraction_targets defined above. Synthesize these into a cohesive design, filling logical gaps with 
+  well-reasoned assumptions.
   
   DECISION DOCUMENTATION:
-  - For explicit technical decisions: Document the choice and rationale (e.g., "Chose PostgreSQL for its ACID compliance and team familiarity")
-  - For incomplete/undecided items: Mark as "⚠️ DECISION NEEDED" with context (e.g., "⚠️ DECISION NEEDED: SQL vs. NoSQL - need to evaluate scalability trade-offs")
-  - For debates/alternatives: Document as "🔄 UNDER CONSIDERATION" with options (e.g., "🔄 UNDER CONSIDERATION: In-memory caching (Redis) vs. distributed caching (Memcached)")
-  - For missing critical info: Mark as "📝 REQUIRES SPECIFICATION" (e.g., "📝 REQUIRES SPECIFICATION: Authentication token expiration policy") 
+  Use the decision_markers defined above to track unresolved design decisions and document completed ones.
   
   OUTPUT REQUIREMENTS:
   - Maximum depth and detail within the high-level design scope
@@ -51,10 +170,11 @@ instructions: |
   - Clear cross-references to other documents in the suite
   - Output only the markdown document structure below
 
-output_format: |
+# Markdown template
+output_template: |
   # High-Level Design Document: {{app_name}}
   
-  > **Document Suite Status**: ~~Project Vision~~ | ~~Elevator Pitch~~ | ~~Requirements~~ | ~~Non-Functional Requirements~~ | ~~User Flows & Mockups~~ | **HIGH-LEVEL DESIGN** | Low-Level Design | API Specifications | Business Strategy | Operational Planning | Glossary
+  > **Document Suite Status**: ~~[[Project-Vision]]~~ | ~~[[Elevator-Pitch]]~~ | ~~[[Requirements]]~~ | ~~[[Non-Functional-Requirements]]~~ | ~~[[User-Flows-and-Mockups]]~~ | **HIGH-LEVEL DESIGN** | [[Low-Level-Design]] | [[API-Specifications]] | [[Business-Strategy]] | [[Operational-Planning]] | [[Glossary]]
   
   ## Cross-References & Dependencies
   - **[[Requirements]]**: Core functional requirements that drive this architecture
@@ -233,9 +353,3 @@ output_format: |
   - **Technology Evolution**: Potential tech stack updates or migrations (e.g., "Migrate to GraphQL from REST for better mobile performance")
   - **Scaling Roadmap**: How the architecture will evolve with growth (e.g., "Move to microservices architecture when reaching 100,000+ daily active users")
   - **Technical Debt**: Identified areas for future refactoring (e.g., "Replace monolithic auth system with dedicated identity service")
-
-usage_note: |
-  This prompt is designed for autonomous injection into LLM conversations. Simply paste the entire 
-  YAML content into your chat after discussing your project ideas. The LLM will analyze the 
-  conversation history and generate a complete high-level design document without requiring 
-  additional input or context.
