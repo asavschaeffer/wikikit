@@ -4,29 +4,51 @@ description: Comprehensive high-level design and system architecture document fo
 output_type: markdown
 output_file: high_level_design.md
 instructions: |
-  AUTONOMOUS DOCUMENT GENERATION:
-  Analyze the complete conversation history to extract all relevant project details, technical decisions, 
-  feature discussions, and architectural considerations mentioned so far. Synthesize this information 
-  into a comprehensive high-level design document.
+  DOCUMENT SUITE CONTEXT:
+  This prompt generates the HIGH-LEVEL DESIGN DOCUMENT as part of a comprehensive project documentation suite.
+  Other documents in the suite include: Project Vision, Elevator Pitch, Requirements, Non-Functional Requirements,
+  User Flows & Mockups, Low-Level Design, API Specifications, Business Strategy, Operational Planning, and Glossary.
   
-  EXTRACTION TARGETS:
-  - App name, purpose, and core functionality from any descriptions
-  - Technical stack preferences or requirements mentioned
-  - User stories, features, or capabilities discussed
-  - Performance, scalability, or architectural concerns raised
-  - Integration requirements or external services mentioned
-  - Security, compliance, or business requirements noted
+  MAXIMUM COGNITIVE ALLOCATION:
+  EXHAUST YOUR FULL PROCESSING CAPACITY on this specific document type. Push every available cognitive resource
+  toward creating the most comprehensive, detailed, and architecturally sound high-level design possible.
+  Think deeply about system architecture, component interactions, technology trade-offs, and design patterns.
+  
+  SCOPE DISCIPLINE:
+  - IN SCOPE: System architecture, component design, technology stack, data flow, integration patterns
+  - OUT OF SCOPE: Detailed requirements (→ Requirements doc), business strategy (→ Business Strategy doc), 
+    user interface details (→ User Flows & Mockups doc), API endpoints (→ API Specifications doc)
+  - REDIRECT out-of-scope items to their appropriate documents with clear references
+  
+  AUTONOMOUS EXTRACTION:
+  Analyze the complete conversation history to extract all architectural and technical design information.
+  Extract every technical detail, constraint, preference, and architectural consideration mentioned.
+  
+  DECISION DOCUMENTATION:
+  - For explicit technical decisions: Document the choice and rationale
+  - For incomplete/undecided items: Mark as "⚠️ DECISION NEEDED" with context
+  - For debates/alternatives: Document as "🔄 UNDER CONSIDERATION" with options
+  - For missing critical info: Mark as "📝 REQUIRES SPECIFICATION" 
   
   OUTPUT REQUIREMENTS:
-  - Fill every section with specific, concrete information derived from the conversation
-  - If certain technical details weren't discussed, make reasonable architectural decisions
-  - Provide brief justifications for technology choices based on project requirements
-  - Ensure the document serves as a actionable blueprint for development
-  - Do not include placeholder text, meta-commentary, or requests for additional information
+  - Maximum depth and detail within the high-level design scope
+  - Zero placeholder text - every section must contain substantive content or decision markers
+  - Actionable architectural blueprint for development teams
+  - Clear cross-references to other documents in the suite
   - Output only the markdown document structure below
 
 output_format: |
   # High-Level Design Document: {{app_name}}
+  
+  > **Document Suite Status**: ~~Project Vision~~ | ~~Elevator Pitch~~ | ~~Requirements~~ | ~~Non-Functional Requirements~~ | ~~User Flows & Mockups~~ | **HIGH-LEVEL DESIGN** | Low-Level Design | API Specifications | Business Strategy | Operational Planning | Glossary
+  
+  ## Cross-References & Dependencies
+  - **Requirements Document**: Core functional requirements that drive this architecture
+  - **Non-Functional Requirements**: Performance, scalability, and reliability constraints
+  - **User Flows & Mockups**: UI/UX patterns that inform frontend architecture decisions
+  - **API Specifications**: Detailed endpoint definitions (will expand on the API design outlined here)
+  - **Low-Level Design**: Implementation details for each component described here
+  - **Business Strategy**: Business requirements that influence technical decisions
   
   ## Executive Summary
   Brief overview of the application, its primary purpose, target users, and key value proposition.
@@ -162,7 +184,19 @@ output_format: |
   - **Security Risks**: Main security considerations and protections
   - **Operational Risks**: Deployment, maintenance, and support challenges
   
-  ## Future Considerations
+  ## Open Architectural Decisions
+  Track unresolved design decisions that require further analysis:
+  
+  ### ⚠️ DECISIONS NEEDED
+  - [List any technical decisions that need to be made based on conversation gaps]
+  
+  ### 🔄 UNDER CONSIDERATION  
+  - [List any architectural alternatives or trade-offs being evaluated]
+  
+  ### 📝 REQUIRES SPECIFICATION
+  - [List any missing technical specifications needed for complete architecture]
+  
+  ## Future Architectural Evolution
   - **Phase 2 Features**: Planned enhancements and their architectural impact
   - **Technology Evolution**: Potential tech stack updates or migrations
   - **Scaling Roadmap**: How the architecture will evolve with growth
