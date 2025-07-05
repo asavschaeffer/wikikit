@@ -1,0 +1,396 @@
+name: generate_api_specifications_doc
+version: 1.0
+description: Comprehensive API specifications and endpoint documentation for software projects
+output_type: markdown
+output_file: "{{project-name}}-api_specifications.md"
+
+# Document suite integration
+document_suite:
+  current_document: "API SPECIFICATIONS"
+  dependencies:
+    - high_level_design: "System architecture and API design approach that drives these specifications"
+    - requirements: "Functional requirements that define API capabilities and user stories"
+    - user_flows_and_mockups: "User interaction patterns that define API endpoint needs"
+    - low_level_design: "Implementation details that inform request/response structures"
+  outputs_to:
+    - database_schema: "Data models that support these API operations"
+    - security_implementation: "Authentication and authorization implementation details"
+    - integration_testing: "API contract testing and validation specifications"
+    - client_sdk_specifications: "Client library interfaces based on these API contracts"
+
+# Cognitive allocation directives
+processing_directives:
+  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY on API contract definition and endpoint specification"
+  focus_areas:
+    - "Complete endpoint definitions with request/response schemas"
+    - "Authentication and authorization patterns for each endpoint"
+    - "Error handling and status code specifications"
+    - "Request validation rules and response format consistency"
+    - "Rate limiting and API versioning strategies"
+    - "Integration patterns and webhook specifications"
+
+# Scope boundaries
+scope:
+  in_scope:
+    - "HTTP endpoint definitions (methods, paths, parameters)"
+    - "Request/response schemas and data formats"
+    - "Authentication flows and security requirements"
+    - "Error codes and response formats"
+    - "Rate limiting and API governance"
+    - "Webhook specifications and callback patterns"
+  out_of_scope:
+    business_requirements: "→ [[Requirements]]"
+    system_architecture: "→ [[High-Level-Design]]"
+    implementation_details: "→ [[Low-Level-Design]]"
+    user_interface_design: "→ [[User-Flows-and-Mockups]]"
+
+# Information extraction targets
+extraction_targets:
+  api_style_preferences: "REST vs GraphQL, API versioning approach, content type preferences"
+  endpoint_requirements: "User registration, data retrieval, file uploads, search functionality"
+  authentication_patterns: "JWT tokens, API keys, OAuth flows, session-based auth"
+  data_exchange_formats: "JSON schema requirements, file upload formats, response structures"
+  integration_needs: "Webhook callbacks, third-party API proxying, real-time connections"
+  performance_requirements: "Rate limiting needs, response time expectations, pagination requirements"
+  security_specifications: "Input validation rules, CORS policies, API security headers"
+  error_handling_preferences: "Error response formats, status code conventions, error categorization"
+
+# Scope validation rules
+scope_validation:
+  contract_focus: "Define API contracts and interfaces, not business logic or implementation"
+  interface_boundary: "Specify request/response formats, not internal processing details"
+  consumer_perspective: "Write from API consumer viewpoint, not implementation perspective"
+
+# Dynamic API adaptation
+api_adaptation:
+  style_detection: "Analyze conversation for API style preferences (REST, GraphQL, RPC) and adapt structure accordingly"
+  authentication_alignment: "Adapt security specs to mentioned auth patterns (JWT, OAuth, API keys)"
+  data_format_consistency: "Maintain consistent schema formats based on detected preferences (JSON Schema, OpenAPI, etc.)"
+  versioning_strategy: "Align versioning approach with mentioned scalability and compatibility requirements"
+
+# Performance requirement extraction
+performance_extraction:
+  rate_limiting_requirements: "Extract specific rate limiting needs from conversation (requests per minute, burst limits)"
+  response_time_targets: "Extract API response time expectations mentioned in discussion"
+  pagination_requirements: "Extract large dataset handling requirements and pagination preferences"
+  caching_specifications: "Extract API caching requirements and cache control needs"
+
+# Security pattern extraction
+security_pattern_extraction:
+  authentication_requirements: "Extract specific auth requirements mentioned (token expiry, refresh patterns, multi-factor)"
+  authorization_patterns: "Extract role/permission patterns for API access control"
+  input_validation_requirements: "Extract validation rules mentioned for API inputs"
+  cors_and_headers: "Extract cross-origin and security header requirements"
+
+# Wiki link management
+wiki_link_budget:
+  max_outbound_links: 10
+  priority_linking: "Link only to documents that provide essential context for API implementation"
+  stub_creation_threshold: "Create stub links ONLY for missing specifications that block API development"
+  
+wiki_patterns:
+  implementation_dependencies: "[[Low-Level-Design#service-implementations]] (only when service details affect API design)"
+  security_specifications: "[[Security-Implementation#api-authentication]] (only when auth patterns need detailed specification)"
+  data_model_references: "[[Database-Schema#entity-definitions]] (only when schema affects API contracts)"
+  integration_requirements: "[[External-Integrations#webhook-handling]] (only when external API patterns are undefined)"
+
+# API documentation standards
+documentation_standards:
+  endpoint_completeness: "Every endpoint must include method, path, parameters, request body, response body, status codes"
+  schema_definitions: "All request/response objects must have complete schema definitions"
+  example_requirements: "Include realistic request/response examples for each endpoint"
+  error_documentation: "Document all possible error responses with specific status codes and messages"
+
+# Usage instructions
+usage_note: |
+  This prompt is designed for autonomous injection into LLM conversations. Simply paste the entire 
+  YAML content into your chat after discussing API requirements and interface needs. The LLM will 
+  analyze the conversation history and generate complete API specifications without requiring 
+  additional input or context.
+
+# Main instruction block
+instructions: |
+  DOCUMENT SUITE CONTEXT:
+  This prompt generates the API SPECIFICATIONS DOCUMENT as part of a comprehensive project documentation suite.
+  Reference the document_suite configuration above for integration patterns.
+  
+  MAXIMUM COGNITIVE ALLOCATION:
+  EXHAUST YOUR FULL PROCESSING CAPACITY on API contract definition and endpoint specification. 
+  Push every available cognitive resource toward creating the most comprehensive, implementable, 
+  and consumer-ready API documentation possible.
+  Use the processing_directives above to focus your analysis.
+  
+  SCOPE DISCIPLINE:
+  Follow the scope boundaries defined above. Focus on API contracts and interfaces, not implementation details.
+  Apply scope_validation rules to maintain consumer perspective and interface focus.
+  Redirect out-of-scope items using wiki links.
+  
+  WIKI LINK AUTHORITY:
+  You have FULL AUTHORITY to create GitHub Wiki links using the patterns defined in wiki_patterns.
+  Apply wiki_link_budget constraints to prevent link proliferation.
+  
+  AUTONOMOUS EXTRACTION:
+  Analyze the complete conversation history using the extraction_targets defined above.
+  Apply scope_validation rules to ensure interface focus over implementation details.
+  Use api_adaptation settings to match API style and patterns discussed in conversation.
+  Apply performance_extraction and security_pattern_extraction for specific requirements.
+  
+  DECISION DOCUMENTATION:
+  - For explicit API decisions: Document with examples (e.g., "REST endpoints with JSON:API format - see user endpoint examples below")
+  - For incomplete/undecided items: Mark as "⚠️ API DESIGN NEEDED" with context (e.g., "⚠️ API DESIGN NEEDED: Authentication method - JWT vs OAuth vs API keys")
+  - For design alternatives: Document as "🔄 API PATTERN CONSIDERATION" with options (e.g., "🔄 API PATTERN CONSIDERATION: Pagination approach - cursor vs offset vs page-based")
+  - For missing specifications: Mark as "📝 API CONTRACT REQUIRED" (e.g., "📝 API CONTRACT REQUIRED: Error response schema and status code mapping")
+  
+  API SPECIFICATION REQUIREMENTS:
+  Follow documentation_standards for complete endpoint documentation.
+  Use api_adaptation rules to generate appropriate API style and format.
+  Apply performance_extraction for rate limiting and caching specifications.
+  Follow security_pattern_extraction for authentication and authorization requirements.
+  Ensure every endpoint is implementable from the specification alone.
+  
+  OUTPUT REQUIREMENTS:
+  - Complete API contracts ready for implementation
+  - Consistent request/response formats across all endpoints
+  - Clear authentication and error handling specifications
+  - Implementable without additional clarification or guesswork
+  - Output only the markdown document structure below
+
+# Markdown template
+output_template: |
+  # API Specifications: {{project-name}}
+  
+  > **Document Suite Status**: ~~[[Project-Vision]]~~ | ~~[[Elevator-Pitch]]~~ | ~~[[Requirements]]~~ | ~~[[Non-Functional-Requirements]]~~ | ~~[[User-Flows-and-Mockups]]~~ | ~~[[High-Level-Design]]~~ | ~~[[Low-Level-Design]]~~ | **API SPECIFICATIONS** | [[Business-Strategy]] | [[Operational-Planning]] | [[Glossary]]
+  
+  ## Cross-References & Dependencies
+  - **[[High-Level-Design]]**: System architecture and API design approach that drives these specifications
+  - **[[Requirements]]**: Functional requirements that define API capabilities and user stories
+  - **[[User-Flows-and-Mockups]]**: User interaction patterns that define API endpoint needs
+  - **[[Low-Level-Design]]**: Implementation details that inform request/response structures
+  - **[[Database-Schema]]**: Data models that support these API operations
+  - **[[Security-Implementation]]**: Authentication and authorization implementation details
+  
+  ## API Overview
+  
+  ### API Style & Architecture
+  [Extract and document API architectural approach from conversation - REST, GraphQL, RPC, etc.]
+  - **API Style**: [Based on conversation preferences or technical requirements]
+  - **Base URL**: [Extract from hosting/deployment discussions]
+  - **Content Type**: [Based on data format preferences discussed]
+  - **Versioning Strategy**: [Extract versioning approach from scalability discussions]
+  
+  ### Authentication Overview
+  [Extract authentication requirements from conversation]
+  - **Authentication Method**: [Based on security requirements discussed]
+  - **Token Format**: [Extract token preferences - JWT, opaque tokens, etc.]
+  - **Token Lifecycle**: [Extract expiry and refresh patterns mentioned]
+  - **Authorization Model**: [Extract role/permission patterns discussed]
+  
+  ## Global API Patterns
+  
+  ### Request/Response Format
+  [Define consistent patterns based on conversation preferences]
+  
+  #### Standard Request Headers
+  ```
+  [Generate headers based on authentication and API style extracted from conversation]
+  ```
+  
+  #### Standard Response Format
+  ```json
+  [Generate response format based on data structure preferences discussed]
+  ```
+  
+  ### Error Handling
+  [Extract error handling preferences from conversation]
+  
+  #### Error Response Schema
+  ```json
+  [Generate error format based on error handling patterns discussed]
+  ```
+  
+  #### HTTP Status Codes
+  [Document status code usage based on API style and error handling preferences]
+  
+  ### Rate Limiting
+  [Extract rate limiting requirements from performance discussions]
+  - **Rate Limits**: [Based on performance requirements extracted from conversation]
+  - **Headers**: [Document rate limiting headers based on API governance needs]
+  - **Exceeded Response**: [Define rate limit exceeded response format]
+  
+  ### Pagination
+  [Extract pagination requirements from data handling discussions]
+  - **Pagination Style**: [Based on data volume and performance requirements discussed]
+  - **Default Page Size**: [Extract from performance or UX requirements]
+  - **Maximum Page Size**: [Based on performance constraints discussed]
+  
+  ## Authentication Endpoints
+  [Generate authentication endpoints based on auth patterns extracted from conversation]
+  
+  ### User Authentication
+  [Document authentication flow based on security requirements]
+  
+  #### POST /auth/login
+  [Generate complete endpoint specification based on authentication requirements]
+  
+  #### POST /auth/refresh
+  [Generate token refresh endpoint if refresh patterns were discussed]
+  
+  #### POST /auth/logout
+  [Generate logout endpoint based on session management requirements]
+  
+  ## Core API Endpoints
+  [Generate endpoint groups based on functional requirements extracted from conversation]
+  
+  ### [Entity] Management
+  [For each major entity/resource discussed in conversation, create endpoint group]
+  
+  #### GET /[resource]
+  **Description**: [Based on functional requirements]
+  
+  **Query Parameters**:
+  [Generate parameters based on search/filtering requirements discussed]
+  
+  **Response**:
+  ```json
+  [Generate response schema based on data structure requirements]
+  ```
+  
+  **Status Codes**:
+  [Document status codes based on error handling patterns]
+  
+  #### POST /[resource]
+  **Description**: [Based on creation requirements discussed]
+  
+  **Request Body**:
+  ```json
+  [Generate request schema based on data requirements discussed]
+  ```
+  
+  **Response**:
+  ```json
+  [Generate creation response based on API patterns]
+  ```
+  
+  #### GET /[resource]/{id}
+  **Description**: [Based on retrieval requirements]
+  
+  **Path Parameters**:
+  [Document ID format and validation requirements]
+  
+  **Response**:
+  ```json
+  [Generate detailed resource response]
+  ```
+  
+  #### PUT /[resource]/{id}
+  **Description**: [Based on update requirements discussed]
+  
+  **Request Body**:
+  ```json
+  [Generate update schema based on data modification needs]
+  ```
+  
+  #### DELETE /[resource]/{id}
+  **Description**: [Based on deletion requirements]
+  
+  **Response**: [Document deletion response format]
+  
+  ## Integration Endpoints
+  [Generate integration endpoints based on external service requirements]
+  
+  ### Webhook Endpoints
+  [Document webhooks based on integration patterns discussed]
+  
+  #### POST /webhooks/[service]
+  [Generate webhook specification based on integration requirements]
+  
+  ### File Upload Endpoints
+  [Generate file handling endpoints based on file requirements discussed]
+  
+  #### POST /files/upload
+  [Document file upload specification based on file handling needs]
+  
+  ## Data Schemas
+  [Generate complete data schemas for all entities discussed]
+  
+  ### [Entity] Schema
+  ```json
+  [Generate complete JSON schema based on data requirements discussed]
+  ```
+  
+  ### Validation Rules
+  [Extract and document validation requirements mentioned in conversation]
+  - **[Field Name]**: [Validation rules based on requirements]
+  
+  ## API Security Specifications
+  
+  ### Authentication Requirements
+  [Document authentication implementation based on security patterns]
+  
+  ### Authorization Matrix
+  [Generate permission matrix based on role/access discussions]
+  
+  | Endpoint | Anonymous | User | Admin |
+  |----------|-----------|------|-------|
+  [Generate access matrix based on authorization requirements discussed]
+  
+  ### Input Validation
+  [Document validation requirements based on security discussions]
+  
+  ### CORS Configuration
+  [Document CORS requirements based on client application needs discussed]
+  
+  ## API Performance Specifications
+  
+  ### Response Time Targets
+  [Extract specific API performance requirements from conversation]
+  
+  ### Caching Strategy
+  [Document caching based on performance requirements discussed]
+  
+  ### Rate Limiting Implementation
+  [Detail rate limiting based on performance and security requirements]
+  
+  ## API Versioning Strategy
+  
+  ### Version Management
+  [Document versioning approach based on compatibility and deployment requirements]
+  
+  ### Deprecation Policy
+  [Define deprecation approach based on API governance needs]
+  
+  ### Migration Path
+  [Document version migration based on client compatibility requirements]
+  
+  ## Open API Design Decisions
+  
+  ### ⚠️ API DESIGN NEEDED
+  - [List any API design decisions requiring resolution based on conversation gaps]
+  
+  ### 🔄 API PATTERN CONSIDERATION
+  - [List any API design alternatives under evaluation]
+  
+  ### 📝 API CONTRACT REQUIRED
+  - [List any missing API specifications needed for complete implementation]
+  
+  ## Testing & Documentation
+  
+  ### API Testing Requirements
+  [Document testing approach based on quality requirements discussed]
+  
+  ### Interactive Documentation
+  [Specify documentation approach - OpenAPI/Swagger, Postman collections, etc.]
+  
+  ### Client SDK Requirements
+  [Document SDK needs based on client application requirements discussed]
+  
+  ## Implementation Notes
+  
+  ### Development Priorities
+  [Prioritize endpoint implementation based on user flow and requirements analysis]
+  
+  ### Integration Considerations
+  [Document integration requirements with external services mentioned]
+  
+  ### Monitoring & Analytics
+  [Specify API monitoring based on operational requirements discussed]
