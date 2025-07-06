@@ -1,0 +1,346 @@
+name: generate_product_research_discovery_doc
+version: 1.0
+description: Comprehensive product research and discovery analysis for strategic product decisions
+output_type: markdown
+output_file: "{{project-name}}-product_research_discovery.md"
+
+# Document suite integration
+document_suite:
+  current_document: "PRODUCT RESEARCH & DISCOVERY"
+  dependencies:
+    - brainstorming_sessions: "Initial ideas, market observations, user pain point discussions"
+    - market_observations: "Competitive landscape insights, industry trend discussions"
+    - user_feedback: "User interviews, pain points, behavioral observations"
+  outputs_to:
+    - project_vision: "Refined problem statement and product positioning"
+    - requirements: "Validated feature priorities and user needs"
+    - technical_feasibility: "Technology constraints and capabilities assessment"
+    - business_strategy: "Market opportunity and go-to-market approach"
+    - elevator_pitch: "Value proposition and competitive differentiation"
+
+# Cognitive allocation directives
+processing_directives:
+  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY on strategic analysis and insight synthesis"
+  focus_areas:
+    - "Market problem analysis and competitive landscape assessment"
+    - "User research synthesis and persona development"
+    - "Strategic opportunity identification and validation framework"
+    - "Hypothesis formation with evidence-based reasoning"
+    - "Risk assessment and alternative approach evaluation"
+    - "Research-driven product strategy recommendations"
+
+# Scope boundaries
+scope:
+  in_scope:
+    - "Market analysis and competitive intelligence"
+    - "User research synthesis and behavioral insights"
+    - "Product opportunity assessment and validation"
+    - "Strategic hypothesis formation and testing frameworks"
+    - "Alternative approach evaluation and rejection reasoning"
+    - "Research methodology recommendations and data requirements"
+  out_of_scope:
+    detailed_requirements: "→ [[Requirements]]"
+    technical_implementation: "→ [[Technical-Feasibility]]"
+    business_model_details: "→ [[Business-Strategy]]"
+    specific_user_interfaces: "→ [[User-Flows-and-Mockups]]"
+
+# Information extraction targets
+extraction_targets:
+  market_problems: "User pain points, industry inefficiencies, workflow frustrations mentioned"
+  competitive_landscape: "Existing solutions discussed, competitor strengths/weaknesses, market gaps"
+  user_insights: "User behavior patterns, preferences, workflow descriptions, feedback quotes"
+  technology_trends: "Emerging technologies mentioned, platform capabilities, integration possibilities"
+  business_opportunities: "Market size discussions, monetization ideas, growth potential observations"
+  validation_activities: "User interviews conducted, surveys mentioned, prototype testing, market research"
+  strategic_constraints: "Budget limitations, timeline pressures, team capabilities, compliance requirements"
+  rejected_ideas: "Alternative approaches considered, dismissed concepts, pivoted directions"
+
+# Scope validation rules
+scope_validation:
+  strategic_focus: "Synthesize insights for strategic decision-making, not detailed feature specification"
+  research_orientation: "Focus on market intelligence and user understanding, not implementation details"
+  hypothesis_formation: "Convert observations into testable hypotheses with validation criteria"
+  evidence_based: "Ground all recommendations in research evidence and market data"
+
+# Research synthesis approach
+research_synthesis:
+  insight_clustering: "Group related observations into coherent themes and patterns"
+  evidence_validation: "Assess strength of evidence for each insight and recommendation"
+  hypothesis_development: "Form testable hypotheses from observational patterns"
+  strategic_connection: "Connect research insights to product strategy and business decisions"
+  gap_identification: "Identify missing information and recommend follow-up research"
+
+# Competitive analysis framework
+competitive_analysis:
+  market_positioning: "Analyze how competitors position themselves and identify white space"
+  strength_weakness_assessment: "Evaluate competitor capabilities and market vulnerabilities"
+  feature_gap_analysis: "Identify unmet user needs in current competitive landscape"
+  differentiation_opportunities: "Spot opportunities for unique value proposition development"
+
+# User research framework
+user_research_synthesis:
+  behavioral_pattern_identification: "Extract recurring user behaviors and workflow patterns"
+  pain_point_prioritization: "Rank user frustrations by frequency and intensity"
+  persona_development: "Create user personas based on behavioral and motivational patterns"
+  need_hierarchy_analysis: "Distinguish between must-have, should-have, and nice-to-have user needs"
+
+# Market opportunity assessment
+opportunity_analysis:
+  problem_validation: "Assess whether identified problems represent real market opportunities"
+  market_sizing: "Estimate addressable market based on user segments and pain point severity"
+  timing_assessment: "Evaluate market readiness and competitive timing factors"
+  feasibility_evaluation: "Consider technical, business, and execution feasibility constraints"
+
+# Wiki link management
+wiki_link_budget:
+  max_outbound_links: 8
+  priority_linking: "Link only to documents that provide essential strategic context"
+  strategic_connections: "Connect research insights to downstream strategic documents"
+  
+wiki_patterns:
+  strategic_outputs: "[[Project-Vision#problem-statement]] (when research refines core problem)"
+  validation_references: "[[Requirements#user-stories]] (when research validates specific needs)"
+  feasibility_connections: "[[Technical-Feasibility#technology-assessment]] (when research impacts tech decisions)"
+  business_implications: "[[Business-Strategy#market-opportunity]] (when research affects business model)"
+
+# Usage instructions
+usage_note: |
+  This prompt is designed for autonomous injection into LLM conversations. Simply paste the entire 
+  YAML content into your chat after conducting product research, user interviews, competitive analysis,
+  or market exploration. The LLM will synthesize research insights into strategic product intelligence
+  without requiring additional input or context.
+
+# Main instruction block
+instructions: |
+  DOCUMENT SUITE CONTEXT:
+  This prompt generates the PRODUCT RESEARCH & DISCOVERY DOCUMENT as part of a comprehensive project documentation suite.
+  Reference the document_suite configuration above for integration patterns.
+  
+  MAXIMUM COGNITIVE ALLOCATION:
+  EXHAUST YOUR FULL PROCESSING CAPACITY on strategic analysis and insight synthesis. 
+  Push every available cognitive resource toward creating the most comprehensive, strategically valuable,
+  and research-driven product intelligence possible.
+  Use the processing_directives above to focus your analysis.
+  
+  SCOPE DISCIPLINE:
+  Follow the scope boundaries defined above. Focus on market intelligence and strategic insights, not implementation details.
+  Apply scope_validation rules to maintain strategic focus and research orientation.
+  Redirect implementation details using wiki links.
+  
+  WIKI LINK AUTHORITY:
+  You have FULL AUTHORITY to create GitHub Wiki links using the patterns defined in wiki_patterns.
+  Apply wiki_link_budget constraints to maintain strategic connection focus.
+  
+  AUTONOMOUS EXTRACTION & SYNTHESIS:
+  Analyze the complete conversation history using the extraction_targets defined above.
+  Apply research_synthesis approach to cluster insights and form strategic hypotheses.
+  Use competitive_analysis framework to assess market landscape and opportunities.
+  Apply user_research_synthesis to develop actionable user insights and personas.
+  Use opportunity_analysis to evaluate market potential and strategic feasibility.
+  
+  STRATEGIC ANALYSIS REQUIREMENTS:
+  - Synthesize scattered research insights into coherent strategic intelligence
+  - Form testable hypotheses from observational patterns with validation criteria
+  - Assess competitive landscape and identify differentiation opportunities
+  - Develop user personas based on behavioral patterns, not demographic assumptions
+  - Evaluate market opportunity with realistic sizing and timing assessment
+  - Document alternative approaches considered and reasoning for rejection
+  - Identify critical research gaps and recommend follow-up investigation
+  
+  DECISION DOCUMENTATION:
+  - For validated insights: Document with supporting evidence (e.g., "73% of users report tool fatigue - validated through 47 interviews and 312-person survey")
+  - For strategic hypotheses: Mark as "🔬 HYPOTHESIS" with validation criteria (e.g., "🔬 HYPOTHESIS: Context-aware prioritization will improve task completion by 25% - validate through A/B testing")
+  - For research gaps: Mark as "🔍 RESEARCH NEEDED" with methodology (e.g., "🔍 RESEARCH NEEDED: Enterprise adoption patterns - conduct interviews with 10+ IT decision makers")
+  - For strategic recommendations: Mark as "⭐ STRATEGIC RECOMMENDATION" with reasoning (e.g., "⭐ STRATEGIC RECOMMENDATION: Focus on workflow integration over standalone tool - supported by user preference data")
+  
+  OUTPUT REQUIREMENTS:
+  - Strategic intelligence that drives product decisions
+  - Evidence-based insights with clear supporting data
+  - Testable hypotheses with validation frameworks
+  - Actionable research recommendations for continued investigation
+  - Clear connections between research insights and strategic implications
+  - Output only the markdown document structure below
+
+# Markdown template
+output_template: |
+  # Product Research & Discovery: {{project-name}}
+  
+  > **Document Suite Status**: **PRODUCT RESEARCH & DISCOVERY** | [[Project-Vision]] | [[Elevator-Pitch]] | [[Technical-Feasibility]] | [[Requirements]] | [[Non-Functional-Requirements]] | [[User-Flows-and-Mockups]] | [[High-Level-Design]] | [[Low-Level-Design]] | [[API-Specifications]] | [[Business-Strategy]] | [[Operational-Planning]] | [[Glossary]]
+  
+  ## Cross-References & Dependencies
+  - **Feeds Into**: [[Project-Vision]] (refined problem statement), [[Requirements]] (validated feature priorities), [[Technical-Feasibility]] (technology constraints)
+  - **Feeds From**: Initial brainstorming sessions, market observations, user pain point discussions
+  - **Validates**: [[Business-Strategy]] assumptions, [[Elevator-Pitch]] value propositions
+  - **Influences**: [[User-Flows-and-Mockups]] design decisions, [[Non-Functional-Requirements]] performance targets
+  
+  ## Executive Summary
+  [Synthesize key research findings, primary strategic question, core insights, and strategic recommendations]
+  
+  **Research Period**: [Extract timeframe of research activities from conversation]
+  **Primary Question**: [Identify central strategic question driving research]
+  **Key Finding**: [Highlight most significant insight with supporting data]
+  **Strategic Recommendation**: [Provide clear strategic direction based on research]
+  
+  ## Problem Space Analysis
+  
+  ### Market Problem Definition
+  [Extract and synthesize problem statements from conversation into coherent market problem]
+  **Core Problem**: [Define primary problem based on user pain points discussed]
+  [Support with specific data points and user feedback mentioned in conversation]
+  
+  ### Problem Depth Research
+  [Analyze depth and significance of identified problems]
+  **User Pain Points Identified**:
+  [Extract and categorize user frustrations and workflow problems mentioned]
+  
+  **Root Cause Analysis**:
+  [Synthesize underlying causes of user problems based on conversation insights]
+  
+  ## Competitive Landscape Analysis
+  
+  ### Direct Competitors
+  [Analyze competitors mentioned in conversation with strategic assessment]
+  
+  #### [Competitor Name]
+  - **Strengths**: [Extract competitor advantages mentioned]
+  - **Weaknesses**: [Extract competitor limitations discussed]
+  - **Market Position**: [Analyze competitive positioning]
+  - **User Feedback**: [Include user sentiment about competitors]
+  
+  ### Competitive Gaps Identified
+  [Identify market opportunities based on competitor weakness analysis]
+  
+  ### White Space Opportunities
+  [Highlight unmet market needs and differentiation opportunities]
+  
+  ## User Research Findings
+  
+  ### Research Methodology
+  [Document research methods mentioned in conversation - interviews, surveys, observations]
+  
+  ### User Personas Discovered
+  [Develop personas based on user behavior patterns discussed, not demographic assumptions]
+  
+  #### Primary: "[Persona Name]" ([Percentage] of users)
+  **Profile**: [Behavioral and motivational characteristics]
+  **Pain Points**: [Specific frustrations and workflow challenges]
+  **Quote**: [Representative user feedback from conversation]
+  **Opportunity**: [Strategic opportunity this persona represents]
+  
+  ### Key Behavioral Insights
+  [Extract patterns of user behavior and decision-making mentioned in research]
+  
+  ### User Needs Hierarchy
+  [Prioritize user needs based on research evidence]
+  **Must Have**: [Critical user requirements]
+  **Should Have**: [Important but not critical needs]
+  **Could Have**: [Nice-to-have features]
+  
+  ## Technology Landscape Research
+  
+  ### Enabling Technology Trends
+  [Analyze technology capabilities and trends mentioned in conversation]
+  
+  ### Technical Feasibility Assessment
+  [Evaluate technical feasibility of approaches discussed]
+  **High Confidence**: [Technically proven approaches]
+  **Medium Confidence**: [Feasible but requiring validation]
+  **Low Confidence (Research Needed)**: [Uncertain technical approaches]
+  
+  ## Market Opportunity Analysis
+  
+  ### Total Addressable Market (TAM)
+  [Estimate market size based on problem scope and user segments discussed]
+  
+  ### Serviceable Addressable Market (SAM)
+  [Define realistic target market based on conversation constraints]
+  
+  ### Serviceable Obtainable Market (SOM)
+  [Project achievable market share based on competitive analysis]
+  
+  ### Market Dynamics
+  [Analyze market forces and trends affecting opportunity]
+  **Growth Drivers**: [Factors increasing market opportunity]
+  **Market Risks**: [Factors that could limit success]
+  
+  ## Feature Opportunity Matrix
+  [Categorize potential features based on impact and effort discussed]
+  
+  ### High Impact, Low Effort
+  [Identify quick wins based on user needs and technical feasibility]
+  
+  ### High Impact, High Effort
+  [Identify major opportunities requiring significant investment]
+  
+  ### Low Impact, Low Effort
+  [Document nice-to-have features with minimal effort]
+  
+  ### Low Impact, High Effort
+  [Document features to avoid or deprioritize]
+  
+  ## Validation Experiments Conducted
+  [Document any validation activities mentioned in conversation]
+  
+  ### Experiment [Number]: [Name]
+  **Hypothesis**: [Testable hypothesis]
+  **Method**: [Research methodology used]
+  **Results**: [Quantitative and qualitative findings]
+  **Learning**: [Strategic insight gained]
+  
+  ## Research-Driven Product Hypotheses
+  
+  ### Core Product Hypothesis
+  **Statement**: [Primary hypothesis about product-market fit]
+  **Supporting Evidence**: [Research evidence supporting hypothesis]
+  **Validation Criteria**: [Metrics that would validate hypothesis]
+  
+  ### Secondary Hypotheses
+  [Additional testable hypotheses about user behavior, market dynamics, or technical approaches]
+  
+  #### 🔬 HYPOTHESIS: [Hypothesis Name]
+  **Statement**: [Testable prediction about user behavior or market response]
+  **Evidence**: [Supporting research or logical reasoning]
+  **Risk**: [Potential failure modes or limiting factors]
+  
+  ## Strategic Recommendations
+  
+  ### Product Strategy Direction
+  ⭐ **STRATEGIC RECOMMENDATION**: [Primary strategic direction with reasoning]
+  
+  **Phase 1 Approach**: [Initial product development priorities]
+  **Phase 2 Expansion**: [Subsequent development priorities]
+  
+  ### Go-to-Market Strategy Implications
+  [Connect research insights to market entry strategy]
+  
+  ### Technical Architecture Implications
+  [Connect user needs and market requirements to technical decisions]
+  
+  ## Alternative Approaches Considered & Rejected
+  
+  ### Rejected Approach [Number]: [Name]
+  **Description**: [Alternative approach considered]
+  **Reasoning for Rejection**: [Evidence-based reasoning for dismissal]
+  
+  ## Open Research Questions
+  
+  ### Critical Unknowns Requiring Further Investigation
+  🔍 **RESEARCH NEEDED**: [Critical questions that need answers for strategic decisions]
+  
+  ### Planned Follow-Up Research
+  [Recommended research activities with timelines and methodologies]
+  
+  ## Research Artifacts & Data Sources
+  
+  ### Primary Research Assets
+  [Document research materials and data collected]
+  
+  ### Secondary Research Sources
+  [Document external research sources and market intelligence]
+  
+  ### Data Repository
+  [Reference where research data and analysis tools are stored]
+  
+  ---
+  
+  *This research forms the foundation for all subsequent product decisions. Key insights should be referenced and validated throughout development. Research should be updated quarterly with new market intelligence and user feedback.*
