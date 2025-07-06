@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🌟 WikiKit: AI Co-founder's Documentation Engine
 
 > Transform scattered LLM brainstorming into surgical development blueprints
@@ -478,5 +477,4 @@ MIT License — Build better software through better documentation.
 
 >*"The quality of your documentation determines the precision of your development."*
 >
-> <div align="right">— Claude 4 Sonnet</div>
->>>>>>> d79f57b (dir scaffold start)
+> <div align="center">— Claude 4 Sonnet</div>
