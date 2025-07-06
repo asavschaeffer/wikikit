@@ -1,0 +1,67 @@
+# WikiKit Decision Markers v2.0
+# Standardized decision tracking markers for consistent extraction across all prompts
+
+version: "2.0"
+author: "Claude Sonnet 4
+description: "Unified decision markers for tracking conversation evidence, evolution, and gaps"
+
+# Core decision markers (consistent across ALL WikiKit prompts)
+decision_markers:
+  verified: "✅ VERIFIED: Explicitly stated - [quote/context]"
+  derived: "📊 DERIVED: Inferred from [evidence] → [conclusion]"
+  gap: "❌ GAP: Missing [critical info] → [consequences if unaddressed]"
+  unclear: "❓ UNCLEAR: Mentioned but ambiguous - [specify what needs clarification]"
+  assumption: "💡 ASSUMPTION: [assumption] based on [conversation evidence]"
+
+  # v2.0 ADDITIONS
+  evolution: "🔄 EVOLVED: Initially [X] → Changed to [Y] because [reason]"
+  dependency: "🔗 DEPENDENCY: [item] blocks [other item] because [reason]"
+  standard: "🏭 STANDARD: Industry practice for [context]"
+  risk: "⚠️ RISK: [scenario] → [impact] → [mitigation]"
+
+# Usage guidelines
+usage_patterns:
+  evidence_chain: "Always show logical reasoning for DERIVED markers: [evidence A] + [evidence B] → [conclusion]"
+  evolution_tracking: "Use EVOLVED marker when conversation shows opinion changes with clear before/after and reasoning"
+  gap_impact: "For GAP markers, always explain consequences: what happens if this missing info isn't resolved"
+  clarification_specificity: "UNCLEAR markers must specify exactly what needs clarification, not just 'this is unclear'"
+
+# Quality standards
+quality_requirements:
+  traceability: "Every marker must reference specific conversation content"
+  consistency: "Use identical marker format across all document types"
+  evidence_strength: "VERIFIED requires direct quotes, DERIVED requires logical chain"
+  gap_criticality: "Only mark as GAP if missing information significantly impacts implementation"
+
+# Marker selection guide
+selection_guide:
+  explicit_statements: "Use VERIFIED for direct quotes and clear statements"
+  logical_inference: "Use DERIVED when connecting conversation dots with clear reasoning"
+  opinion_changes: "Use EVOLVED when tracking how thinking changed throughout conversation"
+  missing_critical_info: "Use GAP for essential information not discussed"
+  ambiguous_mentions: "Use UNCLEAR when something was mentioned but not fully explored"
+  dependencies: "Use DEPENDENCY for blocking relationships between items"
+  industry_defaults: "Use STANDARD when applying common practices to fill conversation gaps"
+
+# v2.0 conversation handling
+conversation_complexity:
+  contradictions: "When conversation contains conflicting statements, use EVOLVED to track the progression"
+  half_formed_ideas: "Extract incomplete thoughts and mark as GAP with specific detail needed"
+  stakeholder_disagreement: "Capture different perspectives with source attribution"
+  alternative_approaches: "When multiple options discussed without decision, use UNCLEAR with all options listed"
+
+# Examples by document type
+document_specific_examples:
+  requirements:
+    - "✅ VERIFIED: 'Users must be able to export data as CSV' (user interview #3)"
+    - "📊 DERIVED: Real-time updates needed → Inferred from 'data must always be current' + 'users check hourly'"
+    - "🔄 EVOLVED: Initially 'email-only login' → Changed to 'OAuth + email' due to user research feedback"
+
+  technical_feasibility:
+    - "✅ VERIFIED: 'We'll use PostgreSQL' (explicitly decided in message #47)"
+    - "🔗 DEPENDENCY: Database choice blocks API design because schema affects endpoints"
+    - "⚠️ RISK: PostgreSQL scaling beyond 10TB → Performance degradation → Implement sharding strategy"
+
+  roadmap:
+    - "🔄 EVOLVED: Initially 'launch everything at once' → Changed to 'MVP + Phase 2' for faster validation"
+    - "❌ GAP: No Phase 2 timeline discussed → Blocks resource planning and investor updates"
