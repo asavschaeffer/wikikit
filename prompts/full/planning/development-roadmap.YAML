@@ -1,0 +1,367 @@
+name: development_roadmap
+description: Comprehensive phased development planning and execution roadmap extraction
+output_type: markdown
+output_file: development_roadmap.md
+
+# Usage note for accessibility
+usage_note: |
+  This prompt extracts phased development planning from a conversation to create a detailed, actionable roadmap. Paste it into an LLM chat after discussing project timelines, features, and resources to generate a structured execution plan for development teams.
+
+# Document integration
+suite_context:
+  current: "DEVELOPMENT ROADMAP"
+  feeds_from: "[[Project-Vision]] [[Requirements]] [[Technical-Feasibility]] [[Product-Research]]"
+  feeds_to: "[[Business-Strategy]] [[API-Specifications]] [[Testing-Strategy]] [[Deployment-Infrastructure]]"
+
+# Cognitive activation
+role: |
+  Senior Product Manager and Engineering Director with expertise in phased product development, resource planning, and delivery execution. Apply systematic roadmap planning used at high-growth tech companies for scalable product delivery.
+
+processing: |
+  Apply rigorous, systematic analysis to extract and organize phased development planning, timelines, and resource considerations from the conversation into a structured execution roadmap. Only use timeline estimates, resource assumptions, or phase logic explicitly discussed in the conversation.
+
+# Decision markers with roadmap-specific examples
+decision_markers:
+  - type: verified
+    marker: "✅ VERIFIED"
+    description: "Explicitly stated phase plan"
+    example: "✅ VERIFIED: 'MVP must launch by Q1 2026' from conversation"
+  - type: derived
+    marker: "📊 DERIVED"
+    description: "Phase logic inferred from evidence"
+    example: "📊 DERIVED: 'Need quick market entry' → MVP in 6 months"
+  - type: gap
+    marker: "❌ GAP"
+    description: "Critical phase planning missing"
+    example: "❌ GAP: No timeline for Phase 2—delays market expansion"
+  - type: unclear
+    marker: "❓ UNCLEAR"
+    description: "Phase mentioned but scope/timing ambiguous"
+    example: "❓ UNCLEAR: 'Scale later' mentioned but no phase scope—clarify features"
+  - type: evolution
+    marker: "🔄 EVOLVED"
+    description: "Phase strategy changed"
+    example: "🔄 EVOLVED: Phase 1 was login-only → added payments due to market feedback"
+  - type: assumption
+    marker: "💡 ASSUMPTION"
+    description: "Assumption based on conversation evidence"
+    example: "💡 ASSUMPTION: 5-person team for MVP based on small startup mention"
+  - type: dependency
+    marker: "🔗 DEPENDENCY"
+    description: "Phase/feature blocks another"
+    example: "🔗 DEPENDENCY: Phase 2 payment integration blocks Phase 3 global rollout"
+
+# Extraction targets with conflict resolution and fallbacks
+extract:
+  conflict_resolution: |
+    If conversation contains conflicting details (e.g., "MVP in 3 months" vs. "MVP in 6 months"), prioritize the most recent, detailed, or contextually relevant statement. Mark conflicts with "❓ UNCLEAR" and note both options (e.g., "❓ UNCLEAR: MVP timeline 3 vs. 6 months—needs stakeholder decision").
+  phase_definitions:
+    description: "MVP vs. Phase 2 vs. future scope discussions with specific boundaries"
+    fallback: "If not discussed, mark as '❌ GAP: Phase scope undefined' and suggest stakeholder clarification."
+  feature_prioritization:
+    description: "Features assigned to phases with reasoning"
+    fallback: "If prioritization is unclear, mark as '❓ UNCLEAR: Feature phase assignment ambiguous'."
+  success_criteria:
+    description: "Metrics/outcomes triggering progression to next phase"
+    fallback: "If not discussed, mark as '❌ GAP: Success criteria missing'."
+  timeline_estimates:
+    description: "Duration estimates, milestone dates, delivery expectations"
+    fallback: "If not discussed, mark as '❌ GAP: Timeline not specified' and recommend planning session."
+  resource_planning:
+    description: "Team size, budget, hiring needs for each phase"
+    fallback: "If not discussed, mark as '❌ GAP: Resource needs unclear' and recommend resource planning."
+  technology_roadmap:
+    description: "When to introduce new tech or add complexity, referencing [[Technical-Feasibility]]"
+    fallback: "If not discussed, mark as '❌ GAP: Technology roadmap undefined'."
+  market_timing:
+    description: "Competitive pressure, market windows, referencing [[Business-Strategy]]"
+    fallback: "If not discussed, mark as '❌ GAP: Market timing unclear'."
+  risk_mitigation:
+    description: "Phase-specific risks and fallback plans"
+    fallback: "If not discussed, mark as '❌ GAP: Risk mitigation missing'."
+  dependency_mapping:
+    description: "What must complete before starting next phase"
+    fallback: "If not discussed, mark as '❌ GAP: Dependencies unclear'."
+  phase_evolution:
+    description: "How phase strategy changed throughout conversation"
+    fallback: "If no evolution discussed, note 'No phase evolution mentioned'."
+  scope_trade_offs:
+    description: "Features moved between phases with reasoning"
+    fallback: "If not discussed, note 'No scope trade-offs mentioned'."
+
+# Phase planning framework
+phase_structure:
+  phase_identification: "Extract distinct development phases with clear scope boundaries from conversation."
+  scope_definition: "Define included/excluded features per phase, referencing [[Requirements]] for feature details."
+  success_metrics: "Identify completion criteria and success measurements for each phase."
+  transition_logic: "Document triggers for moving between phases (e.g., user validation, technical readiness)."
+  resource_evolution: "Track team, budget, and technology changes across phases."
+  timeline_mapping: "Organize duration estimates and milestones from conversation."
+  risk_assessment: "Identify phase-specific risks and mitigation strategies from conversation."
+
+# Roadmap categories
+planning_areas:
+  default_areas:
+    - feature_development: "Core product capabilities and user-facing functionality"
+    - technology_infrastructure: "Platform, architecture, and technical foundation"
+    - user_experience: "Design, usability, and interface evolution"
+    - business_capabilities: "Monetization, analytics, business operations"
+    - market_expansion: "Geographic, segment, or use case expansion"
+    - platform_evolution: "API, integrations, ecosystem development"
+  dynamic_areas: |
+    Create new categories for domain-specific needs (e.g., 'regulatory compliance rollout' for healthcare, 'AI model training phases' for ML projects) based on unique keywords or repeated mentions in the conversation.
+
+# Scope boundaries with examples
+scope:
+  in_scope:
+    - "Phased development planning and execution strategy"
+    - "Timeline estimation and milestone planning"
+    - "Resource allocation and team evolution"
+    - "Feature prioritization across phases, referencing [[Requirements]]"
+    - "Technology evolution, referencing [[Technical-Feasibility]]"
+    - "Market timing considerations, referencing [[Business-Strategy]]"
+  out_of_scope:
+    detailed_requirements:
+      description: "→ [[Requirements]]"
+      example: "Detailed feature specifications like 'users can reset passwords'"
+    technical_architecture:
+      description: "→ [[High-Level-Design]] or [[Technical-Feasibility]]"
+      example: "Microservices vs. monolith architecture decisions"
+    business_model_details:
+      description: "→ [[Business-Strategy]]"
+      example: "Pricing models or monetization strategies"
+    implementation_specifics:
+      description: "→ [[Low-Level-Design]]"
+      example: "Class structures or database schemas"
+
+# Main instruction with modular structure
+instructions:
+  mission: "Extract and systematize phased development planning from conversation into a comprehensive execution roadmap."
+  extraction_approach:
+    - "Mine conversation for phase definitions, scope boundaries, and timeline discussions."
+    - "Extract feature prioritization logic and phase transition criteria with evidence."
+    - "Organize resource planning and technology evolution across phases."
+    - "Map dependencies and identify phase-specific risks."
+    - "Create dynamic planning areas for domain-specific needs."
+    - "Track phase strategy evolution with reasoning."
+  scope_clarity: |
+    Reference [[Requirements]] for feature details, [[Technical-Feasibility]] for architecture, and [[Business-Strategy]] for market positioning. Focus on when and how features are delivered, not their specifications.
+  planning_fidelity: |
+    Every phase element must trace to conversation evidence. Document gaps with decision markers rather than filling with assumptions.
+  decision_tracking: "Use decision_markers consistently, with 🔄 EVOLVED for roadmap evolution and 🔗 DEPENDENCY for phase dependencies."
+
+# Output template with optional sections
+output_template: |
+  # Development Roadmap: [Project Name from Conversation]
+
+  > **Suite**: ~~[[Project-Vision]]~~ → ~~[[Requirements]]~~ → **DEVELOPMENT ROADMAP** → [[Technical-Feasibility]] → [[Business-Strategy]]
+
+  ## Cross-References & Dependencies
+  - **Feeds From**: [[Project-Vision]] (direction), [[Requirements]] (features), [[Technical-Feasibility]] (constraints)
+  - **Feeds To**: [[Business-Strategy]] (go-to-market), [[API-Specifications]] (interfaces), [[Testing-Strategy]] (testing)
+  - **Constrains**: [[Deployment{Infrastructure]] (deployment), [[Monitoring-Observability]] (metrics)
+
+  ## Executive Summary
+  **Total Phases Planned**: [Number of phases from conversation]
+  **MVP Timeline**: [Duration or ❌ GAP]
+  **Full Product Timeline**: [Complete timeline or ❌ GAP]
+  **Key Success Metric**: [Primary success criteria or ❌ GAP]
+  **Biggest Risk**: [Most significant risk or ❌ GAP]
+  **Resource Peak**: [Maximum team/budget or ❌ GAP]
+
+  ## Phase Overview & Strategy
+  ### Phase Planning Philosophy
+  [Extract approach to phased development from conversation]
+
+  **Phasing Strategy**: [Why phases are structured this way]
+  **Success Philosophy**: [What defines successful phase completion]
+  **Risk Management**: [Approach to managing phase risks]
+
+  ### Phase Transition Criteria
+  **Technical Readiness**: [Technical requirements for progression]
+  **Market Validation**: [User/market validation needed]
+  **Business Metrics**: [Financial/usage metrics required]
+  **Resource Availability**: [Team/budget requirements]
+
+  ## Phase-by-Phase Breakdown
+  ### Phase 0: Foundation/Pre-MVP (Optional, include if discussed)
+  **Duration**: [Timeline or ❌ GAP]
+  **Objective**: [Primary goal]
+
+  #### Scope & Deliverables
+  **In Scope**:
+  - [Feature/capability 1 with reasoning]
+  - [Feature/capability 2 with reasoning]
+  **Out of Scope**:
+  - [Feature deferred with reasoning]
+
+  #### Success Criteria
+  - [Metric/outcome 1]
+  - [Metric/outcome 2]
+
+  #### Resource Requirements
+  - **Team Size**: [Numbers or ❌ GAP]
+  - **Key Roles**: [Skills needed]
+  - **Budget**: [Financial requirements or ❌ GAP]
+  - **Technology**: [Tools needed]
+
+  #### Key Risks & Mitigation
+  - **Risk**: [Risk with probability/impact]
+    **Mitigation**: [Strategy]
+
+  #### Dependencies
+  - 🔗 **DEPENDENCY**: [What must complete]
+  - 🔗 **BLOCKS**: [What this phase enables]
+
+  ### Phase 1: MVP/Initial Launch
+  **Duration**: [Timeline or ❌ GAP]
+  **Objective**: [Market validation goal]
+
+  #### Core Value Proposition
+  [User value for MVP]
+
+  #### Scope & Deliverables
+  **Core Features** (Must Have):
+  - [Feature 1 with user value]
+  - [Feature 2 with user value]
+  **Quality Standards**:
+  - [Performance requirements]
+  - [Reliability requirements]
+  **Technical Scope** (Reference [[Technical-Feasibility]]):
+  - [Technology choices]
+  - [Architecture decisions]
+
+  #### Success Criteria & KPIs
+  **User Validation**:
+  - [Engagement metric]
+  - [Feedback criteria]
+  **Technical Performance**:
+  - [Benchmarks]
+  **Business Metrics**:
+  - [Revenue/growth targets]
+
+  #### Resource Evolution
+  - **Team Growth**: [Changes from Phase 0]
+  - **New Roles**: [Skills needed]
+  - **Technology**: [Scaling requirements]
+
+  #### Phase 1 Risks & Mitigation
+  [Risks for MVP phase]
+
+  ### Phase 2: Enhancement/Growth (Optional, include if discussed)
+  **Duration**: [Timeline or ❌ GAP]
+  **Objective**: [User expansion or feature depth]
+
+  #### Scope Evolution
+  **New Capabilities**:
+  - [Feature addition 1]
+  - [Feature addition 2]
+  **Enhanced Features**:
+  - [MVP feature enhancement]
+  **Technical Evolution** (Reference [[Technical-Feasibility]]):
+  - [Architecture improvements]
+  - [Technology additions]
+
+  #### Success Criteria Progression
+  [Evolved metrics from Phase 1]
+
+  #### Resource Scaling
+  - **Team Expansion**: [Growth]
+  - **Technology Investment**: [Additions]
+  - **Operational Needs**: [Support requirements]
+
+  ### Phase 3: Maturity/Scale (Optional, include if discussed)
+  [Repeat structure for additional phases]
+
+  ## Cross-Phase Analysis
+  ### Feature Evolution Timeline
+  | Feature Category | Phase 1 | Phase 2 | Phase 3 |
+  |------------------|---------|---------|---------|
+  | [Category 1] | [Scope] | [Enhancement] | [Advanced] |
+
+  ### Technology Roadmap (Reference [[Technical-Feasibility]])
+  #### Phase 1: Foundation Stack
+  - [Technology choices]
+  #### Phase 2: Scaling Stack
+  - [Technology additions]
+  #### Phase 3+: Advanced Stack
+  - [Technology evolution]
+
+  ### Resource Growth Trajectory
+  #### Team Evolution
+  | Phase | Team Size | Key Roles | Reasoning |
+  |-------|-----------|-----------|-----------|
+  | Phase 1 | [Size] | [Roles] | [Why] |
+
+  #### Budget Progression
+  [Financial requirements per phase]
+
+  ### Risk Evolution & Mitigation
+  #### Phase-Specific Risk Matrix
+  | Phase | Primary Risk | Probability | Impact | Mitigation |
+  |-------|--------------|-------------|--------|-------------|
+  | Phase 1 | [Risk] | [High/Med/Low] | [Impact] | [Strategy] |
+
+  ## Dependencies & Critical Path
+  ### Inter-Phase Dependencies
+  🔗 **Phase 1 Dependencies**:
+  - [Dependency 1]
+  🔗 **Phase 2 Dependencies**:
+  - [Dependency from Phase 1]
+
+  ### External Dependencies
+  - **Market**: [Conditions required]
+  - **Technology**: [Availability]
+  - **Regulatory**: [Compliance needs]
+
+  ### Critical Path Analysis
+  **Bottleneck Identification**: [Slowest elements]
+  **Parallel Development**: [Simultaneous tasks]
+  **Fast-Track Opportunities**: [Acceleration strategies]
+
+  ## Roadmap Evolution & Decision Points
+  ### 🔄 ROADMAP EVOLUTION
+  **Initial Plan**: [Original approach]
+  **Evolved to**: [Refined approach]
+  **Reasoning**: [Why changed]
+
+  ### Scope Trade-offs Made
+  **Moved Earlier**: [Accelerated features]
+  **Moved Later**: [Deferred features]
+  **Removed**: [Eliminated features]
+
+  ### Alternative Phasing Approaches
+  **Alternative 1**: [Different approach]
+  **Pros/Cons**: [Trade-offs]
+  **Why Rejected**: [Reasoning]
+
+  ## Open Roadmap Questions & Risks
+  ### ❌ ROADMAP GAPS
+  **Gap**: [Missing element]
+  **Impact**: [Execution impact]
+  **Resolution Needed By**: [Deadline]
+
+  ### ❓ UNCLEAR ROADMAP ELEMENTS
+  **Element**: [Ambiguous component]
+  **Clarification Needed**: [What to specify]
+  **Stakeholders**: [Who to consult]
+
+  ### 🔗 UNRESOLVED DEPENDENCIES
+  **Dependency**: [Unclear dependency]
+  **Risk**: [Impact if unresolved]
+  **Mitigation**: [Fallback plan]
+
+  ## Implementation Recommendations
+  ### Immediate Next Steps (Next 30 days)
+  1. [Priority action]
+  2. [Dependency to resolve]
+  3. [Resource decision]
+
+  ### Phase 1 Launch Preparation
+  [Key activities for MVP]
+
+  ### Long-term Strategic Considerations
+  [Factors affecting later phases]
+
+  ---
+  *Roadmap reflects phased execution strategy extracted from conversation. Review monthly and adjust based on phase completion metrics. All timelines and resources trace to conversation evidence.*
