@@ -1,0 +1,355 @@
+name: generate_requirements_documentation
+version: 1.0
+description: Production-ready software requirements specification following IEEE 830 standards and FAANG engineering practices
+output_type: markdown
+output_file: "{{project-name}}-requirements.md"
+
+# Document suite integration
+document_suite:
+  current_document: "REQUIREMENTS"
+  dependencies:
+    - product_research: "Validated user needs and market requirements"
+    - project_vision: "Strategic objectives and success criteria"
+    - user_feedback: "Direct user input, interview transcripts, survey results"
+  outputs_to:
+    - high_level_design: "Architectural decisions driven by these requirements"
+    - low_level_design: "Implementation specifications fulfilling these requirements"
+    - api_specifications: "Endpoint definitions supporting these features"
+    - test_plans: "Test cases validating requirement fulfillment"
+    - non_functional_requirements: "Performance and quality attributes"
+
+# Advanced role assignment for quality pattern activation
+role_assignment:
+  primary_role: "You are a senior product manager and systems analyst with expertise in enterprise software requirements engineering"
+  cognitive_approach: "Apply first principles thinking to requirement decomposition and IEEE 830 specification standards"
+  quality_context: "You are documenting requirements for a production system that will scale to millions of users, following FAANG-level engineering practices"
+  extraction_mandate: "Your task is to systematically extract and organize ALL requirement-related information from the conversation history into a comprehensive, traceable, and testable specification"
+
+# Cognitive allocation with systematic thinking activation
+processing_directives:
+  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY through systematic, step-by-step requirement analysis"
+  thinking_pattern: "For each requirement: 1) Extract evidence from conversation, 2) Decompose into atomic units, 3) Define acceptance criteria, 4) Establish traceability"
+  quality_bar: "Every requirement must be unambiguous, testable, traceable, and implementation-agnostic as per IEEE 830 standards"
+  extraction_depth: "Mine the conversation for both explicit requirements and implicit needs revealed through user pain points and desired outcomes"
+
+# Production-grade confidence markers
+confidence_markers:
+  verified_requirement: "✅ VERIFIED: Explicitly stated in conversation with clear user validation"
+  derived_requirement: "📊 DERIVED: Logically inferred from user needs - [cite specific evidence]"
+  assumed_requirement: "💡 ASSUMED: Industry standard practice for stated use case - [explain reasoning]"
+  unclear_requirement: "❓ CLARIFICATION NEEDED: Mentioned but ambiguous - [specify what needs clarification]"
+  missing_requirement: "🚨 REQUIREMENT GAP: Critical functionality not discussed - [explain why critical]"
+
+# Scope boundaries with enterprise-grade clarity
+scope:
+  in_scope:
+    - "Functional requirements (what the system MUST do)"
+    - "User stories with acceptance criteria"
+    - "Input/output specifications"
+    - "User interaction requirements"
+    - "Data requirements and constraints"
+    - "External interface requirements"
+  out_of_scope:
+    implementation_details: "→ [[Low-Level-Design]]"
+    performance_specs: "→ [[Non-Functional-Requirements]]"
+    technical_architecture: "→ [[High-Level-Design]]"
+    business_strategy: "→ [[Business-Strategy]]"
+    ui_mockups: "→ [[User-Flows-and-Mockups]]"
+
+# Information extraction with pattern recognition
+extraction_targets:
+  explicit_features: "Direct feature requests: 'users should be able to...', 'the system must...', 'we need...'"
+  user_goals: "Underlying objectives: 'to achieve...', 'so that...', 'in order to...'"
+  constraints: "Limitations mentioned: 'must not...', 'should avoid...', 'cannot exceed...'"
+  data_requirements: "Information needs: 'track...', 'store...', 'process...', 'analyze...'"
+  user_types: "Actor identification: 'admins can...', 'customers need...', 'operators should...'"
+  workflow_patterns: "Process descriptions: 'first they...', 'then the system...', 'finally...'"
+  integration_points: "External systems: 'integrate with...', 'import from...', 'export to...'"
+  compliance_needs: "Regulatory mentions: 'GDPR compliant...', 'audit trail...', 'data retention...'"
+
+# Requirement quality criteria (IEEE 830 inspired)
+requirement_quality:
+  unambiguous: "Each requirement has only one possible interpretation"
+  testable: "Clear pass/fail criteria can be defined"
+  traceable: "Linked to source (conversation excerpt) and downstream artifacts"
+  atomic: "Cannot be broken down further without losing meaning"
+  consistent: "No conflicts with other requirements"
+  prioritized: "Marked as MUST/SHOULD/COULD (MoSCoW method)"
+  complete: "All necessary information included for implementation"
+
+# User story extraction pattern
+user_story_pattern:
+  detection: "Extract actor, action, and benefit from conversational context"
+  format: "As a [user type], I want to [action] so that [benefit]"
+  acceptance_criteria: "Given [context], When [action], Then [outcome]"
+  priority_inference: "Infer from frequency of mention, pain point severity, or business impact"
+
+# Requirement categorization framework
+requirement_categories:
+  user_management: "Authentication, authorization, profile management, preferences"
+  core_functionality: "Primary features that deliver the main value proposition"
+  data_operations: "CRUD operations, search, filtering, sorting, import/export"
+  workflow_automation: "Business process automation, notifications, scheduled tasks"
+  integration_requirements: "API connections, third-party services, data synchronization"
+  reporting_analytics: "Dashboards, metrics, insights, data visualization"
+  communication_features: "Messaging, notifications, collaboration tools"
+  system_administration: "Configuration, monitoring, maintenance, audit trails"
+
+# Traceability matrix pattern
+traceability:
+  upstream: "Link to source conversation excerpt or user statement"
+  downstream: "Reference implementation documents that will fulfill this requirement"
+  validation: "Specify how requirement fulfillment will be verified"
+  dependencies: "Identify requirements that depend on or conflict with each other"
+
+# Wiki link management with strategic precision
+wiki_link_budget:
+  max_outbound_links: 8
+  priority_strategy: "Link only to documents providing essential context or containing dependent specifications"
+  link_purpose: "Each link must clarify scope boundaries or provide implementation direction"
+  
+wiki_patterns:
+  implementation_delegation: "[[Low-Level-Design#service-implementations]] (for HOW to implement)"
+  performance_delegation: "[[Non-Functional-Requirements#performance-targets]] (for speed/scale specs)"
+  interface_delegation: "[[API-Specifications#endpoint-definitions]] (for external interfaces)"
+  ui_delegation: "[[User-Flows-and-Mockups#screen-designs]] (for visual specifications)"
+
+# MoSCoW prioritization extraction
+priority_extraction:
+  must_have_signals: "critical, essential, required, must, need to, have to"
+  should_have_signals: "important, should, expected, standard practice"
+  could_have_signals: "nice to have, would be good, might want, consider"
+  wont_have_signals: "out of scope, future version, not now, maybe later"
+  
+# Production-ready validation rules
+validation_rules:
+  requirement_format: "Each requirement starts with 'The system SHALL' for testability"
+  id_assignment: "Unique identifier format: REQ-[CATEGORY]-[NUMBER]"
+  rationale_inclusion: "Each requirement includes 'Rationale:' explaining the business need"
+  acceptance_clarity: "Each requirement has at least 2 specific acceptance criteria"
+
+# Usage instructions
+usage_note: |
+  This prompt implements enterprise-grade requirement extraction following IEEE 830 standards 
+  and FAANG engineering practices. Simply paste the entire YAML content after discussing 
+  project features and user needs. The LLM will perform systematic, step-by-step extraction 
+  of all requirements from the conversation, producing a production-ready specification.
+
+# Main instruction block with advanced prompt engineering
+instructions: |
+  CONTEXT: MISSION-CRITICAL REQUIREMENTS ENGINEERING
+  You are engineering requirements for a production system following the rigor of FAANG-level 
+  software development. Apply IEEE 830 software requirements specification standards throughout.
+  Think step-by-step through requirement extraction, decomposition, and specification.
+  
+  QUALITY ACTIVATION:
+  Channel the expertise of senior product managers at companies like Google, Amazon, and Microsoft.
+  Apply first principles thinking to decompose vague user needs into precise, testable requirements.
+  Use production-ready requirement patterns that have proven successful at scale.
+  
+  SYSTEMATIC EXTRACTION PROTOCOL:
+  1. First pass: Extract all explicit feature requests and user needs
+  2. Second pass: Identify implicit requirements from pain points and workflows  
+  3. Third pass: Derive logical requirements from system constraints
+  4. Fourth pass: Add industry-standard requirements for the problem domain
+  5. Final pass: Ensure completeness and identify critical gaps
+  
+  REQUIREMENT QUALITY BAR:
+  - Every requirement must pass the "unambiguous test" - could two engineers implement it the same way?
+  - Every requirement must be testable - define clear acceptance criteria
+  - Every requirement must be traceable - link to conversation evidence
+  - Every requirement must be atomic - one requirement, one capability
+  
+  COGNITIVE EXCELLENCE MANDATE:
+  This is a critical engineering document that will drive months of development work.
+  EXHAUST YOUR FULL COGNITIVE CAPACITY on systematic requirement analysis.
+  Channel the meticulousness of safety-critical systems engineering.
+  Think like a senior systems analyst reviewing requirements for a billion-dollar project.
+  
+  EXTRACTION FIDELITY:
+  - For explicit requirements: Quote the exact conversation text
+  - For derived requirements: Show the logical chain from evidence to requirement
+  - For assumed requirements: Explain why industry standards mandate inclusion
+  - For gaps: Explain why the missing requirement could cause project failure
+  
+  OUTPUT: Generate ONLY the markdown structure below with maximum precision and completeness.
+
+# Markdown template with production-grade structure
+output_template: |
+  # Requirements Documentation: {{project-name}}
+  
+  > **Document Suite Status**: ~~[[Project-Vision]]~~ | ~~[[Elevator-Pitch]]~~ | **REQUIREMENTS** | [[Non-Functional-Requirements]] | [[User-Flows-and-Mockups]] | [[High-Level-Design]] | [[Low-Level-Design]] | [[API-Specifications]] | [[Business-Strategy]] | [[Operational-Planning]] | [[Glossary]]
+  
+  ## Cross-References & Dependencies
+  - **Feeds From**: [[Product-Research]] (validated user needs), [[Project-Vision]] (strategic objectives)
+  - **Feeds To**: [[High-Level-Design]] (architectural decisions), [[Low-Level-Design]] (implementation specs)
+  - **Validates**: [[User-Flows-and-Mockups]] (UI requirements), [[API-Specifications]] (interface requirements)
+  - **Constrains**: [[Non-Functional-Requirements]] (performance targets), [[Test-Plans]] (acceptance criteria)
+  
+  ## Executive Summary
+  
+  ### Requirement Overview
+  **Total Requirements Identified**: [Count of requirements extracted]
+  **Coverage Assessment**: [Percentage of user needs addressed]
+  **Critical Gaps**: [High-level summary of missing requirements]
+  
+  ### Requirement Statistics
+  | Priority | Count | Percentage |
+  |----------|-------|------------|
+  | Must Have (P0) | X | X% |
+  | Should Have (P1) | X | X% |
+  | Could Have (P2) | X | X% |
+  | Won't Have (P3) | X | X% |
+  
+  ## User Actors & Personas
+  [Extract all user types mentioned in conversation with their characteristics and needs]
+  
+  ### Primary Actors
+  #### [Actor Name]
+  - **Description**: [Role and characteristics extracted from conversation]
+  - **Key Goals**: [What this actor wants to achieve]
+  - **Pain Points**: [Current frustrations mentioned]
+  - **Technical Proficiency**: [Inferred from conversation context]
+  
+  ## Functional Requirements
+  
+  ### [Category Name] Requirements
+  [Group requirements by functional area based on requirement_categories framework]
+  
+  #### REQ-[CAT]-001: [Requirement Title]
+  **Requirement**: The system SHALL [specific capability description]
+  
+  **Rationale**: [Business reason extracted from conversation]
+  
+  **Source**: [Quote from conversation or indicate derivation]
+  - ✅ VERIFIED: "Direct quote from conversation showing this need"
+  - 📊 DERIVED: Based on [specific evidence] indicating this need
+  
+  **Acceptance Criteria**:
+  1. Given [context], when [action], then [expected result]
+  2. Given [context], when [action], then [expected result]
+  
+  **Priority**: MUST HAVE
+  
+  **Dependencies**: [Other requirements this depends on]
+  
+  **Notes**: [Any clarifications or implementation guidance]
+  
+  ## User Stories
+  [Extract user stories following the user_story_pattern]
+  
+  ### Story [ID]: [Story Title]
+  **As a** [user type]  
+  **I want to** [action/feature]  
+  **So that** [benefit/value]
+  
+  **Acceptance Criteria**:
+  - [ ] [Specific testable criterion]
+  - [ ] [Specific testable criterion]
+  
+  **Priority**: [MUST/SHOULD/COULD]
+  
+  **Conversation Evidence**: [Link to source discussion]
+  
+  ## Data Requirements
+  
+  ### Core Data Entities
+  [Extract data entities and attributes mentioned in conversation]
+  
+  #### [Entity Name]
+  **Purpose**: [Why this data is needed]
+  
+  **Required Attributes**:
+  - [Attribute]: [Type] - [Constraint/Description]
+  - [Attribute]: [Type] - [Constraint/Description]
+  
+  **Relationships**: [How this entity relates to others]
+  
+  **Data Volume**: [Expected scale if mentioned]
+  
+  **Retention**: [How long data must be kept]
+  
+  ## External Interface Requirements
+  
+  ### Integration Requirements
+  [Extract all external system integrations mentioned]
+  
+  #### REQ-INT-001: [External System] Integration
+  **Requirement**: The system SHALL integrate with [external system] to [purpose]
+  
+  **Interface Type**: [API/File/Database/etc.]
+  
+  **Data Exchange**: 
+  - **Inbound**: [What data comes from external system]
+  - **Outbound**: [What data goes to external system]
+  
+  **Frequency**: [Real-time/Batch/On-demand]
+  
+  **Error Handling**: The system SHALL [specify behavior when integration fails]
+  
+  ## Business Rules
+  [Extract domain-specific rules that constrain functionality]
+  
+  ### BR-001: [Business Rule Name]
+  **Rule**: [Specific business constraint or policy]
+  
+  **Rationale**: [Why this rule exists]
+  
+  **Implementation Impact**: [How this affects system behavior]
+  
+  **Source**: [Conversation evidence or industry standard]
+  
+  ## Requirement Validation Matrix
+  
+  ### Validation Methods
+  | Requirement ID | Validation Method | Test Scenario |
+  |----------------|-------------------|---------------|
+  | REQ-XXX-001 | [Unit/Integration/Manual] | [Brief test description] |
+  
+  ## Requirement Traceability Matrix
+  
+  ### Upstream Traceability
+  | Requirement ID | Source | Evidence |
+  |----------------|--------|----------|
+  | REQ-XXX-001 | User Interview | "Quote from conversation" |
+  
+  ### Downstream Traceability  
+  | Requirement ID | Implements In | Verified By |
+  |----------------|---------------|-------------|
+  | REQ-XXX-001 | [[Low-Level-Design#component]] | [[Test-Plan#test-case]] |
+  
+  ## Assumptions & Constraints
+  
+  ### Assumptions
+  - 💡 ASSUMED: [Industry standard assumption] - Rationale: [Why this is safe to assume]
+  
+  ### Constraints  
+  - [Technical/Business/Regulatory constraint extracted from conversation]
+  
+  ## Open Requirements & Clarifications Needed
+  
+  ### ❓ CLARIFICATION NEEDED
+  - **[Unclear Requirement Area]**: [What specifically needs clarification]
+    - Context: [What was mentioned in conversation]
+    - Impact: [Why this clarification is critical]
+    - Suggested Questions: [What to ask stakeholders]
+  
+  ### 🚨 REQUIREMENT GAPS
+  - **[Missing Requirement Category]**: [What critical functionality wasn't discussed]
+    - Criticality: [Why this is essential for system success]
+    - Standard Practice: [What similar systems typically include]
+    - Risk If Omitted: [Consequences of not addressing this]
+  
+  ## Requirement Change Log
+  
+  ### Version History
+  | Version | Date | Changes | Author |
+  |---------|------|---------|--------|
+  | 1.0 | [Generated Date] | Initial extraction from conversation | AI Assistant |
+  
+  ### Future Considerations
+  [Extract any "version 2" or "future enhancement" mentions from conversation]
+  
+  ---
+  
+  *This requirements document follows IEEE 830-1998 standards for software requirements specifications. All requirements are traceable to conversation evidence and designed for unambiguous implementation.*
