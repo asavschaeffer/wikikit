@@ -1,5 +1,5 @@
 name: generate_product_research_discovery_doc
-version: 1.0
+version: 1.1
 description: Comprehensive product research and discovery analysis for strategic product decisions
 output_type: markdown
 output_file: "{{project-name}}-product_research_discovery.md"
@@ -18,16 +18,31 @@ document_suite:
     - business_strategy: "Market opportunity and go-to-market approach"
     - elevator_pitch: "Value proposition and competitive differentiation"
 
+# Role assignment
+role_assignment:
+  primary_role: "You are an experienced product researcher and market analyst"
+  expertise_areas: "Competitive intelligence, user research synthesis, market opportunity assessment, strategic insight extraction"
+  task_context: "You are tasked with extracting and organizing research insights from conversation history for {{project-name}} to inform strategic product decisions"
+  perspective: "Approach this extraction with the analytical rigor of a strategy consultant and the systematic thoroughness of a research analyst"
+  
 # Cognitive allocation directives
 processing_directives:
-  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY on strategic analysis and insight synthesis"
+  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY on thorough information extraction and systematic organization"
   focus_areas:
-    - "Market problem analysis and competitive landscape assessment"
-    - "User research synthesis and persona development"
-    - "Strategic opportunity identification and validation framework"
-    - "Hypothesis formation with evidence-based reasoning"
-    - "Risk assessment and alternative approach evaluation"
-    - "Research-driven product strategy recommendations"
+    - "Complete extraction of market observations and competitive insights mentioned"
+    - "Comprehensive capture of user feedback, behavior patterns, and research findings discussed"
+    - "Systematic organization of scattered insights into research intelligence structure"
+    - "Pattern identification across extracted data points with clear evidence citations"
+    - "Gap identification where critical research information is missing from conversation"
+    - "Clear organization of insights to enable strategic decision-making in downstream documents"
+  
+# Confidence and transparency markers
+confidence_markers:
+  direct_evidence: "Directly stated in conversation with supporting context"
+  pattern_inference: "🔍 PATTERN: Synthesized from multiple conversation points - [cite specific examples]"
+  logical_connection: "📊 INFERENCE: Logical connection between stated points - [show reasoning]"
+  missing_critical_data: "❌ DATA GAP: Critical information not discussed - [specify what's needed]"
+  conversation_uncertainty: "❓ UNCLEAR: Mentioned but not fully explored in conversation"
 
 # Scope boundaries
 scope:
@@ -58,9 +73,8 @@ extraction_targets:
 # Scope validation rules
 scope_validation:
   strategic_focus: "Synthesize insights for strategic decision-making, not detailed feature specification"
-  research_orientation: "Focus on market intelligence and user understanding, not implementation details"
-  hypothesis_formation: "Convert observations into testable hypotheses with validation criteria"
-  evidence_based: "Ground all recommendations in research evidence and market data"
+  research_orientation: "Extract and organize research insights from conversation, not generate new research conclusions"
+  evidence_grounding: "All insights must be traceable to specific conversation content"
 
 # Research synthesis approach
 research_synthesis:
@@ -148,17 +162,18 @@ instructions: |
   - Identify critical research gaps and recommend follow-up investigation
   
   DECISION DOCUMENTATION:
-  - For validated insights: Document with supporting evidence (e.g., "73% of users report tool fatigue - validated through 47 interviews and 312-person survey")
-  - For strategic hypotheses: Mark as "🔬 HYPOTHESIS" with validation criteria (e.g., "🔬 HYPOTHESIS: Context-aware prioritization will improve task completion by 25% - validate through A/B testing")
-  - For research gaps: Mark as "🔍 RESEARCH NEEDED" with methodology (e.g., "🔍 RESEARCH NEEDED: Enterprise adoption patterns - conduct interviews with 10+ IT decision makers")
-  - For strategic recommendations: Mark as "⭐ STRATEGIC RECOMMENDATION" with reasoning (e.g., "⭐ STRATEGIC RECOMMENDATION: Focus on workflow integration over standalone tool - supported by user preference data")
+  - For direct conversation content: Document with conversation context (e.g., "User reported 73% tool fatigue based on survey of 312 participants")
+  - For conversation patterns: Mark as "🔍 PATTERN" with evidence (e.g., "🔍 PATTERN: Multiple users mentioned context-switching fatigue - cited in 5 separate user interviews")
+  - For logical connections: Mark as "📊 INFERENCE" with reasoning (e.g., "📊 INFERENCE: High abandonment rate suggests UI complexity issue - connecting user feedback on 'overwhelming interface' with 89% abandonment statistic")
+  - For missing information: Mark as "❌ DATA GAP" (e.g., "❌ DATA GAP: No enterprise adoption data collected - need interviews with IT decision makers")
+  - For unclear conversation points: Mark as "❓ UNCLEAR" (e.g., "❓ UNCLEAR: Pricing sensitivity mentioned but not quantified")
   
   OUTPUT REQUIREMENTS:
-  - Strategic intelligence that drives product decisions
-  - Evidence-based insights with clear supporting data
-  - Testable hypotheses with validation frameworks
-  - Actionable research recommendations for continued investigation
-  - Clear connections between research insights and strategic implications
+  - Comprehensive extraction of all research-related conversation content
+  - Systematic organization of insights to enable strategic decision-making
+  - Clear evidence trail from conversation to organized insights
+  - Explicit gap identification where conversation lacks critical research information
+  - Organized intelligence ready for strategic analysis in downstream documents
   - Output only the markdown document structure below
 
 # Markdown template
@@ -297,18 +312,25 @@ output_template: |
   ### Secondary Hypotheses
   [Additional testable hypotheses about user behavior, market dynamics, or technical approaches]
   
-  #### 🔬 HYPOTHESIS: [Hypothesis Name]
-  **Statement**: [Testable prediction about user behavior or market response]
-  **Evidence**: [Supporting research or logical reasoning]
-  **Risk**: [Potential failure modes or limiting factors]
+  #### 🔍 PATTERN: [Pattern Name]
+  **Extracted Evidence**: [Specific conversation points supporting this pattern]
+  **Connection**: [How conversation points connect to form this pattern]
+  **Implication**: [What this pattern suggests for product strategy]
+  
+  #### ❌ DATA GAP: [Missing Information]
+  **What's Missing**: [Specific research information not covered in conversation]
+  **Why Critical**: [Why this information is needed for strategic decisions]
+  **Suggested Research**: [How to obtain this missing information]
   
   ## Strategic Recommendations
   
   ### Product Strategy Direction
-  ⭐ **STRATEGIC RECOMMENDATION**: [Primary strategic direction with reasoning]
+  [Extract strategic direction discussed in conversation with supporting evidence]
   
-  **Phase 1 Approach**: [Initial product development priorities]
-  **Phase 2 Expansion**: [Subsequent development priorities]
+  **Phase 1 Approach**: [Extract initial priorities mentioned in conversation]
+  **Phase 2 Expansion**: [Extract future expansion ideas discussed]
+  
+  ❌ **DATA GAP**: [Note any strategic decisions that need more research/conversation]
   
   ### Go-to-Market Strategy Implications
   [Connect research insights to market entry strategy]
@@ -325,10 +347,10 @@ output_template: |
   ## Open Research Questions
   
   ### Critical Unknowns Requiring Further Investigation
-  🔍 **RESEARCH NEEDED**: [Critical questions that need answers for strategic decisions]
+  ❌ **DATA GAP**: [Extract gaps in research information from conversation]
   
-  ### Planned Follow-Up Research
-  [Recommended research activities with timelines and methodologies]
+  ### Research Directions Discussed
+  [Extract any follow-up research activities or methodologies mentioned in conversation]
   
   ## Research Artifacts & Data Sources
   
