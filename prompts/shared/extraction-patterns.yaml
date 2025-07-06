@@ -1,0 +1,150 @@
+# WikiKit Extraction Patterns v2.0
+# Advanced patterns for handling complex conversation dynamics
+
+version: 2.0
+description: "Comprehensive extraction patterns for real-world conversation complexity"
+
+# Core extraction targets (universal across prompts)
+universal_extraction:
+  explicit_statements: "Direct quotes, clear decisions, specific requirements mentioned"
+  implicit_needs: "Pain points, workflow descriptions, underlying objectives revealed"
+  constraints: "Limitations, boundaries, 'must not' statements affecting decisions"
+  evolution: "How opinions, requirements, or decisions changed throughout conversation"
+  alternatives: "Options considered, approaches evaluated, paths not taken"
+
+# v2.0 NEW: Conflict resolution patterns
+conflict_resolution:
+  contradictions:
+    pattern: "When conversation contains conflicting details, prioritize most recent, detailed, or contextually relevant statement"
+    marker: "🔄 EVOLVED"
+    example: "Initially 'mobile-first' → Changed to 'web-first' due to user research showing 80% desktop usage"
+
+  alternatives_without_decision:
+    pattern: "When multiple valid options discussed without clear choice, mark as clarification needed"
+    marker: "❓ UNCLEAR"
+    example: "❓ UNCLEAR: Authentication method - JWT vs OAuth vs SSO - needs stakeholder decision"
+
+  half_formed_ideas:
+    pattern: "Extract incomplete thoughts and mark gaps with specific detail needed"
+    marker: "❌ GAP"
+    example: "❌ GAP: Mentioned 'some kind of analytics' but no specifics → Need to define metrics and reporting requirements"
+
+  stakeholder_disagreement:
+    pattern: "When different participants express different needs, capture both with source attribution"
+    format: "[Participant A]: [their view] vs [Participant B]: [their view]"
+    resolution: "Mark as ❓ UNCLEAR requiring stakeholder alignment"
+
+# v2.0 NEW: Dynamic category generation
+dynamic_categories:
+  pattern: "When conversation reveals domain-specific areas not covered by defaults, create new categories"
+  trigger_phrases:
+    - "regulatory compliance"
+    - "machine learning training"
+    - "IoT device management"
+    - "financial calculations"
+    - "clinical workflows"
+    - "gaming mechanics"
+    - "content moderation"
+
+  implementation:
+    detect: "Look for repeated mention of specialized domain concepts"
+    create: "Generate category name and purpose based on conversation context"
+    document: "Explain why new category was needed and what it covers"
+
+  examples:
+    fintech: "regulatory_compliance: 'KYC verification, AML monitoring, compliance reporting'"
+    healthcare: "clinical_workflows: 'Patient intake, diagnosis tracking, treatment protocols'"
+    gaming: "game_mechanics: 'Player progression, reward systems, difficulty scaling'"
+
+# Conversation evolution tracking
+evolution_patterns:
+  opinion_shifts:
+    extract: "Track when participants change their minds with reasons"
+    format: "Initially [original view] → Changed to [new view] because [reason from conversation]"
+    marker: "🔄 EVOLVED"
+
+  scope_changes:
+    extract: "Features added, removed, or moved between phases"
+    format: "Feature [X] moved from [Phase A] to [Phase B] due to [reasoning]"
+
+  requirement_refinement:
+    extract: "How vague requirements became specific through discussion"
+    format: "Refined from '[vague statement]' to '[specific requirement]' via [clarification process]"
+
+# Evidence strength assessment
+evidence_hierarchy:
+  tier_1_verified:
+    strength: "Direct quotes, explicit decisions, clear statements"
+    marker: "✅ VERIFIED"
+    requirement: "Must include quote or paraphrase with context"
+
+  tier_2_derived:
+    strength: "Logical inference from conversation evidence"
+    marker: "📊 DERIVED"
+    requirement: "Must show evidence chain: [A] + [B] → [conclusion]"
+
+  tier_3_assumed:
+    strength: "Industry standard applied to fill conversation gaps"
+    marker: "💡 ASSUMPTION"
+    requirement: "Must explain reasoning based on conversation context"
+
+  tier_4_unclear:
+    strength: "Mentioned but not fully explored"
+    marker: "❓ UNCLEAR"
+    requirement: "Must specify what clarification is needed"
+
+# Context window optimization
+conversation_threading:
+  temporal_tracking: "Track when in conversation decisions were made"
+  reference_format: "[Message/timestamp reference if available]"
+  evolution_chains: "Link related decisions across conversation timeline"
+  contradiction_detection: "Flag when later statements conflict with earlier ones"
+
+# Domain adaptation patterns
+domain_specialization:
+  technology_detection:
+    triggers: ["React", "Python", "PostgreSQL", "AWS", "Kubernetes"]
+    adaptation: "Adjust all examples to match detected technology stack"
+
+  industry_detection:
+    healthcare: ["HIPAA", "clinical", "patient", "diagnosis", "treatment"]
+    fintech: ["KYC", "AML", "compliance", "trading", "payments"]
+    gaming: ["player", "levels", "achievements", "monetization", "retention"]
+    adaptation: "Create domain-appropriate categories and examples"
+
+  scale_detection:
+    startup: ["MVP", "validate", "lean", "bootstrap"]
+    enterprise: ["compliance", "governance", "audit", "SOC2"]
+    adaptation: "Adjust complexity and requirements accordingly"
+
+# Quality validation patterns
+extraction_validation:
+  completeness_check: "Scan conversation for unextracted insights"
+  consistency_check: "Ensure marker usage follows standards"
+  traceability_check: "Verify all extractions link to conversation evidence"
+  gap_assessment: "Identify critical missing information"
+
+# Anti-patterns to avoid
+extraction_anti_patterns:
+  hallucination: "Adding features, requirements, or decisions not discussed in conversation"
+  assumption_injection: "Filling gaps with 'best practices' not grounded in conversation context"
+  scope_creep: "Extracting implementation details when prompt focuses on requirements"
+  marker_inconsistency: "Using different marker formats across sections"
+  evidence_weakness: "Making claims without clear conversation support"
+
+# Advanced techniques
+advanced_patterns:
+  pattern_recognition:
+    identify: "Recurring themes across multiple conversation points"
+    synthesize: "Connect related insights into coherent patterns"
+    validate: "Ensure patterns are supported by evidence, not assumed"
+
+  hypothesis_extraction:
+    source: "Only extract hypotheses actually discussed in conversation"
+    format: "Hypothesis: [statement] based on [conversation evidence]"
+    validation: "Include testing approach if discussed"
+
+  strategic_insight_synthesis:
+    cluster: "Group related observations into strategic themes"
+    connect: "Link insights to business implications when connection is made in conversation"
+    prioritize: "Rank insights by evidence strength and strategic impact"
