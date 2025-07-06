@@ -1,5 +1,5 @@
 name: generate_technical_feasibility_adr
-version: 1.0
+version: 1.1
 description: Enterprise-grade technical feasibility analysis and Architecture Decision Records following FAANG practices
 output_type: markdown
 output_file: "{{project-name}}-technical_feasibility_adr.md"
@@ -33,12 +33,27 @@ processing_directives:
   extraction_mandate: "Mine conversation for both explicit technology choices and implicit constraints revealed through requirements and concerns"
 
 # Production-grade decision tracking
-decision_confidence:
-  validated_decision: "✅ DECISION VALIDATED: Explicitly chosen in conversation with clear rationale"
-  derived_decision: "📐 ARCHITECTURALLY DERIVED: Logical consequence of stated constraints - [trace reasoning]"
-  industry_standard: "🏭 INDUSTRY BEST PRACTICE: Following proven patterns for this problem space - [cite precedent]"
-  decision_required: "🔍 DECISION REQUIRED: Multiple viable options need evaluation - [present trade-offs]"
-  risk_identified: "⚠️ TECHNICAL RISK: Potential issue requiring mitigation - [assess probability and impact]"
+decision_markers:
+  - type: validated
+    marker: "✅ DECISION VALIDATED"
+    description: "Explicitly chosen in conversation with clear rationale"
+    example: "✅ DECISION VALIDATED: PostgreSQL selected based on ACID requirements discussed"
+  - type: derived
+    marker: "📐 ARCHITECTURALLY DERIVED"
+    description: "Logical consequence of stated constraints"
+    example: "📐 ARCHITECTURALLY DERIVED: Microservices needed due to team autonomy requirement"
+  - type: standard
+    marker: "🏭 INDUSTRY BEST PRACTICE"
+    description: "Following proven patterns for this problem space"
+    example: "🏭 INDUSTRY BEST PRACTICE: JWT for stateless authentication in distributed system"
+  - type: required
+    marker: "🔍 DECISION REQUIRED"
+    description: "Multiple viable options need evaluation"
+    example: "🔍 DECISION REQUIRED: Container orchestration - Kubernetes vs ECS vs Cloud Run"
+  - type: risk
+    marker: "⚠️ TECHNICAL RISK"
+    description: "Potential issue requiring mitigation"
+    example: "⚠️ TECHNICAL RISK: Database scaling beyond 10TB requires sharding strategy"
 
 # Scope boundaries with architectural precision
 scope:
@@ -71,71 +86,102 @@ extraction_targets:
 # ADR structure following ThoughtWorks/FAANG patterns
 adr_framework:
   title_format: "ADR-[NUMBER]: [DECISION TITLE]"
-  sections:
-    - status: "Proposed/Accepted/Deprecated/Superseded"
-    - context: "Forces and constraints driving this decision"
-    - decision: "The choice made and specific implementation approach"
-    - consequences: "Positive, negative, and neutral outcomes"
-    - alternatives_considered: "Other options evaluated with pros/cons"
-    - references: "Links to conversation evidence and industry examples"
+  required_sections:
+    - section: status
+      options: ["Proposed", "Accepted", "Deprecated", "Superseded"]
+      description: "Current state of the decision"
+    - section: context
+      description: "Forces and constraints driving this decision"
+    - section: decision
+      description: "The choice made and specific implementation approach"
+    - section: consequences
+      description: "Positive, negative, and neutral outcomes"
+    - section: alternatives_considered
+      description: "Other options evaluated with pros/cons"
+    - section: references
+      description: "Links to conversation evidence and industry examples"
 
-# Feasibility assessment criteria
+# Feasibility assessment dimensions
 feasibility_dimensions:
-  technical_feasibility:
-    - implementation_complexity: "Can it be built with available technology?"
-    - integration_challenges: "Will it work with required external systems?"
-    - performance_achievability: "Can it meet stated performance requirements?"
-    - scalability_potential: "Will it scale to projected user base?"
-  
-  team_feasibility:
-    - skill_availability: "Does team have required expertise?"
-    - learning_curve: "How long to become productive?"
-    - hiring_requirements: "What skills need to be acquired?"
-    
-  timeline_feasibility:
-    - development_velocity: "Can it be built in time?"
-    - critical_path_risks: "What could delay delivery?"
-    - phasing_opportunities: "Can it be delivered incrementally?"
-    
-  operational_feasibility:
-    - deployment_complexity: "Can it be reliably deployed?"
-    - maintenance_burden: "Can it be operated long-term?"
-    - monitoring_capability: "Can problems be detected and fixed?"
+  technical:
+    implementation_complexity: "Can it be built with available technology?"
+    integration_challenges: "Will it work with required external systems?"
+    performance_achievability: "Can it meet stated performance requirements?"
+    scalability_potential: "Will it scale to projected user base?"
+  team:
+    skill_availability: "Does team have required expertise?"
+    learning_curve: "How long to become productive?"
+    hiring_requirements: "What skills need to be acquired?"
+  timeline:
+    development_velocity: "Can it be built in time?"
+    critical_path_risks: "What could delay delivery?"
+    phasing_opportunities: "Can it be delivered incrementally?"
+  operational:
+    deployment_complexity: "Can it be reliably deployed?"
+    maintenance_burden: "Can it be operated long-term?"
+    monitoring_capability: "Can problems be detected and fixed?"
 
 # Risk assessment framework
 risk_framework:
-  risk_categories:
-    - technical_risks: "Technology immaturity, integration complexity, performance uncertainty"
-    - execution_risks: "Team capability gaps, timeline pressure, scope creep"
-    - operational_risks: "Deployment failures, scaling issues, security vulnerabilities"
-    - strategic_risks: "Vendor lock-in, technology obsolescence, architectural debt"
-  
-  risk_assessment:
-    - probability: "Low (unlikely) / Medium (possible) / High (probable)"
-    - impact: "Low (minor inconvenience) / Medium (significant effort) / High (project failure)"
-    - mitigation: "Specific actions to reduce probability or impact"
+  categories:
+    - name: technical
+      examples: "Technology immaturity, integration complexity, performance uncertainty"
+    - name: execution
+      examples: "Team capability gaps, timeline pressure, scope creep"
+    - name: operational
+      examples: "Deployment failures, scaling issues, security vulnerabilities"
+    - name: strategic
+      examples: "Vendor lock-in, technology obsolescence, architectural debt"
+  assessment_dimensions:
+    probability:
+      levels: ["Low (unlikely)", "Medium (possible)", "High (probable)"]
+      quantify: "Include percentage if conversation provides data"
+    impact:
+      levels: ["Low (minor inconvenience)", "Medium (significant effort)", "High (project failure)"]
+      quantify: "Specify consequences in concrete terms"
+    mitigation:
+      required: "Specific actions to reduce probability or impact"
 
 # Technology evaluation matrix
 tech_evaluation:
   criteria:
-    - maturity: "Production-ready vs experimental"
-    - community: "Active development and support"
-    - performance: "Meets speed/scale requirements"
-    - cost: "Licensing, infrastructure, operational costs"
-    - team_fit: "Alignment with existing skills"
-    - ecosystem: "Available tools, libraries, integrations"
-  scoring: "Rate each option 1-5 with evidence-based justification"
+    - name: maturity
+      description: "Production-ready vs experimental"
+      weight_factors: "Criticality of system, risk tolerance"
+    - name: community
+      description: "Active development and support"
+      weight_factors: "Long-term maintenance needs"
+    - name: performance
+      description: "Meets speed/scale requirements"
+      weight_factors: "Performance requirements stringency"
+    - name: cost
+      description: "Licensing, infrastructure, operational costs"
+      weight_factors: "Budget constraints mentioned"
+    - name: team_fit
+      description: "Alignment with existing skills"
+      weight_factors: "Timeline pressure, training budget"
+    - name: ecosystem
+      description: "Available tools, libraries, integrations"
+      weight_factors: "Integration requirements complexity"
+  scoring_method: "1-5 scale with evidence-based justification"
 
 # Trade-off analysis patterns
 tradeoff_patterns:
   common_tradeoffs:
-    - "Simplicity vs Flexibility"
-    - "Performance vs Maintainability"  
-    - "Cost vs Scalability"
-    - "Time-to-market vs Technical Debt"
-    - "Build vs Buy"
-    - "Monolith vs Microservices"
-    - "Consistency vs Availability"
+    - name: "Simplicity vs Flexibility"
+      when_relevant: "Uncertain future requirements"
+    - name: "Performance vs Maintainability"
+      when_relevant: "High performance requirements"
+    - name: "Cost vs Scalability"
+      when_relevant: "Budget constraints with growth projections"
+    - name: "Time-to-market vs Technical Debt"
+      when_relevant: "Aggressive deadlines"
+    - name: "Build vs Buy"
+      when_relevant: "Commodity functionality needed"
+    - name: "Monolith vs Microservices"
+      when_relevant: "Team structure and scaling needs"
+    - name: "Consistency vs Availability"
+      when_relevant: "Distributed system requirements"
 
 # Wiki link management with strategic focus
 wiki_link_budget:
@@ -148,14 +194,53 @@ wiki_patterns:
   constraint_sources: "[[Requirements#core-functionality]] (when features drive feasibility)"
   risk_mitigation: "[[Security-Architecture#threat-model]] (when security risks are identified)"
 
-# Production readiness checklist pattern
-readiness_assessment:
+# Production readiness checklist
+readiness_checklist:
   categories:
-    - scalability: "Load testing approach, capacity planning, auto-scaling strategy"
-    - reliability: "Failure modes, recovery procedures, SLA targets"
-    - security: "Threat model, security controls, compliance requirements"
-    - operability: "Deployment process, monitoring strategy, runbook completeness"
-    - maintainability: "Code quality standards, documentation, knowledge transfer"
+    - name: scalability
+      items: ["Load testing approach", "Capacity planning", "Auto-scaling strategy"]
+    - name: reliability
+      items: ["Failure modes identified", "Recovery procedures", "SLA targets"]
+    - name: security
+      items: ["Threat model complete", "Security controls", "Compliance requirements"]
+    - name: operability
+      items: ["Deployment automation", "Rollback tested", "Runbook completeness"]
+    - name: maintainability
+      items: ["Code quality standards", "Documentation", "Knowledge transfer"]
+
+# Systematic feasibility protocol
+feasibility_protocol:
+  steps:
+    - phase: "Context Extraction"
+      actions:
+        - "Mine conversation for all technical constraints and requirements"
+        - "Identify explicit technology preferences and decisions"
+        - "Extract implicit constraints from business requirements"
+    - phase: "Constraint Analysis"
+      actions:
+        - "Categorize constraints as hard (immutable) vs soft (flexible)"
+        - "Identify which technical options each constraint eliminates"
+        - "Map constraints to their sources in conversation"
+    - phase: "Alternative Generation"
+      actions:
+        - "Generate viable options based on remaining solution space"
+        - "Consider both conventional and innovative approaches"
+        - "Ensure each alternative could feasibly meet requirements"
+    - phase: "Trade-off Evaluation"
+      actions:
+        - "Score each alternative against evaluation criteria"
+        - "Apply weights based on project priorities"
+        - "Document pros/cons with specific evidence"
+    - phase: "Risk Assessment"
+      actions:
+        - "Identify risks for each alternative"
+        - "Quantify probability and impact"
+        - "Develop mitigation strategies"
+    - phase: "Decision Documentation"
+      actions:
+        - "Create ADRs capturing full decision context"
+        - "Link decisions to evidence and rationale"
+        - "Document rejected alternatives and why"
 
 # Usage instructions
 usage_note: |
@@ -177,18 +262,15 @@ instructions: |
   Apply the systematic thinking used in Amazon's famous 6-page technical documents.
   Consider decisions through the lens of "two-pizza teams" and microservice boundaries.
   
-  SYSTEMATIC FEASIBILITY PROTOCOL:
-  1. Context Extraction: Mine conversation for all technical constraints and requirements
-  2. Constraint Analysis: Identify hard limits that eliminate certain options
-  3. Alternative Generation: Consider multiple viable approaches based on constraints
-  4. Trade-off Evaluation: Systematically compare options across multiple dimensions
-  5. Risk Assessment: Identify and quantify technical, execution, and operational risks
-  6. Decision Documentation: Create ADRs that will guide development for years
+  SYSTEMATIC APPROACH:
+  Follow the feasibility_protocol defined above, working through each phase systematically.
+  Use the structured frameworks (adr_framework, risk_framework, tech_evaluation) to ensure
+  comprehensive analysis. Apply decision_markers consistently throughout.
   
   ADR QUALITY BAR:
   - Every decision must include sufficient context for someone to understand it in 2 years
   - Every alternative must be fairly evaluated with intellectual honesty
-  - Every risk must be quantified with probability and impact assessment
+  - Every risk must be quantified using the risk_framework dimensions
   - Every choice must be traceable to conversation evidence or industry best practices
   
   TECHNICAL RIGOR MANDATE:
