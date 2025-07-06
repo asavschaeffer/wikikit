@@ -1,13 +1,1 @@
-# Ignore selected YAML files in wikikit repo
 
-# architecture
-prompts/full/architecture/api-specifications.yaml
-prompts/full/architecture/high-level-design.yaml
-prompts/full/architecture/low-level-design.yaml
-
-# planning
-prompts/full/planning/product-research-discovery.yaml
-prompts/full/planning/technical-feasibility-adr.yaml
-
-# requirements
-prompts/full/requirements/functional-requirements.yaml
