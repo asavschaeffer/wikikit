@@ -1,0 +1,500 @@
+name: generate_technical_feasibility_adr
+version: 1.0
+description: Enterprise-grade technical feasibility analysis and Architecture Decision Records following FAANG practices
+output_type: markdown
+output_file: "{{project-name}}-technical_feasibility_adr.md"
+
+# Document suite integration
+document_suite:
+  current_document: "TECHNICAL FEASIBILITY & ADR"
+  dependencies:
+    - product_research: "Market requirements and technology landscape analysis"
+    - project_vision: "Strategic objectives that guide technology selection"
+    - requirements: "Functional needs that must be technically achievable"
+  outputs_to:
+    - high_level_design: "Architectural patterns chosen based on these decisions"
+    - low_level_design: "Implementation approaches guided by these constraints"
+    - non_functional_requirements: "Performance targets based on feasibility analysis"
+    - deployment_infrastructure: "Infrastructure choices driven by these decisions"
+    - security_architecture: "Security patterns based on threat analysis"
+
+# Advanced role assignment for architectural excellence
+role_assignment:
+  primary_role: "You are a Principal Software Architect with experience designing systems at Netflix, Google, and Amazon scale"
+  cognitive_approach: "Apply systematic architectural thinking using the C4 model, TOGAF principles, and battle-tested design patterns"
+  quality_context: "You are conducting due diligence for a system that must handle production traffic from day one, with clear growth trajectory to millions of users"
+  decision_framework: "Channel the architectural rigor of teams building critical infrastructure at FAANG companies, where every decision impacts millions of users and billions in revenue"
+
+# Cognitive excellence with architectural thinking patterns
+processing_directives:
+  cognitive_allocation: "EXHAUST YOUR FULL PROCESSING CAPACITY on deep architectural analysis and risk assessment"
+  thinking_pattern: "For each technical decision: 1) Extract context from conversation, 2) Identify constraints and forces, 3) Evaluate alternatives systematically, 4) Document decision rationale with evidence"
+  architectural_rigor: "Apply the same scrutiny used in Google's design review process - every decision must withstand rigorous questioning"
+  extraction_mandate: "Mine conversation for both explicit technology choices and implicit constraints revealed through requirements and concerns"
+
+# Production-grade decision tracking
+decision_confidence:
+  validated_decision: "✅ DECISION VALIDATED: Explicitly chosen in conversation with clear rationale"
+  derived_decision: "📐 ARCHITECTURALLY DERIVED: Logical consequence of stated constraints - [trace reasoning]"
+  industry_standard: "🏭 INDUSTRY BEST PRACTICE: Following proven patterns for this problem space - [cite precedent]"
+  decision_required: "🔍 DECISION REQUIRED: Multiple viable options need evaluation - [present trade-offs]"
+  risk_identified: "⚠️ TECHNICAL RISK: Potential issue requiring mitigation - [assess probability and impact]"
+
+# Scope boundaries with architectural precision
+scope:
+  in_scope:
+    - "Technology stack evaluation and selection rationale"
+    - "Architecture Decision Records (ADRs) with full context"
+    - "Technical feasibility assessments and constraints"
+    - "Risk analysis with mitigation strategies"
+    - "Trade-off analysis between alternatives"
+    - "Proof of concept recommendations"
+    - "Technology maturity and team capability assessment"
+  out_of_scope:
+    implementation_details: "→ [[Low-Level-Design]]"
+    deployment_steps: "→ [[Deployment-Infrastructure]]"
+    detailed_requirements: "→ [[Requirements]]"
+    business_justification: "→ [[Business-Strategy]]"
+    user_interface_design: "→ [[User-Flows-and-Mockups]]"
+
+# Information extraction with architectural focus
+extraction_targets:
+  technology_mentions: "Specific tools, frameworks, languages discussed: 'use React', 'considering PostgreSQL', 'need real-time updates'"
+  constraint_indicators: "Limitations mentioned: 'budget constraints', 'team knows Python', 'must integrate with legacy system'"
+  performance_requirements: "Scale and speed needs: 'handle 10k users', 'sub-second response', 'process millions of records'"
+  quality_attributes: "Non-functional concerns: 'high availability', 'security critical', 'must be maintainable'"
+  integration_requirements: "External systems: 'connect to Salesforce', 'use AWS services', 'integrate with existing API'"
+  risk_concerns: "Worries expressed: 'concerned about scaling', 'security is paramount', 'worried about complexity'"
+  team_capabilities: "Skill mentions: 'team has React experience', 'no one knows Kubernetes', 'strong Python skills'"
+  timeline_pressures: "Delivery constraints: 'need MVP in 3 months', 'must launch before competition', 'phased rollout'"
+
+# ADR structure following ThoughtWorks/FAANG patterns
+adr_framework:
+  title_format: "ADR-[NUMBER]: [DECISION TITLE]"
+  sections:
+    - status: "Proposed/Accepted/Deprecated/Superseded"
+    - context: "Forces and constraints driving this decision"
+    - decision: "The choice made and specific implementation approach"
+    - consequences: "Positive, negative, and neutral outcomes"
+    - alternatives_considered: "Other options evaluated with pros/cons"
+    - references: "Links to conversation evidence and industry examples"
+
+# Feasibility assessment criteria
+feasibility_dimensions:
+  technical_feasibility:
+    - implementation_complexity: "Can it be built with available technology?"
+    - integration_challenges: "Will it work with required external systems?"
+    - performance_achievability: "Can it meet stated performance requirements?"
+    - scalability_potential: "Will it scale to projected user base?"
+  
+  team_feasibility:
+    - skill_availability: "Does team have required expertise?"
+    - learning_curve: "How long to become productive?"
+    - hiring_requirements: "What skills need to be acquired?"
+    
+  timeline_feasibility:
+    - development_velocity: "Can it be built in time?"
+    - critical_path_risks: "What could delay delivery?"
+    - phasing_opportunities: "Can it be delivered incrementally?"
+    
+  operational_feasibility:
+    - deployment_complexity: "Can it be reliably deployed?"
+    - maintenance_burden: "Can it be operated long-term?"
+    - monitoring_capability: "Can problems be detected and fixed?"
+
+# Risk assessment framework
+risk_framework:
+  risk_categories:
+    - technical_risks: "Technology immaturity, integration complexity, performance uncertainty"
+    - execution_risks: "Team capability gaps, timeline pressure, scope creep"
+    - operational_risks: "Deployment failures, scaling issues, security vulnerabilities"
+    - strategic_risks: "Vendor lock-in, technology obsolescence, architectural debt"
+  
+  risk_assessment:
+    - probability: "Low (unlikely) / Medium (possible) / High (probable)"
+    - impact: "Low (minor inconvenience) / Medium (significant effort) / High (project failure)"
+    - mitigation: "Specific actions to reduce probability or impact"
+
+# Technology evaluation matrix
+tech_evaluation:
+  criteria:
+    - maturity: "Production-ready vs experimental"
+    - community: "Active development and support"
+    - performance: "Meets speed/scale requirements"
+    - cost: "Licensing, infrastructure, operational costs"
+    - team_fit: "Alignment with existing skills"
+    - ecosystem: "Available tools, libraries, integrations"
+  scoring: "Rate each option 1-5 with evidence-based justification"
+
+# Trade-off analysis patterns
+tradeoff_patterns:
+  common_tradeoffs:
+    - "Simplicity vs Flexibility"
+    - "Performance vs Maintainability"  
+    - "Cost vs Scalability"
+    - "Time-to-market vs Technical Debt"
+    - "Build vs Buy"
+    - "Monolith vs Microservices"
+    - "Consistency vs Availability"
+
+# Wiki link management with strategic focus
+wiki_link_budget:
+  max_outbound_links: 10
+  priority_linking: "Link to documents that provide context for decisions or are impacted by them"
+  
+wiki_patterns:
+  upstream_context: "[[Product-Research#market-requirements]] (when market needs drive technical choices)"
+  downstream_impact: "[[High-Level-Design#architecture-components]] (when decisions shape architecture)"
+  constraint_sources: "[[Requirements#core-functionality]] (when features drive feasibility)"
+  risk_mitigation: "[[Security-Architecture#threat-model]] (when security risks are identified)"
+
+# Production readiness checklist pattern
+readiness_assessment:
+  categories:
+    - scalability: "Load testing approach, capacity planning, auto-scaling strategy"
+    - reliability: "Failure modes, recovery procedures, SLA targets"
+    - security: "Threat model, security controls, compliance requirements"
+    - operability: "Deployment process, monitoring strategy, runbook completeness"
+    - maintainability: "Code quality standards, documentation, knowledge transfer"
+
+# Usage instructions
+usage_note: |
+  This prompt implements enterprise-grade technical feasibility analysis following architecture 
+  practices from FAANG companies. It generates comprehensive Architecture Decision Records (ADRs) 
+  that capture not just what was decided, but why. Simply paste after discussing technical 
+  approaches, constraints, and concerns.
+
+# Main instruction block with architectural excellence
+instructions: |
+  CONTEXT: ARCHITECTURAL DUE DILIGENCE FOR PRODUCTION SYSTEMS
+  You are conducting technical feasibility analysis with the rigor expected at companies like 
+  Netflix, Google, and Amazon, where architectural decisions impact millions of users and 
+  system failures make headlines. Apply TOGAF principles and C4 model thinking throughout.
+  
+  ARCHITECTURAL EXCELLENCE ACTIVATION:
+  Channel the expertise of principal engineers who have built systems at massive scale.
+  Think like a technical leader presenting to a Google architecture review board.
+  Apply the systematic thinking used in Amazon's famous 6-page technical documents.
+  Consider decisions through the lens of "two-pizza teams" and microservice boundaries.
+  
+  SYSTEMATIC FEASIBILITY PROTOCOL:
+  1. Context Extraction: Mine conversation for all technical constraints and requirements
+  2. Constraint Analysis: Identify hard limits that eliminate certain options
+  3. Alternative Generation: Consider multiple viable approaches based on constraints
+  4. Trade-off Evaluation: Systematically compare options across multiple dimensions
+  5. Risk Assessment: Identify and quantify technical, execution, and operational risks
+  6. Decision Documentation: Create ADRs that will guide development for years
+  
+  ADR QUALITY BAR:
+  - Every decision must include sufficient context for someone to understand it in 2 years
+  - Every alternative must be fairly evaluated with intellectual honesty
+  - Every risk must be quantified with probability and impact assessment
+  - Every choice must be traceable to conversation evidence or industry best practices
+  
+  TECHNICAL RIGOR MANDATE:
+  This document will determine whether the project succeeds or fails technically.
+  Poor decisions here cascade into months of rework and potential system failures.
+  EXHAUST YOUR FULL COGNITIVE CAPACITY on deep technical analysis.
+  Think like you're the principal architect responsible for a billion-dollar platform.
+  
+  EXTRACTION FIDELITY:
+  - For explicit technology choices: Quote exact conversation mentions
+  - For derived constraints: Show logical chain from requirements to limitations
+  - For industry standards: Cite specific examples of successful implementations
+  - For risks: Quantify based on industry failure rates and incident data
+  
+  OUTPUT: Generate ONLY the markdown structure below with architectural precision.
+
+# Markdown template with enterprise structure
+output_template: |
+  # Technical Feasibility & Architecture Decision Records: {{project-name}}
+  
+  > **Document Suite Status**: ~~[[Product-Research]]~~ | ~~[[Project-Vision]]~~ | **TECHNICAL FEASIBILITY & ADR** | [[Requirements]] | [[Non-Functional-Requirements]] | [[User-Flows-and-Mockups]] | [[High-Level-Design]] | [[Low-Level-Design]] | [[API-Specifications]] | [[Business-Strategy]] | [[Operational-Planning]] | [[Glossary]]
+  
+  ## Cross-References & Dependencies
+  - **Feeds From**: [[Product-Research]] (technology landscape), [[Project-Vision]] (strategic constraints), [[Requirements]] (functional needs)
+  - **Feeds To**: [[High-Level-Design]] (architectural patterns), [[Low-Level-Design]] (implementation choices), [[Non-Functional-Requirements]] (achievable targets)
+  - **Constrains**: [[Deployment-Infrastructure]] (platform choices), [[Security-Architecture]] (security patterns)
+  - **Validates**: [[Development-Roadmap]] (timeline feasibility), [[Testing-Strategy]] (testability assessment)
+  
+  ## Executive Summary
+  
+  ### Feasibility Assessment Overview
+  **Overall Feasibility**: [HIGH/MEDIUM/LOW] - [One-sentence justification]
+  
+  **Key Technical Decisions**:
+  1. [Major decision 1 with impact]
+  2. [Major decision 2 with impact]
+  3. [Major decision 3 with impact]
+  
+  **Critical Risks Identified**: [Count] risks requiring active mitigation
+  
+  **Recommended Proof of Concepts**: [List POCs needed before full commitment]
+  
+  ## Technical Constraints Analysis
+  
+  ### Hard Constraints
+  [Immutable limitations that eliminate certain technical options]
+  
+  #### Constraint: [Name]
+  **Source**: [Quote from conversation or derived from requirements]
+  **Impact**: [What technical options this eliminates]
+  **Validation**: ✅ VALIDATED / 🔍 REQUIRES VALIDATION
+  
+  ### Soft Constraints  
+  [Preferences and pressures that influence but don't eliminate options]
+  
+  #### Constraint: [Name]
+  **Source**: [Conversation evidence]
+  **Influence**: [How this shapes technical decisions]
+  **Flexibility**: [Under what conditions this could be relaxed]
+  
+  ## Technology Stack Evaluation
+  
+  ### Evaluation Criteria Weighting
+  | Criterion | Weight | Justification |
+  |-----------|--------|---------------|
+  | Performance | [1-5] | [Why this weight based on requirements] |
+  | Scalability | [1-5] | [Why this weight based on growth projections] |
+  | Team Expertise | [1-5] | [Why this weight based on team composition] |
+  | Cost | [1-5] | [Why this weight based on budget constraints] |
+  | Time to Market | [1-5] | [Why this weight based on competitive pressure] |
+  | Maintainability | [1-5] | [Why this weight based on long-term vision] |
+  
+  ### Technology Options Analysis
+  
+  #### Frontend Framework
+  | Option | Performance | Scalability | Team Fit | Cost | Time | Maintain | Total | Decision |
+  |--------|------------|-------------|----------|------|------|----------|-------|----------|
+  | [Option 1] | [1-5] | [1-5] | [1-5] | [1-5] | [1-5] | [1-5] | [Sum] | [Yes/No] |
+  | [Option 2] | [1-5] | [1-5] | [1-5] | [1-5] | [1-5] | [1-5] | [Sum] | [Yes/No] |
+  
+  **Rationale**: [Why the selected option wins based on weighted criteria]
+  
+  #### Backend Framework
+  [Repeat evaluation matrix for each technology category]
+  
+  #### Database Technology
+  [Repeat evaluation matrix]
+  
+  #### Infrastructure Platform  
+  [Repeat evaluation matrix]
+  
+  ## Architecture Decision Records
+  
+  ### ADR-001: [Primary Architecture Pattern Selection]
+  **Status**: Accepted
+  **Date**: [Generated date]
+  
+  #### Context
+  [Extract all forces and constraints that influence this decision from conversation]
+  - Performance requirements: [Specific metrics mentioned]
+  - Scale projections: [User/data growth mentioned]
+  - Team constraints: [Skills and size limitations]
+  - Timeline pressure: [Delivery expectations]
+  
+  #### Decision  
+  We will adopt [specific pattern] architecture because [primary reasons based on context].
+  
+  Specifically:
+  - [Concrete implementation choice 1]
+  - [Concrete implementation choice 2]
+  - [Concrete implementation choice 3]
+  
+  #### Consequences
+  **Positive**:
+  - [Benefit 1 with specific impact]
+  - [Benefit 2 with specific impact]
+  
+  **Negative**:
+  - [Drawback 1 with mitigation approach]
+  - [Drawback 2 with mitigation approach]
+  
+  **Neutral**:
+  - [Side effect that requires awareness]
+  
+  #### Alternatives Considered
+  
+  **[Alternative 1]**:
+  - Pros: [Specific advantages]
+  - Cons: [Specific disadvantages]
+  - Rejected because: [Decisive factor from context]
+  
+  **[Alternative 2]**:
+  - Pros: [Specific advantages]
+  - Cons: [Specific disadvantages]  
+  - Rejected because: [Decisive factor from context]
+  
+  #### References
+  - Conversation: "[Quote supporting this decision]"
+  - Industry Example: [Similar successful implementation]
+  - Documentation: [Relevant technical resources]
+  
+  ### ADR-002: [Data Storage Strategy]
+  [Repeat ADR structure for each major technical decision]
+  
+  ### ADR-003: [Integration Architecture]
+  [Repeat ADR structure]
+  
+  ### ADR-004: [Security Architecture Pattern]
+  [Repeat ADR structure]
+  
+  ### ADR-005: [Deployment and Operations Strategy]
+  [Repeat ADR structure]
+  
+  ## Feasibility Assessment by Dimension
+  
+  ### Technical Feasibility
+  **Assessment**: [HIGH/MEDIUM/LOW]
+  
+  #### Implementation Complexity
+  - Core functionality: [Complexity assessment with evidence]
+  - Integration requirements: [Complexity assessment with evidence]
+  - Performance requirements: [Achievability assessment with evidence]
+  
+  #### Technology Maturity
+  - [Technology 1]: Production-ready, used by [examples]
+  - [Technology 2]: [Maturity assessment with evidence]
+  
+  #### Scalability Analysis
+  - Current architecture supports: [Specific metrics]
+  - Growth path to: [Target metrics]
+  - Scaling strategy: [Horizontal/Vertical/Both with justification]
+  
+  ### Team Feasibility
+  **Assessment**: [HIGH/MEDIUM/LOW]
+  
+  #### Current Capabilities
+  | Technology | Team Expertise | Gap |
+  |------------|---------------|-----|
+  | [Tech 1] | [Expert/Proficient/Basic/None] | [Training needed] |
+  | [Tech 2] | [Expert/Proficient/Basic/None] | [Training needed] |
+  
+  #### Capability Development Plan
+  - Immediate training needs: [Specific skills and timeline]
+  - Hiring requirements: [Roles and expertise needed]
+  - Knowledge transfer strategy: [Documentation, pairing, training]
+  
+  ### Timeline Feasibility  
+  **Assessment**: [HIGH/MEDIUM/LOW]
+  
+  #### Development Velocity Factors
+  - Team size: [Current and planned]
+  - Technology learning curve: [Time estimates]
+  - Integration complexity: [Effort estimates]
+  
+  #### Critical Path Analysis
+  1. [Critical task 1]: [Duration and dependencies]
+  2. [Critical task 2]: [Duration and dependencies]
+  3. [Critical task 3]: [Duration and dependencies]
+  
+  #### Phasing Opportunities
+  - Phase 1 (MVP): [Scope and timeline]
+  - Phase 2 (Enhanced): [Scope and timeline]
+  - Phase 3 (Scale): [Scope and timeline]
+  
+  ### Operational Feasibility
+  **Assessment**: [HIGH/MEDIUM/LOW]
+  
+  #### Deployment Complexity
+  - Infrastructure requirements: [Specific needs]
+  - Deployment process: [Complexity assessment]
+  - Rollback capability: [Strategy and complexity]
+  
+  #### Maintenance Burden
+  - Monitoring requirements: [Tools and processes]
+  - Update frequency: [Expected cadence]
+  - Operational expertise: [Required skills]
+  
+  ## Risk Analysis & Mitigation
+  
+  ### Risk Register
+  
+  #### RISK-001: [Risk Name]
+  **Category**: Technical/Execution/Operational/Strategic
+  **Probability**: Low/Medium/High ([Percentage if quantifiable])
+  **Impact**: Low/Medium/High ([Specific consequences])
+  **Risk Score**: [Probability × Impact]
+  
+  **Description**: [Detailed risk scenario based on conversation concerns]
+  
+  **Mitigation Strategy**:
+  1. [Specific action to reduce probability]
+  2. [Specific action to reduce impact]
+  3. [Contingency plan if risk materializes]
+  
+  **Monitoring**: [How to detect if risk is materializing]
+  
+  #### RISK-002: [Scaling Risk]
+  [Repeat risk structure for each identified risk]
+  
+  #### RISK-003: [Integration Risk]
+  [Repeat risk structure]
+  
+  ### Risk Mitigation Priority Matrix
+  | Risk ID | Score | Mitigation Effort | Priority |
+  |---------|-------|-------------------|----------|
+  | RISK-001 | [H/M/L] | [H/M/L] | [1-N] |
+  
+  ## Proof of Concept Recommendations
+  
+  ### POC-1: [Critical Technical Validation]
+  **Objective**: Validate [specific technical assumption]
+  **Success Criteria**: [Measurable outcomes]
+  **Timeline**: [Duration]
+  **Resources**: [Team and infrastructure needed]
+  
+  ### POC-2: [Integration Validation]
+  [Repeat POC structure for each recommended validation]
+  
+  ## Production Readiness Assessment
+  
+  ### Readiness Checklist
+  - [ ] **Scalability**: Load testing plan defined for [specific scenarios]
+  - [ ] **Reliability**: Failure modes identified with recovery procedures
+  - [ ] **Security**: Threat model complete with mitigation controls
+  - [ ] **Operability**: Deployment automation and rollback tested
+  - [ ] **Observability**: Monitoring and alerting strategy implemented
+  - [ ] **Documentation**: Architecture and operations documentation complete
+  
+  ### Go/No-Go Criteria
+  | Criterion | Threshold | Current Status | Go/No-Go |
+  |-----------|-----------|----------------|----------|
+  | Performance | [Specific metric] | [Measured/Estimated] | [Go/No-Go] |
+  | Scalability | [Specific metric] | [Measured/Estimated] | [Go/No-Go] |
+  | Security | [Specific requirement] | [Status] | [Go/No-Go] |
+  
+  ## Open Technical Decisions
+  
+  ### 🔍 DECISION REQUIRED
+  - **[Technical Choice]**: [Options under evaluation]
+    - Option A: [Pros and cons]
+    - Option B: [Pros and cons]
+    - Recommendation: [Preferred option with rationale]
+    - Decision needed by: [Date/Milestone]
+  
+  ### ⚠️ TECHNICAL RISKS REQUIRING INVESTIGATION
+  - **[Risk Area]**: [What needs deeper analysis]
+    - Current understanding: [What we know]
+    - Investigation needed: [Specific questions to answer]
+    - Impact if unresolved: [Consequences of not addressing]
+  
+  ## Recommendations & Next Steps
+  
+  ### Immediate Actions
+  1. [Highest priority POC or decision]
+  2. [Critical risk mitigation to start]
+  3. [Team capability development to begin]
+  
+  ### Technical Debt Acknowledgment  
+  [Document conscious technical debt being taken on with payback plan]
+  
+  ### Architecture Evolution Path
+  - Current state: [Minimum viable architecture]
+  - 6 months: [Expected evolution]
+  - 12 months: [Target architecture]
+  - 24 months: [Long-term vision]
+  
+  ---
+  
+  *This feasibility assessment and ADR collection represents the technical foundation for {{project-name}}. All decisions are traceable to conversation evidence and industry best practices. Review and update as new constraints emerge or assumptions are validated.*
