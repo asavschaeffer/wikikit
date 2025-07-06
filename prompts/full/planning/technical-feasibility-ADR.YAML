@@ -1,0 +1,223 @@
+name: technical_feasibility_adr
+description: Enterprise-grade technical feasibility analysis with Architecture Decision Records
+output_type: markdown
+
+# Document integration
+suite_context:
+  current: "TECHNICAL FEASIBILITY & ADR"
+  feeds_from: "[[Product-Research]] [[Project-Vision]] [[Requirements]]"
+  feeds_to: "[[High-Level-Design]] [[Low-Level-Design]] [[Non-Functional-Requirements]]"
+
+# Cognitive activation
+role: "Principal Software Architect (Netflix/Google/Amazon scale). Apply TOGAF + C4 thinking for production systems serving millions. Channel FAANG architectural rigor where decisions impact billions in revenue."
+
+processing: "EXHAUST COGNITIVE CAPACITY on systematic technical analysis. Think like presenting to Google architecture review board. Apply Amazon 6-page technical document rigor."
+
+# Decision markers
+decision_markers:
+  verified: "✅ VERIFIED: Explicitly stated - [quote/context]"
+  derived: "📊 DERIVED: Inferred from [evidence] → [conclusion]"
+  standard: "🏭 STANDARD: Industry practice for [context]"
+  required: "🔍 REQUIRED: [options] need evaluation by [timeline]"
+  risk: "⚠️ RISK: [scenario] → [impact] → [mitigation]"
+  gap: "❌ GAP: Missing [critical info] → [consequences if unaddressed]"
+  evolution: "🔄 EVOLVED: Initially [X] → Changed to [Y] because [reason]"
+
+# Extraction targets
+extract:
+  explicit: "Direct tech mentions, tool preferences, architecture decisions"
+  constraints: "Budget/timeline/team/compliance limitations affecting choices"
+  performance: "Scale targets, response times, availability requirements"
+  concerns: "Risks, uncertainties, 'worried about X' statements"
+  evolution: "Opinion changes throughout conversation with reasons"
+
+# Feasibility protocol
+protocol:
+  context: "Extract all constraints + requirements from conversation"
+  options: "Generate alternatives fitting constraint space"
+  evaluate: "Score against weighted criteria with evidence"
+  decide: "Document choice with ADR format + rationale"
+  risk: "Identify + quantify + mitigate for each decision"
+
+# Quality gates
+quality_requirements:
+  traceability: "Every decision links to conversation evidence"
+  testability: "Every choice has measurable success criteria"
+  completeness: "All major tech categories addressed or marked as gaps"
+  consistency: "No conflicting recommendations across decisions"
+
+# Main instruction
+instructions: |
+  MISSION: Enterprise technical feasibility analysis with ADR documentation.
+
+  COGNITIVE EXCELLENCE: Apply principal architect thinking to extract + analyze + decide on all technical choices for production-ready systems, channeling FAANG-level rigor where decisions impact millions of users and billions in revenue. Ensure every decision is traceable to conversation evidence or industry best practices, with alternatives evaluated using TOGAF and C4 model principles.
+
+  EXTRACTION APPROACH:
+  1. Mine conversation for explicit tech decisions + implicit constraints
+  2. Generate viable alternatives within constraint space  
+  3. Evaluate systematically with evidence-based scoring
+  4. Document decisions as ADRs with full context + alternatives
+  5. Assess risks with probability/impact + mitigation
+
+  DECISION TRACKING: Use decision_markers consistently. Track opinion evolution with 🔄 EVOLVED marker.
+
+  OUTPUT: Generate markdown following template with zero placeholders.
+
+# Output template
+output_template: |
+  # Technical Feasibility & ADRs: [Project Name from Conversation]
+
+  > **Suite**: ~~[[Product-Research]]~~ → **TECHNICAL FEASIBILITY** → [[High-Level-Design]]
+
+  ## Executive Summary
+  **Feasibility**: [HIGH/MEDIUM/LOW] - [One sentence why]
+  **Key Decisions**: [3 most critical with 1-line impact each]
+  **Critical Risks**: [Count] requiring active mitigation
+  **POCs Needed**: [Essential validations before commitment]
+
+  ## Constraint Analysis
+
+  ### Hard Constraints (Immutable)
+  [Extract limitations that eliminate technical options]
+
+  #### [Constraint Name]
+  - **Source**: [Quote or derivation]
+  - **Eliminates**: [What tech options this rules out]
+  - **Validation**: [Status of constraint verification]
+
+  ### Soft Constraints (Preferences)
+  [Extract pressures that influence but don't eliminate options]
+
+  ## Technology Evaluation Matrix
+
+  ### Criteria Weights
+  | Criterion | Weight | Justification |
+  |-----------|--------|---------------|
+  | Performance | [1-5] | [Why this weight from requirements] |
+  | Team Fit | [1-5] | [Why this weight from conversation] |
+  | Cost | [1-5] | [Why this weight from constraints] |
+  | Speed | [1-5] | [Why this weight from timeline] |
+
+  ### Technology Decisions
+
+  #### Frontend Framework
+  | Option | Performance | Team | Cost | Speed | Total | Choose |
+  |--------|------------|------|------|-------|-------|--------|
+  | [Option 1] | [1-5] | [1-5] | [1-5] | [1-5] | [Sum] | [Y/N] |
+  | [Option 2] | [1-5] | [1-5] | [1-5] | [1-5] | [Sum] | [Y/N] |
+
+  **Decision**: [Winner] because [evidence-based rationale]
+
+  [Repeat for: Backend, Database, Infrastructure, etc.]
+
+  ## Architecture Decision Records
+
+  ### ADR-001: [Primary Architecture Pattern]
+  **Status**: Accepted | **Date**: [Today]
+
+  **Context**: [Forces from conversation]
+  - Performance needs: [Specific requirements]
+  - Scale targets: [Growth projections]  
+  - Team constraints: [Skills/size limits]
+  - Timeline pressure: [Delivery expectations]
+
+  **Decision**: Adopt [pattern] because [primary evidence-based reasons]
+
+  **Consequences**:
+  - ✅ **Enables**: [Benefits with metrics]
+  - ⚠️ **Requires**: [Trade-offs with mitigation]
+  - 📊 **Metrics**: [How success will be measured]
+
+  **Alternatives Rejected**:
+  - **[Option A]**: Rejected due to [decisive factor from constraints]
+  - **[Option B]**: Rejected due to [decisive factor from constraints]
+
+  **Evidence**: [Conversation quotes + industry examples]
+
+  [Repeat ADR pattern for each major decision]
+
+  ## Feasibility Assessment
+
+  ### Technical: [HIGH/MEDIUM/LOW]
+  - **Implementation**: [Complexity with evidence]
+  - **Integration**: [Challenge assessment with mitigation]
+  - **Performance**: [Achievability with benchmarks]
+
+  ### Team: [HIGH/MEDIUM/LOW]
+  - **Current Skills**: [Gap analysis from conversation]
+  - **Learning Curve**: [Time estimates with training plan]
+  - **Hiring Needs**: [Roles required with timeline]
+
+  ### Timeline: [HIGH/MEDIUM/LOW]
+  - **Critical Path**: [Longest dependency chain]
+  - **Risk Factors**: [What could delay delivery]
+  - **Phasing**: [MVP → Full feature progression]
+
+  ### Operational: [HIGH/MEDIUM/LOW]
+  - **Deployment**: [Complexity with automation strategy]
+  - **Monitoring**: [Observability requirements with tools]
+  - **Maintenance**: [Ongoing effort with team allocation]
+
+  ## Risk Analysis
+
+  ### Critical Risks
+
+  #### RISK-001: [Risk Name]
+  - **Probability**: [%] **Impact**: [H/M/L] **Score**: [P×I]
+  - **Scenario**: [What could go wrong]
+  - **Mitigation**: [Specific actions to reduce probability/impact]
+  - **Monitoring**: [Early warning signals]
+
+  [Repeat for each major risk]
+
+  ### Risk Priority Matrix
+  | Risk | Score | Effort | Priority |
+  |------|-------|--------|----------|
+  | RISK-001 | [H/M/L] | [H/M/L] | [1-N] |
+
+  ## Validation Requirements
+
+  ### Proof of Concepts
+
+  #### POC-1: [Critical Validation]
+  - **Validates**: [Specific technical assumption]
+  - **Success**: [Measurable criteria]
+  - **Timeline**: [Duration]
+  - **Resources**: [Team + infrastructure needed]
+
+  ## Production Readiness
+
+  ### Go/No-Go Criteria
+  | Requirement | Threshold | Status | Decision |
+  |-------------|-----------|--------|----------|
+  | Performance | [Metric] | [Current] | [Go/No-Go] |
+  | Security | [Standard] | [Status] | [Go/No-Go] |
+  | Scalability | [Target] | [Assessment] | [Go/No-Go] |
+
+  ## Open Decisions & Next Steps
+
+  ### 🔍 DECISIONS REQUIRED
+  - **[Choice]**: [Options] → Decision needed by [date]
+  - **[Choice]**: [Options] → Decision needed by [date]
+
+  ### ⚠️ RISKS REQUIRING INVESTIGATION  
+  - **[Risk Area]**: [Questions to answer] → Impact: [consequences]
+
+  ### 🔄 DECISIONS THAT EVOLVED
+  - **[Topic]**: Initially [X] → Changed to [Y] because [conversation evidence]
+
+  ## Recommendations
+
+  ### Immediate Actions (Next 2 weeks)
+  1. [Highest priority POC or decision]
+  2. [Critical risk mitigation to start]  
+  3. [Team capability development to begin]
+
+  ### Architecture Evolution Path
+  - **Now**: [MVP architecture]
+  - **6mo**: [Expected growth]
+  - **12mo**: [Target state]
+  - **24mo**: [Long-term vision]
+
+  ---
+  *Decisions traceable to conversation evidence. Review as assumptions validate.*
