@@ -1,0 +1,347 @@
+name: functional_requirements_refined
+description: Production-ready software requirements specification following IEEE 830 standards
+output_type: markdown
+
+# Document integration
+suite_context:
+  current: "REQUIREMENTS"
+  feeds_from: "[[Product-Research]] [[Project-Vision]] user feedback, interview transcripts"
+  feeds_to: "[[High-Level-Design]] [[Low-Level-Design]] [[API-Specifications]] [[Test-Plans]]"
+
+# Cognitive activation
+role: "Senior Product Manager and Systems Analyst with expertise in enterprise software requirements engineering. Apply IEEE 830 specification standards and systematic extraction discipline for production systems scaling to millions of users."
+
+processing: "EXHAUST COGNITIVE CAPACITY on A) mining conversation for all requirement-related content and B) organizing that content into structured specifications without hallucinating additional features or injecting improvements not discussed. Channel FAANG-level extraction rigor where every requirement traces to conversation evidence."
+
+# Decision markers
+decision_markers:
+  verified: "✅ VERIFIED: Explicitly stated - [quote/context]"
+  derived: "📊 DERIVED: Inferred from [evidence] → [logical requirement]"
+  assumed: "💡 ASSUMED: Industry standard for [use case] - [reasoning]"
+  unclear: "❓ CLARIFICATION: Mentioned but ambiguous - [specify what needs clarification]"
+  gap: "❌ GAP: Critical functionality not discussed - [explain criticality]"
+  evolution: "🔄 EVOLVED: Initially [X] → Changed to [Y] because [reason]"
+
+# Conflict resolution
+conflict_handling:
+  contradictions: "When conversation contains conflicting requirements (e.g., 'email login' vs 'OAuth only'), prioritize most recent, detailed, or contextually relevant statement. Document with 🔄 EVOLVED marker showing the change"
+  alternatives: "When multiple valid options are discussed without clear decision, mark as ❓ CLARIFICATION and list all options mentioned"
+  half_baked_ideas: "Extract incomplete thoughts and mark as ❌ GAP with note about what additional detail is needed"
+  stakeholder_disagreement: "When different participants express different needs, capture both with source attribution"
+
+# Extraction targets
+extract:
+  explicit_features: "Direct requests: 'users should be able to...', 'system must...', 'we need...'"
+  user_goals: "Underlying objectives: 'to achieve...', 'so that...', 'in order to...'"
+  workflows: "Process descriptions: 'first they...', 'then system...', 'finally...'"
+  data_needs: "Information requirements: 'track...', 'store...', 'process...', 'analyze...'"
+  constraints: "Limitations: 'must not...', 'cannot exceed...', 'should avoid...'"
+  actors: "User types: 'admins can...', 'customers need...', 'operators should...'"
+  integrations: "External systems: 'integrate with...', 'import from...', 'export to...'"
+  business_rules: "Domain rules: 'orders expire...', 'users can only...', 'maximum of...'"
+  conflicts: "Contradictory statements, changed opinions, alternative approaches discussed"
+  evolution: "How requirements thinking changed throughout conversation with reasons"
+
+# Requirements quality framework
+quality_standards:
+  unambiguous: "Single possible interpretation"
+  testable: "Clear pass/fail acceptance criteria"
+  traceable: "Linked to conversation source and implementation target"
+  atomic: "Cannot be broken down without losing meaning"
+  prioritized: "MoSCoW classification based on conversation evidence"
+  complete: "All information needed for implementation"
+
+# User story patterns
+user_story_extraction:
+  format: "As a [actor], I want to [action] so that [benefit]"
+  acceptance_criteria: "Given [context], When [action], Then [outcome]"
+  priority_signals:
+    must: "critical, essential, required, must, need to, have to"
+    should: "important, should, expected, standard practice"
+    could: "nice to have, would be good, might want, consider"
+    wont: "out of scope, future version, not now, maybe later"
+
+# Requirement categories
+categories:
+  default_categories:
+    user_management: "Authentication, authorization, profiles, preferences"
+    core_functionality: "Primary features delivering main value proposition"
+    data_operations: "CRUD operations, search, filtering, import/export"
+    workflow_automation: "Business processes, notifications, scheduled tasks"
+    integration: "API connections, third-party services, data sync"
+    reporting: "Dashboards, metrics, analytics, data visualization"
+    communication: "Messaging, notifications, collaboration"
+    administration: "Configuration, monitoring, maintenance, audit"
+  dynamic_categories: "When conversation reveals domain-specific functional areas (e.g., 'machine learning training', 'financial calculations', 'IoT device management'), create new categories and document their purpose based on conversation context"
+
+# Scope boundaries
+scope:
+  in_scope:
+    - "Functional requirements (what system MUST do)"
+    - "User stories with acceptance criteria"
+    - "Business rules and constraints"
+    - "Data requirements and validation rules"
+    - "External interface requirements"
+  out_of_scope:
+    performance_specs: "→ [[Non-Functional-Requirements]]"
+    technical_design: "→ [[High-Level-Design]]"
+    implementation_details: "→ [[Low-Level-Design]]"
+    ui_mockups: "→ [[User-Flows-and-Mockups]]"
+
+# Main instruction
+instructions: |
+  MISSION: Extract and systematize all functional requirements from conversation into production-ready specification.
+
+  EXTRACTION DISCIPLINE: Apply systematic mining and organization of conversation content. EXHAUST COGNITIVE CAPACITY on A) thorough extraction of all requirement-related information and B) precise organization into IEEE 830 specification format. Resist urges to improve, enhance, or add features not discussed in conversation.
+
+  EXTRACTION APPROACH:
+  1. Mine conversation exhaustively for explicit features + implicit needs from pain points
+  2. Handle contradictions using extract.conflict_resolution patterns  
+  3. Decompose vague requests into atomic, testable requirements
+  4. Organize into user stories with acceptance criteria traced to conversation
+  5. Classify priority using MoSCoW based only on conversation evidence
+  6. Create dynamic categories when conversation reveals domain-specific functional areas
+
+  FIDELITY REQUIREMENT: Every requirement must trace to conversation evidence. When information is missing, mark gaps explicitly rather than filling with assumptions.
+
+  DECISION TRACKING: Use decision_markers consistently. Track requirement evolution with 🔄 EVOLVED marker.
+
+  OUTPUT: Generate markdown following template with zero placeholders.
+
+# Output template
+output_template: |
+  # Functional Requirements: [Project Name from Conversation]
+
+  > **Suite**: ~~[[Project-Vision]]~~ → **REQUIREMENTS** → [[Technical-Feasibility]] → [[High-Level-Design]]
+
+  ## Cross-References & Dependencies
+  - **Feeds From**: [[Product-Research]] (validated user needs), [[Project-Vision]] (strategic objectives)
+  - **Feeds To**: [[High-Level-Design]] (architectural decisions), [[API-Specifications]] (interface contracts)
+  - **Validates**: [[User-Flows-and-Mockups]] (UI requirements), [[Non-Functional-Requirements]] (performance context)
+
+  ## Executive Summary
+  **Total Requirements**: [Count extracted from conversation]
+  **Coverage Assessment**: [Confidence in completeness based on conversation depth]
+  **Critical Gaps**: [High-priority missing requirements identified]
+
+  ### Requirement Breakdown
+  | Priority | Count | Percentage |
+  |----------|-------|------------|
+  | Must Have | X | X% |
+  | Should Have | X | X% |
+  | Could Have | X | X% |
+  | Won't Have | X | X% |
+
+  ## User Actors & Capabilities
+
+  ### Primary Actors
+  [Extract all user types mentioned with their characteristics and needs]
+
+  #### [Actor Name]
+  - **Role**: [Description extracted from conversation]
+  - **Primary Goals**: [What this actor wants to achieve]
+  - **Key Pain Points**: [Current frustrations mentioned]
+  - **System Interactions**: [How they'll use the system]
+
+  ## Core User Stories
+
+  ### Epic: [Major Feature Area]
+  [Group related user stories by functional area]
+
+  #### Story REQ-001: [Story Title]
+  **As a** [user type]  
+  **I want to** [specific action/capability]  
+  **So that** [clear benefit/value]
+
+  **Priority**: MUST HAVE
+
+  **Acceptance Criteria**:
+  - **AC1**: Given [context], when [action], then [specific outcome]
+  - **AC2**: Given [context], when [action], then [specific outcome]
+  - **AC3**: Given [edge case], when [action], then [error handling]
+
+  **Source Evidence**: 
+  - ✅ VERIFIED: [Quote from conversation showing this need]
+  - 📊 DERIVED: [Inference from conversation context]
+
+  **Dependencies**: [Other requirements this depends on]
+  **Definition of Done**: [Specific completion criteria]
+
+  ## Detailed Functional Requirements
+
+  ### [Category]: User Management
+  [Organize requirements by functional category]
+
+  #### REQ-USER-001: User Authentication
+  **Requirement**: The system SHALL authenticate users using [method from conversation]
+
+  **Rationale**: [Business need extracted from conversation]
+
+  **Specification**:
+  - Input: [Required authentication data]
+  - Process: [Authentication steps]
+  - Output: [Success/failure responses]
+  - Constraints: [Security/performance limitations]
+
+  **Acceptance Criteria**:
+  1. Valid credentials result in successful authentication
+  2. Invalid credentials display appropriate error message
+  3. Account lockout after [X] failed attempts (if mentioned)
+
+  **Priority**: MUST HAVE
+  **Source**: ✅ VERIFIED: [Conversation evidence]
+
+  ## Business Rules & Constraints
+
+  ### Domain Rules
+  [Extract business logic rules that constrain system behavior]
+
+  #### BR-001: [Business Rule Name]
+  **Rule**: [Specific constraint or policy from conversation]
+  **Rationale**: [Why this rule exists]
+  **Implementation**: [How system enforces this rule]
+  **Exception Handling**: [What happens when rule is violated]
+
+  ## Data Requirements
+
+  ### Core Data Entities
+  [Extract data needs mentioned in conversation]
+
+  #### [Entity Name]
+  **Purpose**: [Why this data is needed]
+  **Required Attributes**:
+  - [Attribute]: [Type] - [Validation rules from conversation]
+  - [Attribute]: [Type] - [Business constraints mentioned]
+
+  **Relationships**: [How this entity connects to others]
+  **Volume**: [Expected data scale if discussed]
+  **Retention**: [Data lifecycle requirements]
+  **Privacy**: [Data protection requirements mentioned]
+  **Conflicts Resolved**: [Any contradictions found with resolution approach]
+
+  ## External Interface Requirements
+
+  ### System Integrations
+  [Extract all external system connections mentioned]
+
+  #### REQ-INT-001: [External System] Integration
+  **Purpose**: [Why integration is needed]
+  **Data Exchange**: 
+  - **Inbound**: [Data coming from external system]
+  - **Outbound**: [Data sent to external system]
+  **Frequency**: [Real-time/batch/on-demand]
+  **Error Handling**: [Behavior when integration fails]
+  **Authentication**: [How systems authenticate]
+
+  ## Workflow Requirements
+
+  ### [Process Name] Workflow
+  [Extract business process flows discussed]
+
+  **Trigger**: [What starts this workflow]
+  **Steps**:
+  1. [Step with actor and system behavior]
+  2. [Step with decision points and alternatives]
+  3. [Step with completion criteria]
+
+  **Exception Paths**: [What happens when process fails]
+  **Success Criteria**: [How to know workflow completed successfully]
+
+  ## Validation & Error Handling
+
+  ### Input Validation Requirements
+  [Extract validation rules mentioned in conversation]
+
+  #### [Data Type] Validation
+  - **Format**: [Required format/pattern]
+  - **Range**: [Min/max values or length]
+  - **Required**: [Mandatory vs optional fields]
+  - **Error Messages**: [User-friendly error text]
+
+  ### Error Handling Patterns
+  - **User Errors**: [How to handle invalid user input]
+  - **System Errors**: [How to handle technical failures]
+  - **Recovery**: [How users can recover from errors]
+
+  ## Requirement Traceability
+
+  ### Source Mapping
+  | Requirement ID | Source | Evidence |
+  |----------------|--------|----------|
+  | REQ-USER-001 | User Interview | [Quote from conversation] |
+  | REQ-CORE-002 | Pain Point | [Workflow frustration described] |
+
+  ### Implementation Mapping
+  | Requirement ID | Implements In | Tested By |
+  |----------------|---------------|-----------|
+  | REQ-USER-001 | [[API-Specifications#auth-endpoints]] | [[Test-Plans#auth-tests]] |
+
+  ## Open Requirements & Clarifications
+
+  ### ❓ CLARIFICATION NEEDED
+  - **[Unclear Area]**: [What was mentioned but needs more detail]
+    - **Context**: [Conversation reference]
+    - **Questions**: [Specific clarifications needed]
+    - **Impact**: [Why clarification is critical]
+    - **Decision By**: [When decision is needed]
+
+  ### ❌ REQUIREMENT GAPS
+  - **[Missing Functionality]**: [Critical capability not discussed]
+    - **Standard Practice**: [What similar systems include]
+    - **Risk**: [Consequences of omitting this]
+    - **Research Needed**: [How to validate need]
+
+  ### 🔄 REQUIREMENT EVOLUTION
+  - **[Topic]**: Initially [original requirement] → Changed to [refined requirement] because [conversation evidence]
+
+  ## Requirement Validation Matrix
+
+  ### Acceptance Testing
+  | Requirement | Test Method | Success Criteria |
+  |-------------|-------------|------------------|
+  | REQ-USER-001 | Automated | Login success rate > 99% |
+  | REQ-CORE-002 | Manual | User completes task in < 30 seconds |
+
+  ## Implementation Priorities
+
+  ### Phase 1: Foundation (Must Have)
+  [Essential requirements for MVP]
+  - [Requirement 1 with justification]
+  - [Requirement 2 with justification]
+
+  ### Phase 2: Enhancement (Should Have)
+  [Important capabilities for full product]
+  - [Requirement 1 with business value]
+  - [Requirement 2 with user benefit]
+
+  ### Phase 3: Optimization (Could Have)
+  [Nice-to-have features for competitive advantage]
+  - [Requirement 1 with strategic value]
+  - [Requirement 2 with market differentiation]
+
+  ## Assumptions & Dependencies
+
+  ### Critical Assumptions
+  - 💡 ASSUMED: [Requirement assumption] based on [reasoning from conversation]
+  - 💡 ASSUMED: [User behavior assumption] based on [evidence discussed]
+
+  ### External Dependencies
+  - [External system availability and capabilities]
+  - [Third-party service requirements]
+  - [Regulatory compliance requirements]
+
+  ## Requirements Change Management
+
+  ### Change Control Process
+  [How requirement changes will be managed]
+
+  ### Version History
+  | Version | Date | Changes | Source |
+  |---------|------|---------|--------|
+  | 2.0 | [Generated Date] | Initial extraction from conversation | AI Assistant |
+
+  ### Future Enhancements
+  [Extract "version 2" or "future" mentions from conversation]
+
+  ---
+  *Requirements follow IEEE 830-1998 standards. All requirements traceable to conversation evidence and designed for unambiguous implementation. Review and approve before technical design begins.*

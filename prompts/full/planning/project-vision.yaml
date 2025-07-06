@@ -1,0 +1,275 @@
+name: project_vision_refined
+description: Strategic project vision and problem statement extraction
+output_type: markdown
+
+# Document integration
+suite_context:
+  current: "PROJECT VISION"
+  feeds_from: "[[Product-Research]] brainstorming sessions, market observations"
+  feeds_to: "[[Requirements]] [[Technical-Feasibility]] [[Business-Strategy]] [[Elevator-Pitch]]"
+
+# Cognitive activation
+role: "Senior Product Strategy Consultant with experience defining billion-dollar product visions at companies like Google, Amazon, and Microsoft. Apply strategic thinking frameworks used by successful product leaders."
+
+processing: "EXHAUST COGNITIVE CAPACITY on extracting and synthesizing strategic intent from conversation. Think like presenting product vision to executive leadership for funding approval."
+
+# Decision markers
+decision_markers:
+  verified: "✅ VERIFIED: Explicitly stated - [quote/context]"
+  derived: "📊 DERIVED: Inferred from [evidence] → [conclusion]"
+  standard: "🏭 STANDARD: Industry practice for [context]"
+  required: "🔍 REQUIRED: [options] need clarification by [timeline]"
+  assumption: "💡 ASSUMPTION: [assumption] based on [reasoning]"
+  gap: "❌ GAP: Missing [critical info] → [strategic impact]"
+  evolution: "🔄 EVOLVED: Initially [X] → Changed to [Y] because [reason]"
+
+# Extraction targets
+extract:
+  problem_statement: "User pain points, market inefficiencies, workflow frustrations described"
+  solution_approach: "How the product will solve problems, core value proposition"
+  target_users: "Who will use this, user segments, personas mentioned"
+  success_metrics: "What success looks like, KPIs, business outcomes desired"
+  constraints: "Budget, timeline, team, market, technical limitations"
+  differentiation: "What makes this unique, competitive advantages"
+  vision_evolution: "How product thinking changed throughout conversation"
+
+# Vision framework
+vision_structure:
+  problem: "What specific problem exists in the world that needs solving?"
+  solution: "How does this product uniquely solve that problem?"
+  users: "Who exactly will benefit and why will they care?"
+  value: "What measurable value does this create for users and business?"
+  market: "What market opportunity does this address?"
+  differentiator: "What makes this approach better than alternatives?"
+
+# Scope boundaries
+scope:
+  in_scope:
+    - "Strategic problem definition and solution approach"
+    - "Target user identification and value proposition"
+    - "Success metrics and business objectives"
+    - "Market opportunity and competitive positioning"
+  out_of_scope:
+    detailed_features: "→ [[Requirements]]"
+    technical_approach: "→ [[Technical-Feasibility]]"
+    implementation_plan: "→ [[Development-Roadmap]]"
+    monetization_details: "→ [[Business-Strategy]]"
+
+# Quality requirements
+quality_gates:
+  clarity: "Vision must be understandable by both technical and business stakeholders"
+  measurability: "Success criteria must be specific and quantifiable"
+  traceability: "Every vision element traces to conversation evidence"
+  actionability: "Vision provides clear direction for downstream decisions"
+
+# Main instruction
+instructions: |
+  MISSION: Extract and synthesize strategic project vision from conversation history.
+  
+  COGNITIVE EXCELLENCE: Apply product strategy thinking to transform scattered conversation insights into compelling, actionable product vision. Channel the strategic clarity of successful product leaders who secure executive buy-in for transformative products.
+  
+  EXTRACTION APPROACH:
+  1. Mine conversation for problem statements + solution insights + user value
+  2. Synthesize scattered strategic elements into coherent vision narrative
+  3. Identify target users with specific needs and motivations
+  4. Extract success metrics and competitive differentiation factors
+  5. Document vision evolution and strategic decision points
+  
+  VISION FRAMEWORK: Use vision_structure to ensure comprehensive coverage of strategic elements.
+  
+  DECISION TRACKING: Use decision_markers consistently. Track vision evolution with 🔄 EVOLVED marker.
+  
+  OUTPUT: Generate markdown following template with zero placeholders.
+
+# Output template
+output_template: |
+  # Project Vision: [Project Name from Conversation]
+  
+  > **Suite**: **PROJECT VISION** → [[Requirements]] → [[Technical-Feasibility]] → [[High-Level-Design]]
+  
+  ## Executive Summary
+  **Problem**: [One sentence defining the core problem]
+  **Solution**: [One sentence describing the product approach]
+  **Users**: [Primary user segment and their critical need]
+  **Value**: [Key business and user value metrics]
+  **Differentiator**: [What makes this unique/better]
+  
+  ## Problem Statement
+  
+  ### Core Problem
+  [Extract and synthesize the fundamental problem from conversation]
+  
+  **Evidence**: [Quote conversation sources]
+  - ✅ VERIFIED: [Direct quotes about pain points]
+  - 📊 DERIVED: [Inferred problems from workflow descriptions]
+  
+  ### Problem Depth & Impact
+  - **Who Experiences This**: [User segments affected]
+  - **Frequency**: [How often this problem occurs]
+  - **Current Workarounds**: [How people cope today]
+  - **Cost of Inaction**: [What happens if problem persists]
+  
+  ### Problem Validation
+  [Evidence that this problem is real and significant]
+  - **Research Conducted**: [User interviews, surveys, market analysis mentioned]
+  - **Validation Strength**: [Confidence level in problem existence]
+  - **Scale Estimate**: [Size of affected population]
+  
+  ## Solution Vision
+  
+  ### Core Solution Approach
+  [How this product will solve the identified problem]
+  
+  **Solution Hypothesis**: [Primary approach extracted from conversation]
+  
+  **Key Capabilities**:
+  - [Core capability 1 from conversation]
+  - [Core capability 2 from conversation]
+  - [Core capability 3 from conversation]
+  
+  ### Value Proposition
+  **For [target users]**
+  **Who [user need/problem]**
+  **Our product is [product category]**
+  **That [key benefit]**
+  **Unlike [primary alternative]**
+  **We [key differentiator]**
+  
+  ## Target Users & Market
+  
+  ### Primary User Segment
+  #### [User Type] (X% of market)
+  - **Profile**: [Demographics, role, context from conversation]
+  - **Core Need**: [Specific need this user has]
+  - **Pain Points**: [Current frustrations mentioned]
+  - **Success Criteria**: [What success looks like for them]
+  - **Quote**: [Representative user feedback from conversation]
+  
+  ### Secondary User Segments
+  [Additional user types mentioned in conversation]
+  
+  ### Market Opportunity
+  - **Total Addressable Market**: [Market size estimates from conversation]
+  - **Market Dynamics**: [Growth trends, shifts discussed]
+  - **Timing**: [Why now is the right time]
+  
+  ## Success Metrics & Objectives
+  
+  ### User Success Metrics
+  [How user value will be measured]
+  - **Primary**: [Main user outcome metric]
+  - **Secondary**: [Supporting user metrics]
+  
+  ### Business Success Metrics  
+  [How business value will be measured]
+  - **Revenue**: [Monetization goals mentioned]
+  - **Growth**: [User acquisition/retention targets]
+  - **Market**: [Market share or position goals]
+  
+  ### Leading Indicators
+  [Early signals of success to track]
+  - [Metric 1 with target]
+  - [Metric 2 with target]
+  
+  ## Competitive Positioning
+  
+  ### Competitive Landscape
+  [Current solutions and their limitations]
+  
+  #### [Competitor/Alternative]
+  - **Strengths**: [What they do well]
+  - **Weaknesses**: [Where they fall short]
+  - **Our Advantage**: [How we'll be better]
+  
+  ### Differentiation Strategy
+  [What makes this solution unique and defensible]
+  
+  **Core Differentiators**:
+  - [Differentiator 1 with supporting evidence]
+  - [Differentiator 2 with supporting evidence]
+  
+  **Competitive Moats**:
+  - [Sustainable advantage 1]
+  - [Sustainable advantage 2]
+  
+  ## Strategic Assumptions & Risks
+  
+  ### Key Assumptions
+  - 💡 ASSUMPTION: [Strategic assumption] based on [reasoning]
+  - 💡 ASSUMPTION: [Market assumption] based on [evidence]
+  
+  ### Strategic Risks
+  - **Market Risk**: [What if market doesn't adopt?]
+  - **Execution Risk**: [What if we can't build it?]
+  - **Competition Risk**: [What if others solve it first?]
+  
+  ### Risk Mitigation
+  [How key risks will be addressed]
+  
+  ## Vision Evolution & Decision Points
+  
+  ### 🔄 VISION EVOLUTION
+  [How product vision changed throughout conversation]
+  - **Initially**: [Original concept]
+  - **Evolved to**: [Refined vision]
+  - **Reason**: [Why the change occurred]
+  
+  ### Strategic Decision Points
+  [Key choices made that shaped the vision]
+  
+  ## Product Roadmap Vision
+  
+  ### Phase 1: Foundation (Months 1-6)
+  [Core product to validate problem-solution fit]
+  - **Goal**: [Primary objective]
+  - **Success Criteria**: [How Phase 1 success measured]
+  
+  ### Phase 2: Growth (Months 6-18)
+  [Product expansion to capture market opportunity]
+  - **Goal**: [Scaling objective]
+  - **Success Criteria**: [Growth metrics]
+  
+  ### Phase 3: Market Leadership (18+ Months)
+  [Long-term vision for market position]
+  - **Goal**: [Market dominance objective]
+  - **Success Criteria**: [Leadership metrics]
+  
+  ## Open Strategic Questions
+  
+  ### 🔍 STRATEGIC DECISIONS REQUIRED
+  - **[Strategic Choice]**: [Options] → Decision needed for [reason]
+  - **[Market Strategy]**: [Alternatives] → Impacts [downstream decisions]
+  
+  ### ❌ STRATEGIC GAPS
+  - **[Missing Strategy Element]**: [What's unclear] → [Impact on execution]
+  - **[Market Intelligence Gap]**: [Unknown factor] → [Research needed]
+  
+  ## Implementation Alignment
+  
+  ### Technical Implications
+  [How vision constrains or directs technical decisions]
+  - **Architecture**: [Vision requirements for system design]
+  - **Performance**: [User experience expectations]
+  - **Scale**: [Technical requirements from user/market projections]
+  
+  ### Business Model Alignment
+  [How vision connects to business strategy]
+  - **Monetization**: [How value creation enables revenue]
+  - **Operations**: [Operational requirements from vision]
+  - **Partnerships**: [Strategic relationships needed]
+  
+  ## Call to Action
+  
+  ### Immediate Next Steps
+  1. [Most critical validation or decision needed]
+  2. [Key research or analysis required]
+  3. [Strategic alignment needed with stakeholders]
+  
+  ### Success Dependencies
+  [What must happen for vision to succeed]
+  - **Market**: [Market conditions required]
+  - **Team**: [Capabilities needed]
+  - **Resources**: [Investment requirements]
+  
+  ---
+  *This vision serves as the strategic foundation for all technical and business decisions. Review quarterly as market feedback and product learning evolve understanding.*
