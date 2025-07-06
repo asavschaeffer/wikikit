@@ -1,0 +1,325 @@
+name: product_research_discovery
+description: Strategic product research and discovery analysis for strategic product decisions
+output_type: markdown
+
+# Document integration
+suite_context:
+  current: "PRODUCT RESEARCH & DISCOVERY"
+  feeds_from: "brainstorming sessions, market observations, user feedback, competitive analysis"
+  feeds_to: "[[Project-Vision]] [[Requirements]] [[Technical-Feasibility]] [[Business-Strategy]] [[Elevator-Pitch]]"
+
+# Cognitive activation
+role: "Senior Product Research Analyst and Market Intelligence Consultant with expertise in competitive intelligence, user research synthesis, and strategic insight extraction. Apply systematic research methodology and strategic analysis frameworks."
+
+processing: "EXHAUST COGNITIVE CAPACITY on A) mining conversation for all research insights, market observations, and user feedback and B) organizing findings into strategic intelligence without injecting assumptions or research conclusions not discussed in conversation."
+
+# Decision markers
+decision_markers:
+  verified: "✅ VERIFIED: Directly stated research finding - [quote/context]"
+  derived: "📊 DERIVED: Pattern inferred from [evidence] → [conclusion]"
+  gap: "❌ GAP: Critical research missing - [what's needed] → [strategic impact]"
+  unclear: "❓ UNCLEAR: Mentioned but not fully explored - [specify ambiguity]"
+  evolution: "🔄 EVOLVED: Research understanding changed from [X] to [Y] because [reason]"
+  assumption: "💡 ASSUMPTION: [assumption] based on [conversation evidence]"
+
+# Extraction targets
+extract:
+  market_problems: "User pain points, industry inefficiencies, workflow frustrations explicitly mentioned"
+  competitive_insights: "Competitor analysis, strengths/weaknesses, market gaps discussed"
+  user_research: "Interview findings, survey data, behavioral patterns, user quotes"
+  market_intelligence: "Industry trends, market size discussions, growth opportunities"
+  validation_activities: "Research methods used, experiments conducted, data collected"
+  strategic_insights: "Key learnings, hypothesis formation, strategic conclusions drawn"
+  research_evolution: "How understanding changed throughout conversation with supporting evidence"
+  conflicting_data: "Contradictory research findings or competing interpretations discussed"
+
+# Research synthesis approach
+synthesis_framework:
+  insight_clustering: "Group related observations into coherent themes based on conversation evidence"
+  pattern_recognition: "Identify recurring themes across multiple data points with clear attribution"
+  hypothesis_formation: "Extract testable hypotheses actually discussed, avoid generating new ones"
+  gap_identification: "Document missing research explicitly mentioned or logically implied from conversation"
+  strategic_connection: "Link research insights to business decisions only when connection is discussed"
+
+# Market analysis categories
+analysis_areas:
+  default_areas:
+    problem_validation: "Evidence that identified problems are real and significant"
+    market_opportunity: "Size, growth, and accessibility of target market"
+    competitive_landscape: "Direct/indirect competitors and market positioning"
+    user_segments: "Target user identification and needs analysis"
+    solution_validation: "Evidence that proposed approach resonates with users"
+    business_model_validation: "Monetization and value creation research"
+  dynamic_areas: "When conversation reveals domain-specific research areas (e.g., 'regulatory compliance research', 'technology adoption patterns'), create new categories based on discussion context"
+
+# Scope boundaries
+scope:
+  in_scope:
+    - "Market analysis and competitive intelligence extraction"
+    - "User research synthesis and behavioral insights organization"
+    - "Strategic hypothesis documentation from conversation"
+    - "Research gap identification and validation framework extraction"
+  out_of_scope:
+    detailed_requirements: "→ [[Requirements]]"
+    technical_implementation: "→ [[Technical-Feasibility]]"
+    business_model_details: "→ [[Business-Strategy]]"
+    interface_design: "→ [[User-Flows-and-Mockups]]"
+
+# Main instruction
+instructions: |
+  MISSION: Extract and synthesize all product research and market intelligence from conversation into strategic analysis.
+  
+  EXTRACTION DISCIPLINE: Apply systematic research analysis to organize conversation insights into strategic intelligence. EXHAUST COGNITIVE CAPACITY on A) comprehensive extraction of all research-related content, market observations, and user insights and B) precise organization into research intelligence framework. Resist urges to draw conclusions not supported by conversation evidence.
+  
+  SYNTHESIS APPROACH:
+  1. Mine conversation exhaustively for research findings + market observations + user insights
+  2. Handle conflicting research data using extract patterns for contradictory information
+  3. Organize insights using synthesis_framework without adding external research
+  4. Create dynamic analysis areas when conversation reveals domain-specific research
+  5. Form hypotheses only from conversation discussion, mark research gaps explicitly
+  6. Track how research understanding evolved throughout conversation
+  
+  RESEARCH FIDELITY: Every insight must trace to conversation evidence. When research is incomplete, document gaps rather than filling with industry assumptions.
+  
+  DECISION TRACKING: Use decision_markers consistently. Track research evolution with 🔄 EVOLVED marker.
+  
+  OUTPUT: Generate markdown following template with zero placeholders.
+
+# Output template
+output_template: |
+  # Product Research & Discovery: [Project Name from Conversation]
+  
+  > **Suite**: **PRODUCT RESEARCH & DISCOVERY** → [[Project-Vision]] → [[Requirements]] → [[Technical-Feasibility]]
+  
+  ## Cross-References & Dependencies
+  - **Feeds Into**: [[Project-Vision]] (refined problem statement), [[Requirements]] (validated priorities), [[Technical-Feasibility]] (technology constraints)
+  - **Feeds From**: Brainstorming sessions, market observations, user feedback discussions
+  - **Validates**: [[Business-Strategy]] assumptions, [[Elevator-Pitch]] value propositions
+  - **Influences**: [[User-Flows-and-Mockups]] design decisions, [[Non-Functional-Requirements]] targets
+  
+  ## Executive Summary
+  **Research Period**: [Extract timeframe from conversation or mark as ❌ GAP]
+  **Primary Research Question**: [Central question driving research from conversation]
+  **Key Finding**: [Most significant insight with supporting evidence]
+  **Strategic Recommendation**: [Clear direction based on research, only if discussed]
+  **Confidence Level**: [HIGH/MEDIUM/LOW based on research depth in conversation]
+  
+  ## Problem Space Analysis
+  
+  ### Market Problem Definition
+  [Extract and synthesize problem statements from conversation]
+  
+  **Core Problem**: [Primary problem based on research discussed]
+  
+  **Evidence Base**:
+  - ✅ VERIFIED: [Direct research findings quoted from conversation]
+  - 📊 DERIVED: [Patterns identified from multiple conversation points]
+  - ❌ GAP: [Missing problem validation research identified]
+  
+  ### Problem Depth Assessment
+  **Who Experiences This**: [User segments identified in research]
+  **Frequency/Scale**: [How often problem occurs based on data discussed]
+  **Current Solutions**: [Existing approaches and their limitations from research]
+  **Cost of Inaction**: [Impact of unsolved problem from conversation]
+  
+  ### Problem Evolution
+  🔄 **RESEARCH EVOLUTION**: [How problem understanding changed during conversation]
+  
+  ## Competitive Landscape Analysis
+  
+  ### Direct Competitors
+  [Analyze competitors discussed with research evidence]
+  
+  #### [Competitor Name]
+  - **Market Position**: [Position based on research discussed]
+  - **Strengths**: [Advantages identified in conversation]
+  - **Weaknesses**: [Limitations found in research]
+  - **User Sentiment**: [Customer feedback about competitor if discussed]
+  - **Research Source**: [How this intelligence was gathered]
+  
+  ### Competitive Gaps & Opportunities
+  [White space opportunities identified in research]
+  
+  **Unmet Needs**: [User needs not addressed by competitors]
+  **Market Positioning Gaps**: [Underserved segments or approaches]
+  **Differentiation Opportunities**: [Ways to stand out based on research]
+  
+  ## User Research Findings
+  
+  ### Research Methodology
+  [Document research methods mentioned in conversation]
+  
+  **Methods Used**: [Interviews, surveys, observations, analytics discussed]
+  **Sample Size**: [Research scope if mentioned]
+  **Timeframe**: [When research was conducted]
+  **Limitations**: [Research constraints acknowledged in conversation]
+  
+  ### User Personas & Segments
+  [Develop personas based on research discussed, not assumptions]
+  
+  #### Primary: "[Persona Name]" ([Percentage] of users if mentioned)
+  **Research Basis**: [How this persona was identified in research]
+  **Demographics**: [Only if discussed in research]
+  **Behavioral Patterns**: [Specific behaviors observed/reported]
+  **Pain Points**: [Frustrations identified through research]
+  **Motivations**: [Drivers identified in user research]
+  **Quote**: [Actual user feedback from conversation]
+  **Validation Status**: [Confidence in this persona based on research depth]
+  
+  ### Key Behavioral Insights
+  [Extract user behavior patterns from research discussed]
+  
+  **Insight 1**: [Specific behavioral pattern with research evidence]
+  **Insight 2**: [User decision-making pattern with supporting data]
+  **Insight 3**: [Workflow or usage pattern identified]
+  
+  ### User Needs Hierarchy
+  [Prioritize needs based on research evidence only]
+  
+  **Critical Needs**: [Must-solve problems validated through research]
+  **Important Needs**: [Significant but not critical needs from research]
+  **Latent Needs**: [Unspoken needs identified through research]
+  
+  ## Market Opportunity Analysis
+  
+  ### Market Sizing Research
+  [Extract market size data discussed in conversation]
+  
+  **Total Addressable Market**: [Market size estimates from conversation]
+  **Research Basis**: [How market size was determined or estimated]
+  **Growth Trends**: [Market growth data discussed]
+  **Market Dynamics**: [Forces affecting market from research]
+  
+  ### Market Validation Evidence
+  [Evidence supporting market opportunity from conversation]
+  
+  **Demand Signals**: [Indicators of market demand from research]
+  **Market Readiness**: [Evidence market is ready for solution]
+  **Adoption Barriers**: [Obstacles to adoption identified in research]
+  
+  ## Solution Research & Validation
+  
+  ### Solution Approach Research
+  [Research on solution approaches discussed]
+  
+  **Approach Tested**: [Solution concepts validated through research]
+  **User Response**: [How users reacted to solution concepts]
+  **Validation Method**: [How solution was tested with users]
+  **Key Learnings**: [What research revealed about solution fit]
+  
+  ### Feature Research Findings
+  [Research on specific features/capabilities]
+  
+  **High-Value Features**: [Features users prioritized in research]
+  **Low-Impact Features**: [Features users didn't value in research]
+  **Controversial Features**: [Features with mixed user reactions]
+  
+  ## Strategic Hypotheses from Research
+  
+  ### Core Product Hypothesis
+  **Statement**: [Primary hypothesis about product-market fit from conversation]
+  **Supporting Research**: [Evidence supporting this hypothesis]
+  **Validation Criteria**: [How hypothesis would be tested further]
+  **Confidence Level**: [HIGH/MEDIUM/LOW based on research strength]
+  
+  ### Secondary Hypotheses
+  [Additional testable hypotheses from research discussion]
+  
+  #### Hypothesis: [Name]
+  **Statement**: [Specific testable hypothesis]
+  **Research Evidence**: [Supporting findings from conversation]
+  **Testing Approach**: [How to validate further, if discussed]
+  
+  ## Research Gaps & Open Questions
+  
+  ### ❌ CRITICAL RESEARCH GAPS
+  [Missing research explicitly identified in conversation]
+  
+  **Gap**: [Specific missing research]
+  **Why Critical**: [Impact on product strategy]
+  **Suggested Research**: [How to fill gap, if discussed]
+  **Timeline**: [When research is needed]
+  
+  ### ❓ UNCLEAR FINDINGS
+  [Research mentioned but not fully explored]
+  
+  **Finding**: [Ambiguous research result]
+  **Clarification Needed**: [What needs further investigation]
+  **Impact**: [Why clarification matters for strategy]
+  
+  ### 🔄 RESEARCH EVOLUTION
+  [How research understanding changed throughout conversation]
+  
+  **Initially**: [Original research understanding]
+  **Evolved to**: [Refined understanding]
+  **Reason**: [Why understanding changed with evidence]
+  
+  ## Validation Experiments Conducted
+  [Document research activities mentioned in conversation]
+  
+  ### Experiment: [Name/Type]
+  **Objective**: [What was being tested]
+  **Method**: [How research was conducted]
+  **Results**: [Quantitative and qualitative findings]
+  **Learning**: [Strategic insight gained]
+  **Confidence**: [Reliability of results based on method]
+  
+  ## Strategic Insights & Patterns
+  
+  ### Cross-Research Patterns
+  📊 **PATTERN**: [Pattern identified across multiple research sources]
+  **Evidence**: [Specific conversation points supporting pattern]
+  **Implication**: [What pattern means for product strategy]
+  
+  ### Research-Driven Recommendations
+  [Strategic recommendations based solely on research discussed]
+  
+  **Recommendation 1**: [Strategic direction with research justification]
+  **Recommendation 2**: [Market approach with research support]
+  **Recommendation 3**: [Product direction with user research basis]
+  
+  ## Research Quality Assessment
+  
+  ### Research Strength Analysis
+  **High-Confidence Findings**: [Research with strong methodology/sample]
+  **Medium-Confidence Findings**: [Research with some limitations]
+  **Low-Confidence Findings**: [Research needing validation]
+  
+  ### Bias & Limitations
+  [Research limitations acknowledged in conversation]
+  
+  **Sample Bias**: [Limitations in who was researched]
+  **Method Limitations**: [Constraints in research approach]
+  **Temporal Factors**: [Time-related research limitations]
+  
+  ## Next Research Priorities
+  
+  ### Immediate Research Needs
+  1. [Highest priority research gap with rationale]
+  2. [Critical validation needed with timeline]
+  3. [Market intelligence required with method]
+  
+  ### Research Methodology Recommendations
+  [Suggested research approaches from conversation]
+  
+  **Quantitative Needs**: [Survey/analytics research needed]
+  **Qualitative Needs**: [Interview/observation research needed]
+  **Market Intelligence**: [Competitive/industry research needed]
+  
+  ## Research Repository & Assets
+  
+  ### Research Artifacts
+  [Document research materials mentioned]
+  
+  **Primary Research**: [User interviews, surveys, experiments conducted]
+  **Secondary Research**: [Industry reports, competitor analysis, market data]
+  **Data Sources**: [Analytics, databases, tools mentioned]
+  
+  ### Data Quality & Accessibility
+  **Data Location**: [Where research data is stored]
+  **Data Quality**: [Reliability and completeness assessment]
+  **Access Permissions**: [Who can access research data]
+  
+  ---
+  
+  *Research intelligence forms foundation for all strategic product decisions. Update quarterly as new market data and user feedback become available. All insights traceable to conversation evidence.*
