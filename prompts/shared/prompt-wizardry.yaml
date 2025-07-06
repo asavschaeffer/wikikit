@@ -1,0 +1,180 @@
+# WikiKit Prompt Wizardry v2.0
+# Advanced cognitive activation and quality pattern techniques
+
+version: 2.0
+description: "Refined techniques for activating high-quality LLM extraction patterns"
+
+# v2.0 BREAKTHROUGH: Focused cognitive allocation
+cognitive_allocation_patterns:
+  v2_formula:
+    pattern: "EXHAUST COGNITIVE CAPACITY on A) [specific extraction task] and B) [specific organization task] without [specific avoidance]"
+    why_effective: "Explicitly directs cognitive resources to extraction + organization vs generation + enhancement"
+    
+  domain_specific_examples:
+    requirements: "A) mining conversation for all requirement-related content and B) organizing into IEEE 830 specification format without hallucinating additional features"
+    research: "A) extracting all research insights and market observations and B) organizing into strategic intelligence without injecting assumptions not discussed"
+    architecture: "A) systematic technical analysis and B) documenting decisions as ADRs without adding industry practices not mentioned"
+    
+  effectiveness_multiplier: "3-5x improvement in extraction fidelity vs generic 'think carefully' instructions"
+
+# Elite role assignment patterns
+role_activation:
+  v2_enhanced_formula:
+    pattern: "[Specific Senior Role] with experience at [Prestigious Context]. Apply [Methodology] thinking for [Scale/Quality Context]."
+    
+  proven_combinations:
+    architecture: "Principal Software Architect (Netflix/Google/Amazon scale). Apply TOGAF + C4 thinking for production systems serving millions."
+    requirements: "Senior Product Manager and Systems Analyst with enterprise expertise. Apply IEEE 830 standards and systematic extraction discipline."
+    research: "Senior Product Research Analyst and Market Intelligence Consultant. Apply systematic research methodology and strategic analysis frameworks."
+    
+  quality_triggers:
+    scale_context: "millions of users", "billions in revenue", "production traffic from day one"
+    methodology_refs: "IEEE 830", "TOGAF", "C4 model", "FAANG-level practices"
+    consequence_framing: "decisions impact millions", "months of development work"
+
+# Pattern activation techniques
+quality_pattern_activation:
+  industry_standard_anchoring:
+    examples: ["Following IEEE 830-1998 standards", "Using TOGAF principles", "Applying Google's design review process"]
+    effect: "Connects to high-quality training examples in LLM knowledge"
+    
+  expertise_stacking:
+    pattern: "Channel the expertise of [Expert A] for [aspect 1] and [Expert B] for [aspect 2]"
+    example: "Channel Martin Fowler's architectural patterns and Kent Beck's simplicity principles"
+    
+  company_credibility_signals:
+    effective: "Netflix", "Google", "Amazon", "Microsoft", "Stripe", "Twilio"
+    usage: "As used by [Company] for [specific context]"
+    why_works: "Associates with high-quality, proven approaches"
+
+# v2.0 Token efficiency techniques
+token_optimization:
+  compression_strategies:
+    unified_instructions: "Single instruction block vs multiple scattered sections"
+    essential_only_yaml: "Remove explanatory comments, keep only functional keys"
+    integrated_guidance: "Embed examples in instructions rather than separate sections"
+    
+  efficiency_metrics:
+    v1_average: "5000-6000 tokens per prompt"
+    v2_target: "2500-3000 tokens per prompt (50-60% reduction)"
+    quality_maintained: "Same or better extraction fidelity with reduced tokens"
+    
+  token_budget_allocation:
+    conversation_content: "40-45% (up from 20-25%)"
+    prompt_instructions: "30-35%"
+    output_template: "20-25%"
+
+# Evidence grounding enhancement
+evidence_requirements:
+  v2_fidelity_standard:
+    pattern: "Every [output element] must trace to conversation evidence. When information is missing, mark gaps explicitly rather than filling with assumptions."
+    enforcement: "Include specific anti-hallucination instructions in each prompt"
+    
+  traceability_requirements:
+    direct_quotes: "Must use exact conversation language with context"
+    logical_inference: "Must show evidence chain: [A] + [B] → [conclusion]"
+    gap_identification: "Must explicitly mark missing information rather than assume"
+    
+  quality_gates:
+    unambiguous_test: "Could two engineers implement identically?"
+    evidence_test: "Can trace back to conversation source?"
+    gap_test: "Missing information explicitly marked vs assumed?"
+
+# Conversation complexity handling
+complexity_patterns:
+  evolution_tracking:
+    instruction: "Track how thinking changed throughout conversation with 🔄 EVOLVED marker"
+    implementation: "Document before/after states with evidence for change"
+    
+  conflict_resolution:
+    instruction: "When contradictions exist, prioritize most recent/detailed statement using conflict resolution patterns"
+    implementation: "Use decision markers to track contradictions and resolutions"
+    
+  half_formed_extraction:
+    instruction: "Extract incomplete thoughts and mark as ❌ GAP with specific detail needed"
+    value: "Captures conversation reality vs forcing completeness"
+
+# Dynamic adaptation
+adaptive_patterns:
+  technology_stack_detection:
+    trigger: "Analyze conversation for primary technology stack"
+    adaptation: "Adapt ALL examples to match detected technology"
+    examples: "React → JSX examples, Python → Python syntax, PostgreSQL → SQL schemas"
+    
+  domain_specialization:
+    healthcare: "Automatically include HIPAA, clinical workflow considerations"
+    fintech: "Include KYC, AML, regulatory compliance categories"
+    gaming: "Include player progression, monetization, retention mechanics"
+    
+  scale_appropriate_complexity:
+    startup: "Focus on MVP, validation, lean approaches"
+    enterprise: "Include governance, compliance, audit considerations"
+
+# Output quality enhancement
+output_optimization:
+  structure_consistency:
+    cross_document: "Use identical decision markers across all prompts"
+    template_standardization: "Consistent section headers and formatting"
+    reference_linking: "Standardized cross-document linking patterns"
+    
+  actionability_requirements:
+    implementation_ready: "Output must enable immediate development work"
+    decision_clarity: "Every decision must have clear rationale"
+    gap_specificity: "Missing information must specify what's needed and why"
+
+# Quality measurement
+effectiveness_metrics:
+  extraction_fidelity: "Percentage of conversation insights captured vs manual review"
+  token_efficiency: "Quality output per token consumed ratio"
+  consistency_score: "Decision marker usage consistency across prompts"
+  gap_detection_rate: "Critical missing information identification accuracy"
+  
+  success_thresholds:
+    extraction_fidelity: ">90% of conversation insights captured"
+    token_efficiency: ">60% reduction with maintained quality"
+    consistency_score: ">95% proper marker usage"
+    gap_detection: ">80% of critical gaps identified"
+
+# Anti-patterns and failure modes
+common_failures:
+  cognitive_overload:
+    symptom: "Too many competing instructions"
+    solution: "Unified instruction blocks with clear priorities"
+    
+  hallucination_tendency:
+    symptom: "Adding information not in conversation"
+    solution: "Explicit anti-hallucination instructions with evidence requirements"
+    
+  scope_creep:
+    symptom: "Extracting beyond prompt boundaries"
+    solution: "Clear scope definitions with redirect patterns"
+    
+  marker_inconsistency:
+    symptom: "Different decision vocabularies across prompts"
+    solution: "Standardized decision marker imports"
+
+# Advanced techniques
+experimental_patterns:
+  chain_of_thought_extraction:
+    structure: "Step 1: Raw extraction → Step 2: Organization → Step 3: Validation"
+    benefit: "More systematic extraction with self-checking"
+    
+  confidence_calibration:
+    implementation: "Numerical confidence scores with evidence strength"
+    scale: "1-10 based on evidence quality and conversation depth"
+    
+  meta_extraction:
+    concept: "Extract insights about the conversation process itself"
+    applications: "Decision-making patterns, stakeholder dynamics, evolution triggers"
+
+# Integration patterns
+prompt_composition:
+  shared_component_usage:
+    decision_markers: "Import standardized markers from shared/decision-markers.yaml"
+    extraction_patterns: "Reference common patterns from shared/extraction-patterns.yaml"
+    cognitive_activation: "Use proven role/processing combinations"
+    
+  consistency_enforcement:
+    cross_prompt: "Identical marker formats across all document types"
+    version_alignment: "All prompts use same v2.0 standards"
+    quality_gates: "Uniform evidence requirements and fidelity standards"
