@@ -1,189 +1,262 @@
 # Extraction Philosophy: The WikiKit Way
 
-> "LLMs are brilliant conversationalists but terrible archivists. WikiKit bridges that gap."
+> "LLMs are brilliant conversationalists but terrible archivists. WikiKit bridges that gap through surgical extraction discipline."
 
 ## Core Principle: Extraction Over Generation
 
-The fundamental insight behind WikiKit is that LLM conversations already contain all the intelligence needed for comprehensive documentation. The challenge isn't generating new ideas—it's systematically extracting and organizing what was already discussed.
+The fundamental insight behind WikiKit is that LLM conversations already contain all the intelligence needed for comprehensive documentation. The challenge isn't generating new ideas—it's **systematically extracting and organizing what was actually discussed**.
 
-### Why Extraction Matters
+🔄 **EVOLVED**: v2.0 Enhancement - Conversation Reality Handling
 
-1. **Fidelity to Decisions**: What you actually discussed is what matters, not what an LLM thinks you should have discussed
-2. **Traceability**: Every documented decision can be traced back to conversation evidence
-3. **Gap Identification**: Extraction reveals what wasn't discussed, highlighting areas needing attention
-4. **Context Preservation**: The nuances and reasoning from your conversation are preserved
+**Initially**: Assumed conversations were coherent, logical progressions  
+**Changed to**: Handle messy reality of real conversations with contradictions, pivots, and half-formed ideas  
+**Reason**: Real project conversations involve stakeholder disagreements, scope changes, and evolving understanding that must be captured systematically rather than forced into artificial coherence
 
-### The Extraction Mindset
+Real conversations now handled include:
 
-When using WikiKit prompts, remember:
+- **Contradictions and pivots**: "Actually, let's use React instead of Vue"
+- **Half-formed ideas**: "We need some kind of analytics dashboard"
+- **Scope trade-offs**: Moving features between MVP and Phase 2
+- **Stakeholder disagreements**: Different team members wanting different approaches
+- **Evolution over time**: Decisions changing as new information emerges
 
-- **You are mining, not manufacturing**
-- **Evidence over inference**
-- **Structure over creativity**
-- **Completeness over elegance**
-
-## The Three Pillars of Extraction
+## The Three Pillars
 
 ### 1. Evidence Grounding
 
 Every piece of extracted information must be traceable to the conversation:
 
 ```yaml
-✅ VERIFIED: "We decided to use PostgreSQL" (directly stated)
-📊 DERIVED: Multiple mentions of ACID requirements point to relational DB need
-❌ DATA GAP: No discussion of backup strategy found
+✅ VERIFIED: "We decided to use PostgreSQL" (with reasoning about ACID compliance)
+📊 DERIVED: Real-time updates needed → Inferred from "data must always be current" + "users check hourly"
+❌ GAP: No discussion of backup strategy
 ```
 
-This prevents the common LLM pitfall of confidently stating things that were never discussed.
+🔄 **EVOLVED**: v2.0 Enhancement - Evolution Tracking
+
+**Added**: `🔄 EVOLVED` marker to capture how decisions changed throughout conversation
+**Format**: `🔄 EVOLVED: Initially [X] → Changed to [Y] because [reason]`
+**Value**: Preserves reasoning behind changes, which is often more valuable than final decisions
+
+**Enhanced Evidence Hierarchy**:
+
+- **Tier 1 - Verified**: Direct quotes, explicit decisions with clear context
+- **Tier 2 - Derived**: Logical inference with evidence chain shown
+- **Tier 3 - Evolved**: Decision changes tracked with reasoning
+- **Tier 4 - Gaps**: Missing information explicitly marked vs. assumed
 
 ### 2. Systematic Organization
 
-Scattered conversational intelligence becomes structured documentation:
+Transform scattered conversational intelligence into structured documentation by:
 
-- **Temporal flattening**: Decisions made across hours of conversation appear in logical order
-- **Topic clustering**: Related ideas discussed separately get grouped together
-- **Hierarchy emergence**: Flat conversation becomes nested document structure
+- **Temporal flattening**: Decisions made across hours appear in logical order
 - **Cross-referencing**: Connections between ideas become explicit links
+- **Gap mapping**: Missing information systematically identified
+- **Dependency tracking**: Understanding what blocks what
 
-### 3. Completeness Over Perfection
+🔄 **EVOLVED**: v2.0 Enhancement - Conflict Resolution Framework
 
-WikiKit prioritizes capturing everything over creating perfect prose:
+**Added**: Systematic handling of conversation contradictions and ambiguities
+**Pattern**: When contradictions exist, prioritize most recent/detailed statement, document evolution with evidence
+**Benefit**: Handles reality that conversations change direction without losing valuable context
 
-- **Redundancy is OK**: Better to capture something twice than miss it
-- **Rough edges reveal truth**: Awkward extraction often indicates unclear discussion
-- **Gaps are features**: Missing information is valuable signal
-- **Verbosity serves purpose**: Comprehensive beats concise for implementation docs
+### 3. Fidelity Over Completeness
 
-## Extraction vs. Generation: A Critical Distinction
+Better to extract exactly what was discussed than to create "complete" documentation filled with assumptions.
 
-### What Extraction Looks Like
+**Gap Marking vs Gap Filling**:
 
-```markdown
-## Technical Decisions Extracted
-
-- Database: PostgreSQL chosen (mentioned 3 times)
-  - Reason: "need ACID compliance" (user message #14)
-  - Concern: "worried about scaling" (user message #27)
-  - ❌ DATA GAP: No specific version discussed
-```
-
-### What Generation Looks Like (Avoid This)
+❌ **Wrong Approach** (Gap Filling):
 
 ```markdown
-## Recommended Technical Stack
-
-- Database: PostgreSQL 15 with read replicas
-  - Implements industry best practices for scaling
-  - Includes automated backup strategy
-  - Features comprehensive monitoring
+Authentication: Use JWT tokens with 24-hour expiry (industry best practice)
 ```
 
-The second example adds plausible details that weren't discussed—helpful perhaps, but not faithful to the conversation.
+✅ **WikiKit Approach** (Gap Marking):
 
-## The Extraction Quality Ladder
+```markdown
+❌ GAP: No authentication method discussed → Blocks security implementation
+```
 
-### Level 1: Surface Extraction
+🔄 **EVOLVED**: v2.0 Enhancement - Enhanced Fidelity Requirements
 
-- Captures explicit statements
-- Lists decisions made
-- Notes major topics discussed
+**Added**: Explicit anti-hallucination instructions in all prompts
+**Standard**: "Every [output element] must trace to conversation evidence. When information is missing, mark gaps explicitly rather than filling with assumptions."
+**Impact**: Prevents plausible but undiscussed additions while maintaining comprehensive extraction
 
-### Level 2: Contextual Extraction
+## The Quality Ladder
 
-- Includes reasoning behind decisions
-- Captures concerns and trade-offs
-- Links related discussions
+### Level 1: Conversation Capture
 
-### Level 3: Deep Extraction
+- Record what was actually said
+- Preserve direct quotes and decisions
+- Note who said what when
 
-- Identifies patterns across conversation
-- Surfaces implicit assumptions
-- Maps decision dependencies
-- Highlights contradictions
+### Level 2: Pattern Recognition
 
-### Level 4: Meta Extraction
+- Connect related ideas across conversation
+- Identify recurring themes
+- Spot implicit requirements in pain point descriptions
 
-- Reveals conversation dynamics
-- Identifies decision-making patterns
-- Exposes knowledge gaps
-- Suggests follow-up areas
+### Level 3: Intelligent Organization
 
-## Common Extraction Challenges
+- Structure insights into implementation-ready formats
+- Cross-reference related decisions
+- Map dependencies and blockers
 
-### Challenge 1: Scattered Context
+### Level 4: Gap Intelligence
 
-**Problem**: Important details spread across many messages
-**Solution**: Multi-pass extraction with cross-referencing
+- Identify what's missing for implementation
+- Flag contradictions needing resolution
+- Highlight assumptions that need validation
 
-### Challenge 2: Implicit Decisions
+🔄 **EVOLVED**: v2.0 Enhancement - Dynamic Adaptation
 
-**Problem**: Decisions made without explicit statement
-**Solution**: Pattern recognition with DERIVED markers
+**Added**: Level 5: Domain Intelligence
 
-### Challenge 3: Evolving Positions
+- **Capability**: Adapt extraction categories to conversation domain
+- **Examples**: Healthcare → clinical workflows, Fintech → regulatory compliance
+- **Benefit**: Makes WikiKit effective for any industry vs. fixed generic categories
 
-**Problem**: Opinions change throughout conversation
-**Solution**: Temporal tracking with latest position noted
-
-### Challenge 4: Mixed Abstraction Levels
-
-**Problem**: High-level strategy mixed with implementation details
-**Solution**: Layered extraction into appropriate documents
-
-## Extraction Best Practices
+## The Extraction Mindset
 
 ### For Prompt Authors
 
-1. **Define clear extraction targets**: What specific information should be pulled?
-2. **Create evidence requirements**: How should sources be cited?
-3. **Build in gap detection**: What missing info should be flagged?
-4. **Layer extraction phases**: Raw → Organized → Synthesized
+**Think Like an Archaeologist**: Carefully uncover and preserve conversation artifacts without adding your own interpretation
+
+**Document the Dig**: Show your work—how did you connect conversation points A and B to reach conclusion C?
+
+**Preserve Context**: The surrounding conversation context often contains the real insights
+
+**Flag Uncertainties**: Better to say "unclear" than to guess and be wrong
+
+🔄 **EVOLVED**: v2.0 Enhancement - Conversation Evolution Mindset
+
+**Added**: **Track the Journey**: How decisions evolved is often more valuable than final decisions
+**Practice**: Use `🔄 EVOLVED` to capture before/after states with reasoning
+**Value**: Preserves the thinking process that created the decisions
 
 ### For Prompt Users
 
-1. **Run extraction promptly**: Fresh conversations extract better
-2. **Review intermediate outputs**: Catch misses early
-3. **Iterate when needed**: Add clarifications and re-extract
-4. **Trust the gaps**: Missing info is valuable signal
+**Trust the Process**: Extraction fidelity over extraction completeness
+
+**Review the Gaps**: Missing information is often more valuable than present information
+
+**Validate Extraction**: Check that outputs accurately reflect your conversation experience
+
+🔄 **EVOLVED**: v2.0 Enhancement - Reality Validation
+
+**Added**: **Expect Messiness**: Real conversations have contradictions—good extraction captures this reality
+**Practice**: Look for `🔄 EVOLVED` markers showing how thinking changed
+**Benefit**: Better decisions through understanding the reasoning journey
+
+## Anti-Patterns to Avoid
+
+### The Helpful Hallucination
+
+**Problem**: Adding plausible details that weren't discussed
+**Example**: Assuming standard authentication patterns when none were mentioned
+**Solution**: Mark gaps explicitly rather than filling them
+
+### The Coherence Illusion
+
+**Problem**: Making conversations seem more logical than they actually were
+**Example**: Presenting final decisions without showing the messy path to get there
+**Solution**: Use evolution markers to show decision journey
+
+🔄 **EVOLVED**: v2.0 Enhancement - New Anti-Patterns
+
+**Added**: The Contradiction Avoidance
+**Problem**: Hiding or glossing over contradictory statements in conversation
+**Example**: Picking one approach when multiple conflicting approaches were discussed
+**Solution**: Document contradictions with resolution approach or mark as needing clarification
+
+**Added**: The Assumption Injection
+**Problem**: Filling conversation gaps with "industry best practices" not discussed
+**Example**: Adding security requirements because "all apps need authentication"
+**Solution**: Mark security as a gap requiring conversation rather than assuming requirements
+
+## Quality Validation
+
+### The Four Tests
+
+1. **Traceability Test**: Can you link every extracted item back to conversation content?
+2. **Implementation Test**: Could two engineers build the same thing from your extraction?
+3. **Conversation Test**: Would participants recognize this as their actual discussion?
+4. **Gap Test**: Are missing pieces explicitly marked rather than assumed?
+
+🔄 **EVOLVED**: v2.0 Enhancement - Additional Quality Gates
+
+**Added**: 5. **Evolution Test**: Are decision changes captured with reasoning?
+**Added**: 6. **Conflict Test**: Are contradictions resolved or marked for clarification?
+
+### Success Metrics
+
+- **Extraction Fidelity**: 90%+ of conversation insights captured
+- **Implementation Readiness**: Developers can start building immediately
+- **Decision Clarity**: Every choice has clear rationale
+- **Gap Visibility**: Missing information explicitly identified
+
+🔄 **EVOLVED**: v2.0 Enhancement - Enhanced Metrics
+
+**Added**: **Evolution Tracking**: Decision changes captured with evidence
+**Added**: **Conflict Resolution**: Contradictions addressed systematically
+**Added**: **Domain Adaptation**: Categories adapt to conversation context
 
 ## The Philosophy in Practice
 
-WikiKit's extraction philosophy transforms this:
+### Before WikiKit
 
-```
-"Yeah, we should probably use some kind of queue for that...
-RabbitMQ is good. Or maybe Redis? Depends on if we need
-persistence. Actually, for our use case, Redis pub/sub might
-be enough since we discussed real-time updates earlier."
-```
+- Scattered insights across hours of discussion
+- Key decisions buried in casual remarks
+- Missing information assumed rather than identified
+- Context lost when conversation ends
 
-Into this:
+### After WikiKit v1.0
+
+- Systematic extraction of conversation intelligence
+- Explicit gap identification
+- Structured organization for implementation
+- Preserved context and reasoning
+
+🔄 **EVOLVED**: After WikiKit v2.0
+
+**Enhanced**: Conversation evolution tracking preserves decision journey
+**Enhanced**: Conflict resolution handles real conversation messiness  
+**Enhanced**: Dynamic adaptation works for any domain
+**Enhanced**: Token efficiency allows richer conversation processing
+
+### Example Evolution Tracking
 
 ```markdown
-### Message Queue Decision
+🔄 EVOLVED: Target Market Definition
 
-**Status**: 🔍 DECISION REQUIRED
-**Options Discussed**:
-
-- RabbitMQ: Mentioned as "good" option
-- Redis pub/sub: Suggested for real-time use case
-  **Decision Factors**:
-- Persistence requirement: ❌ DATA GAP - not determined
-- Real-time updates: ✅ VERIFIED - required (see earlier discussion)
-  **Next Steps**: Clarify persistence requirements to finalize choice
+- **Initially**: "Small businesses with 5-20 employees" (founder assumption)
+- **Changed to**: "Growing startups with 20-100 employees" (after user research)
+- **Trigger**: 80% of interview subjects were in larger range
+- **Impact**: Changed entire product positioning and feature prioritization
 ```
 
-## Evolution of Extraction
+## v2.0 Advanced Techniques
 
-As WikiKit matures, extraction can become:
+### Conversation Threading
 
-1. **More intelligent**: Better pattern recognition across conversations
-2. **More connected**: Extraction that builds on previous documents
-3. **More automated**: Tools that assist the extraction process
-4. **More validated**: Extraction that self-checks for completeness
+Track related decisions across conversation timeline to understand decision evolution patterns.
 
-But the core philosophy remains: **We are archaeologists of conversation, not architects of imagination.**
+### Stakeholder Voice Separation
+
+Identify different perspectives within same conversation to capture stakeholder dynamics.
+
+### Context Evolution Tracking
+
+Capture how conversation context changed overall understanding and strategy.
+
+### Domain-Adaptive Extraction
+
+Generate categories specific to conversation domain (healthcare, fintech, gaming) rather than using only generic categories.
 
 ---
 
-_The extraction philosophy is what makes WikiKit different. While other tools generate plausible documentation, WikiKit reveals what was actually discussed—gaps, contradictions, and all._
+The extraction philosophy is what makes WikiKit fundamentally different from generation-based documentation tools. Master this mindset, and you transform from a conversation participant into a conversation archaeologist, preserving the intelligence for surgical implementation.
+
+🔄 **EVOLVED**: v2.0 captures not just the intelligence, but the intelligent journey that created it.
